@@ -1,0 +1,259 @@
+///////////// Variables & Functions ///////////
+$white: #FFFFFF;
+$solidblue: #1657FF;
+$lightblue: #F4F6FF;
+$bgel: #BACCFD;
+/////////////////////////////////
+@mixin flexo() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+////////////////////////////////
+
+.sidebar {
+    background-color: $white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    //padding: 1rem 5rem; 7dar rido chwya 
+    height: 100%;
+    width: 10rem;
+    transition: .4s all;
+    //border-right: 0.5px solid rgb(241, 241, 241);
+
+    .logoContainer {
+    @include flexo();
+    cursor: pointer;
+    margin-top: 1.2rem;
+    transition: .4s all;
+
+        .logo {
+            pointer-events: none;
+        }     
+    }
+
+    .burgerContainer {
+        content: '';
+        background-color: $lightblue;
+        border: 1px solid $bgel;
+        position: absolute;
+        right: calc(-30px / 2);
+        top: calc(9rem / 1.5);
+        width: 35px;
+        height: 35px;
+        border-radius: 2rem;
+        z-index: 1;
+
+        .burgerTrigger {
+        content: '';
+        width: 30px;
+        height: 30px;
+        background-color: red;
+        cursor: pointer;
+        z-index: 8;
+        opacity: 0;
+        position: relative;
+        }
+
+        .burgerMenu {
+        content: '';
+        background-color: $lightblue;
+        position: relative;
+        z-index: 1;
+        width: 15px;
+        height: 3px;
+        border-radius: 2rem;
+        bottom: 0.95rem;
+        left: 9px;
+        transition: .4s all;
+        }
+
+        .burgerMenu::after {
+        content: '';
+        background-color: $bgel;
+        position: absolute;
+        z-index: 1;
+        width: 15px;
+        height: 3px;
+        border-radius: 2rem;
+        top: 0.5rem;
+        transform: translateY(-0.4rem) rotate(45deg);
+        transition: .4s all;
+        }
+
+        .burgerMenu::before {
+            content: '';
+            background-color: $bgel;
+            position: absolute;
+            width: 15px;
+            height: 3px;
+            border-radius: 2rem;
+            top: -0.5rem;
+            transform: translateY(0.6rem) rotate(-45deg);
+            transition: .4s all;
+            }
+    }
+
+    .burgerContainer::after {
+        content: '';
+        position: absolute;
+        right: 35px;
+        top: calc(35px / 2.5);
+        z-index: 0;
+        width: calc(4rem + 8rem);
+        background-image: linear-gradient(to right, rgb(255, 255, 255) 40%, $lightblue);
+        border-radius: 30px;
+        height: 3px;
+        transition: .4s all;
+    }
+
+    .linksContainer {
+    transition: .4s all;
+    margin: 5rem 0 0 0;  
+    ul {
+        position: absolute;
+        left: 0;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.1rem;
+        list-style: none;
+        width: 100%;
+        padding: 0;
+        
+        li {
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+            //gap: 10px;
+            //margin: 0.85rem 0; // mati9ch fi had l margin d zeb
+            padding: 1.5rem;
+            width: 100%;
+            cursor: pointer;
+            &:hover {
+                background-color: $lightblue;
+                transition: .3s linear;
+            }
+
+            
+            .Link {
+                display: flex;
+                align-items: center;
+                justify-content: start;
+                gap: 15px;
+                text-decoration: none;
+                color: #000;
+                font-size: 0.95rem;
+                font-weight: 500;
+                padding-left: 0.5rem;
+                //margin: 0 0 0 0.4rem;
+            }
+            &:hover img {
+                transform: scale(1.2);
+            }
+
+             .stroke {
+                width: 5px;
+                height: 100%;
+                background-color: $solidblue;
+                //border-radius: 50px;
+                border-top-left-radius: 50px;
+                border-bottom-left-radius: 50px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                box-shadow: -4px 0 30px #0048ff;
+                opacity: 0;
+                transition: .2s ease-in-out;
+                animation: slide 1s forwards;
+            }
+            
+
+            img {
+                transition: .4s all;
+                pointer-events: none;
+            }
+            
+            .span {
+                font-family: 'Poppins', sans-serif;  
+                transition: .3s all;              
+            }
+
+        } 
+
+        //Location hook Active
+        li.active {
+            background-color: $lightblue;
+            padding: 1.5rem ;
+            .Link {
+                color: $solidblue;
+            }
+            .stroke {
+                opacity: 1;
+            }
+        }
+    }
+    }
+}
+
+.sidebar.active {
+    width: 3.5rem;
+    transition: .4s all;
+
+    .logoContainer.active {
+        display: none;
+        //margin-top: 2rem;
+        transition: .4s all;
+        //transform: rotate(-90deg);
+
+        .logo {
+            height: 50px;
+            transition: .4s all;
+        }
+
+    }
+
+    .burgerContainer.active {
+        //top: calc(7rem / 1.5);
+        .burgerMenu {
+            background-color: $bgel;
+            transition: .4s all;
+        }
+
+        .burgerMenu::before {
+            transform: translateY(0rem) rotate(0deg);
+            transition: .4s all;
+        }
+
+        .burgerMenu::after {
+            transform: translateY(0rem) rotate(0deg);
+            transition: .4s all;
+        }
+    }
+        .linksContainer {
+            ul {
+                gap: 19px;
+                margin-top: 5.5rem;
+                li {
+                    padding: 1rem;
+                    img {
+                        //height: 20px;
+                    }
+
+                    .Link {
+                        padding-left: 0rem;
+                    }
+
+                    .span {
+                        opacity: 0;
+                    }
+                    
+                }
+            }
+        }
+    
+}
+
