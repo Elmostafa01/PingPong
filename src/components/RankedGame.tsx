@@ -2,7 +2,7 @@ import React from 'react'
 
 const RankedGame = () => {
   return (
-    <div>
+    <div className='RankedGame'>
       
     </div>
   )

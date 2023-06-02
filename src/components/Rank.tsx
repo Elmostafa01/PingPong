@@ -1,8 +1,10 @@
 import React from 'react'
+import rectangle from '../images/rectangle.svg';
+
 
 const Rank = () => {
   return (
-    <div>
+    <div className='Rank'>
       
     </div>
   )

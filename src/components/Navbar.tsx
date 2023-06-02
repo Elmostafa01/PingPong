@@ -1,5 +1,4 @@
-import React, { useState} from 'react';;
-
+import { useState} from 'react';;
 import notification from '../images/notification.svg';
 import searchbar from '../images/searchbar.svg';
 import menone from '../images/menone.svg';

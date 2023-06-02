@@ -13,13 +13,15 @@ $bgel: #BACCFD;
 
 .sidebar {
     background-color: $white;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     //padding: 1rem 5rem; 7dar rido chwya 
+    box-shadow: -2px 0px 10px #00000010;
     height: 100%;
     width: 10rem;
     transition: .4s all;
+    z-index: 20;
     //border-right: 0.5px solid rgb(241, 241, 241);
 
     .logoContainer {

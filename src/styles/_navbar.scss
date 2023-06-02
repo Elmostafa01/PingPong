@@ -1,4 +1,6 @@
 .navbar {
+    margin: 0;
+    position: fixed;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -8,15 +10,17 @@
     width: 100%;
     height: 10vh;
     padding: 10px;
+    z-index: 19;
+
     .navWrapper {
-        margin: 0 3rem 0 0;
-        position: absolute;
-        bottom: 0;
+        margin: 1rem 3rem 0 0;
+        position: fixed;
+        top: 0;
+        //bottom: 0;
         display: flex;
         align-items: center;
         gap: 2rem;
         
-
         
         .searchContainer:not(:last-child) {
             position: relative;
@@ -81,7 +85,7 @@
                 display: inline-block;
 
                 .notification-Number {
-                    display: none; //when you activate it , give it flex
+                    display: none; //when you want to activate it , give it flex
                     align-items: center;
                     justify-content: center;
                     right: 0;

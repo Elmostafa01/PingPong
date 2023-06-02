@@ -1,24 +1,13 @@
 .dashboard {
-    //position: absolute;
-    //top: 5rem;
-    //left: 12rem;
-    //right: 1rem;
-    //bottom: 0;
-    margin: 8rem 0 0 10rem;
-    //margin-inline: auto;
+    margin-inline: auto;
+    margin: 5rem 0 0 3rem;
     padding: 20px;
     width: 100%;
     border-radius: 30px;
-    max-width: 90vw;
-    height: 750px;
+    min-width: 10vw;
+    max-width: 80vw;
+    height: 85vh;
     background-color: #fff;
 
-    .lover {
-        background: red;
-        height: 200px;
-        width: 100%;
-        max-width: 500px;
-        margin-left: 5vw;
-        //position: absolute;
-    }
+
 }

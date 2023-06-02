@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import { useState} from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import main from '../images/main.svg';
 import profil from '../images/profil.svg';

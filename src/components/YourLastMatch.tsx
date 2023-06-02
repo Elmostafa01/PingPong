@@ -6,7 +6,7 @@ import girlone from '../images/girlone.svg';
 
 const YourLastMatch = () => {
   return (
-    <div className='YLM'>
+    <div className='YourLastMatch'>
       
     </div>
   )
