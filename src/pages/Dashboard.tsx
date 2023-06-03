@@ -9,11 +9,11 @@ import RankedGame from '../components/RankedGame'
 const Dashboard = () => {
   return (
     <div className='dashboard'>
-      <YourLastMatch />
-      <OnlineFriends />
-      <Statistic />
-      <Rank />
-      <RankedGame />
+      <YourLastMatch  />
+      <OnlineFriends  />
+      <Statistic  />
+      <Rank  />
+      <RankedGame  />
     </div>
   )
 }

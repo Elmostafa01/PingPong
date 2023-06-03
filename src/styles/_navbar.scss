@@ -65,7 +65,7 @@
             font-size: .75rem;
             text-align: left;
             text-overflow: ellipsis;
-            font-family: 'Poppins', sans-serif
+            font-family: 'Poppins', sans-serif;
         }
 
         .notificationContainer {
@@ -81,23 +81,73 @@
             position: relative;
 
             .notification {
+                position: relative;
                 pointer-events: none;
                 display: inline-block;
+                
+                .dropdown {
+                    display: none;
+                    top: 2.5rem;
+                    right: -10px;
+                    position: absolute;
+                    padding: 10px;
+                    min-width: 250px;
+                    box-shadow: 0px 8px 16px 0px rgba(0, 15, 218, 0.062);
+                    background-color: $lightblue;
+                    border: 2px solid #fff;
+                    border-radius: 10px;
+                    animation: block 1s forwards;
+                    opacity: 0;
+
+                    p {
+                        font-size: 0.85em;
+                        color: #000;
+                        font-family: 'Poppins', sans-serif;
+                        text-align: left;
+                        margin: 5px;
+                        display: block;
+                        &:not(:last-child) {
+                            padding-bottom: 10px;
+                            border-bottom: 1px solid #fff;                        }
+                        span {
+                            color: red;
+                        }
+                    }
+
+                    }
+                    .dropdown.active {
+                        transition: .4s;
+                        display: block;
+                    }
+                } 
+                
 
                 .notification-Number {
-                    display: none; //when you want to activate it , give it flex
+                    display: flex; //when you want to activate it , give it flex
                     align-items: center;
                     justify-content: center;
-                    right: 0;
-                    top: 0;
+                    right: -15px;
+                    top: -8px;
+                    padding: 0.45rem;
                     position: absolute;
-                    width: 15px;
-                    height: 15px;
+                    width: 12px;
+                    height: 12px;
                     color: #fff;
-                    font-size: 0.65rem;
+                    font-family: sans-serif;
+                    font-size: 0.5rem;
+                    font-weight: 700;
                     border-radius: 100%;
                     background-color: red;
                 }
+
+                button {
+                    position: relative;
+                    z-index: 50;
+                    background: transparent;
+                    border: 0;
+                    outline: 0;
+                }
+
             }
         }
 
@@ -113,7 +163,7 @@
         }
 
     }
-}
+
 
 
 .searchContainer.active {
@@ -134,6 +184,7 @@
     }
     
 }
+
 
 @media (max-width: 600px)  {
     .navbar {
@@ -162,4 +213,7 @@
             width: 100px;
         }
     }
+    
 }
+
+

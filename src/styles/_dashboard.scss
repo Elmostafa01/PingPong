@@ -3,11 +3,47 @@
     margin: 5rem 0 0 3rem;
     padding: 20px;
     width: 100%;
-    border-radius: 30px;
     min-width: 10vw;
     max-width: 80vw;
     height: 85vh;
-    background-color: #fff;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    gap: 2rem;
 
 
+
+    .YourLastMatch {
+        width: 100%;
+        grid-column: 2/10;
+        background: #fff;
+        border-radius: 30px;
+    }
+
+    .OnlineFriends {
+        grid-column: 10/20;
+        grid-row: 1/ 4;
+        background: #fff;
+        border-radius: 30px;
+    }
+
+    .Statistic {
+        grid-column: 2/10;
+        grid-row: 2/ 4;
+        background: #fff;
+        border-radius: 30px;
+    }
+
+    .Rank {
+        grid-column : 2/10;
+        background: #fff;
+        border-radius: 30px;
+    }
+
+    .RankedGame {
+        grid-column: 10/20;
+        background: #fff;
+        border-radius: 30px;
+    }
+    
 }
+
