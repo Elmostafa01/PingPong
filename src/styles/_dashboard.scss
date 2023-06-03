@@ -17,6 +17,154 @@
         grid-column: 2/10;
         background: #fff;
         border-radius: 30px;
+        //max-width: 600px;
+
+
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+
+            .left {
+                position: absolute;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                float: left;
+                width: 40px;
+                height: 100%;
+                background:#62FFA1 ;
+                border-top-left-radius:30px ;
+                border-bottom-left-radius:30px ;
+
+                span {
+                    letter-spacing: 5px;
+                    writing-mode: vertical-rl;
+                    text-orientation: upright;
+                    font-family: 'Comfortaa', cursive;
+                    font-weight: 600;
+                    font-size: 0.85em;
+                    color: #fff;
+                }
+            }
+
+            .right {
+                position: absolute;
+                right:0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                float: right;
+                width: 40px;
+                height: 100%;
+                background:#FF7272 ;
+                border-top-right-radius:30px ;
+                border-bottom-right-radius:30px ;
+
+                span {
+                    letter-spacing: 5px;
+                    writing-mode: vertical-rl;
+                    text-orientation: upright;
+                    font-family: 'Comfortaa', cursive;
+                    font-weight: 600;
+                    font-size: 0.85em;
+                    color: #fff;
+                }
+            }
+
+            .card-content {
+                width: 100%;
+                .title {
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+                    margin-left: 4rem;
+                    padding-top: 1rem;
+                    h3 {
+                        font-family: 'Lilita One', cursive;
+                        font-size: 1.2em;
+                        color: #353E6C;
+                    }
+                }
+
+                .content {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .leftPlayer {
+                        display: flex;
+                        align-items: center;
+                        gap: 1.5rem;
+
+                        .names {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 0.5rem;
+
+                            p {
+                                font-family: 'Comfortaa', cursive;
+                                font-size: 2em;
+                                font-weight: bold;
+                            }
+
+                            span {
+                                color: $bgel;
+                                font-family: 'Inter', sans-serif;
+                                font-weight: 600;   
+                            }
+                        }
+                    }
+
+                    .dots {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                        gap: 10px;
+                        font-size: 1.5rem;
+                        font-family: 'Lilita One', cursive;
+
+                        .vs {
+                            width: 6px;
+                            height: 6px;
+                            border-radius: 50%;
+                            background: $solidblue;
+                        }
+                    }
+
+                    .rightPlayer {
+                        display: flex;
+                        align-items: center;
+                        gap: 1.5rem;
+
+
+                        .names {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 0.5rem;
+
+                            p {
+                                font-family: 'Comfortaa', cursive;
+                                font-size: 2em;
+                                font-weight: bold;
+                            }
+
+                            span {
+                                color: $bgel;
+                                font-family: 'Inter', sans-serif;
+                                font-weight: 600;   
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .OnlineFriends {
