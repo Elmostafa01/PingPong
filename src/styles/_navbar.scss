@@ -86,7 +86,7 @@
                 display: inline-block;
                 
                 .dropdown {
-                    display: none;
+                    //display: none;
                     top: 2.5rem;
                     right: -10px;
                     position: absolute;
@@ -96,28 +96,30 @@
                     background-color: $lightblue;
                     border: 2px solid #fff;
                     border-radius: 10px;
-                    animation: block 1s forwards;
                     opacity: 0;
+                    transition: .3s;
 
                     p {
+                        pointer-events: none;
                         font-size: 0.85em;
                         color: #000;
                         font-family: 'Poppins', sans-serif;
                         text-align: left;
                         margin: 5px;
+                        width: 100%;
                         display: block;
+                        
                         &:not(:last-child) {
-                            padding-bottom: 10px;
-                            border-bottom: 1px solid #fff;                        }
+                            padding-bottom: 5px;
+                            border-bottom: 1px solid #fff;    
+                        }
+
                         span {
                             color: red;
+                            padding: 2px;
                         }
                     }
 
-                    }
-                    .dropdown.active {
-                        transition: .4s;
-                        display: block;
                     }
                 } 
                 
@@ -141,13 +143,15 @@
                 }
 
                 button {
-                    position: relative;
-                    z-index: 50;
                     background: transparent;
                     border: 0;
                     outline: 0;
                 }
 
+                .dropdown.active {
+                    display: block;
+                    opacity: 1;
+                }
             }
         }
 
@@ -186,6 +190,7 @@
 }
 
 
+
 @media (max-width: 600px)  {
     .navbar {
         .navWrapper {
@@ -215,5 +220,4 @@
     }
     
 }
-
 
