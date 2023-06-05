@@ -8,17 +8,16 @@
     height: 85vh;
     display: grid;
     grid-template-columns: repeat(20, 1fr);
+    //column-gap: 4rem;
+    //row-gap: 2rem;
     gap: 2rem;
-
-
+    //border: 1px solid red;
 
     .YourLastMatch {
         width: 100%;
         grid-column: 2/10;
         background: #fff;
         border-radius: 30px;
-        //max-width: 600px;
-
 
         .card {
             display: flex;
@@ -50,6 +49,7 @@
                     font-weight: 600;
                     font-size: 0.85em;
                     color: #fff;
+                    pointer-events: none;
                 }
             }
 
@@ -74,17 +74,21 @@
                     font-weight: 600;
                     font-size: 0.85em;
                     color: #fff;
+                    pointer-events: none;
                 }
             }
 
             .card-content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 width: 100%;
                 .title {
                     top: 0;
                     left: 0;
                     position: absolute;
                     margin-left: 4rem;
-                    padding-top: 1rem;
+                    padding-top: 0.5rem;
                     h3 {
                         font-family: 'Lilita One', cursive;
                         font-size: 1.2em;
@@ -93,6 +97,7 @@
                 }
 
                 .content {
+                    padding-top: 1rem;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -100,7 +105,7 @@
                     .leftPlayer {
                         display: flex;
                         align-items: center;
-                        gap: 1.5rem;
+                        gap: 1rem;
 
                         .names {
                             display: flex;
@@ -110,13 +115,13 @@
                             p {
                                 font-family: 'Comfortaa', cursive;
                                 font-size: 2em;
-                                font-weight: bold;
+                                font-weight: 700;
                             }
 
                             span {
                                 color: $bgel;
                                 font-family: 'Inter', sans-serif;
-                                font-weight: 600;   
+                                font-weight: 700;   
                             }
                         }
                     }
@@ -141,7 +146,7 @@
                     .rightPlayer {
                         display: flex;
                         align-items: center;
-                        gap: 1.5rem;
+                        gap: 1rem;
 
 
                         .names {
@@ -169,29 +174,311 @@
 
     .OnlineFriends {
         grid-column: 10/20;
-        grid-row: 1/ 4;
+        grid-row: 1/ 6;
         background: #fff;
         border-radius: 30px;
     }
 
     .Statistic {
         grid-column: 2/10;
-        grid-row: 2/ 4;
+        grid-row: 2/ 6;
         background: #fff;
         border-radius: 30px;
     }
 
     .Rank {
         grid-column : 2/10;
-        background: #fff;
-        border-radius: 30px;
+        width: 100%;
+        position: relative;
+        height: 15vh;
+
+        .rankWrapper {
+            position: absolute;
+            //bottom: 0;
+            margin:0;
+            width: 100%;
+            //max-width: 600px; //Disable this if you want to have a fixed components
+            height: 100%;
+            //max-height: 10vh;
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+
+            .rank-one {
+                background: #FFAD31;
+                border-radius: 20px;
+                height: 100%;
+                width: 211px;
+                display: flex;
+                gap: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                padding-left: 20px;
+                position: relative;
+                overflow: hidden;
+
+                p {
+                    color: #fff;
+                    font-size: 1.2rem;
+                    font-family: 'Inter', sans-serif;
+                    font-weight: 700;
+                    text-align: center;
+                }
+
+                .rankNumber {
+                    padding-left: 5px;
+                    letter-spacing: 2px;
+                }
+
+                .player {
+                    display: flex;
+                    align-items: flex-end;
+                    .playerName {
+                        font-size: 1.2em;
+                        font-family: 'Comfortaa', cursive;
+                        font-weight: 700;
+                        color: #fff;
+                        z-index: 60;
+                        text-align: center;
+                    }
+
+                    img {
+                        display: flex;
+                        margin-left: 5px;
+                        z-index: 75;
+                        margin-bottom: 4px;
+                    }
+                }
+
+                .rectangle {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                    pointer-events: none;
+
+                    img {
+                        height: 150px;
+                    }
+
+                }
+
+            }
+
+            .rank-two {
+                background: #08837B;
+                border-radius: 20px;
+                height: 100%;
+                width: 211px;
+                display: flex;
+                gap: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                padding-left: 20px;
+                position: relative;
+                overflow: hidden;
+
+                p {
+                    color: #fff;
+                    font-size: 1.2rem;
+                    font-family: 'Inter', sans-serif;
+                    font-weight: 700;
+                }
+
+                .rankNumber {
+                    padding-left: 5px;
+                    letter-spacing: 2px;
+                }
+
+                .player {
+                    display: flex;
+                    align-items: flex-end;
+                    .playerName {
+                        font-size: 1.2em;
+                        font-family: 'Comfortaa', cursive;
+                        font-weight: 700;
+                        color: #fff;
+                        z-index: 60;
+                    }
+
+                    img {
+                        margin-left: 5px;
+                        z-index: 75;
+                        margin-bottom: 4px;
+                    }
+                }
+
+                .rectangle {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                    pointer-events: none;
+
+                    img {
+                        object-fit: cover;
+                        height: 150px;
+                    }
+
+                }
+
+            }
+
+            .rank-three {
+                background: #605C59;
+                border-radius: 20px;
+                height: 100%;
+                width: 211px;
+                display: flex;
+                gap: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                padding-left: 20px;
+                position: relative;
+                overflow: hidden;
+
+                p {
+                    color: #fff;
+                    font-size: 1.2rem;
+                    font-family: 'Inter', sans-serif;
+                    font-weight: 700;
+                }
+
+                .rankNumber {
+                    padding-left: 5px;
+                    letter-spacing: 2px;
+                }
+
+                .player {
+                    display: flex;
+                    align-items: flex-end;
+                    .playerName {
+                        font-size: 1.2em;
+                        font-family: 'Comfortaa', cursive;
+                        font-weight: 700;
+                        color: #fff;
+                        z-index: 60;
+                    }
+
+                    img {
+                        margin-left: 5px;
+                        z-index: 75;
+                        margin-bottom: 4px;
+                    }
+                }
+
+                .rectangle {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                    pointer-events: none;
+
+                    img {
+                        height: 150px;
+                    }
+
+                }
+
+            }
+        }
     }
 
     .RankedGame {
         grid-column: 10/20;
         background: #fff;
         border-radius: 30px;
+        overflow: hidden;
+        height: 15vh;
+
+        .rankedGameWrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+
+            .title {
+                top: 10px;
+                left: 40px;
+                position: absolute;
+                z-index: 50;
+                h3 {
+                    color: #fff;
+                    font-size: 2rem;
+                    font-family: 'Lilita One', cursive;
+                    font-size: 1.5em;
+                    color: #353E6C;
+                }
+            }
+
+            .btn {
+                position: absolute;
+
+                button{
+                    position: relative;
+                    padding: 15px 50px;
+                    border-radius: 30px;
+                    outline: 0;
+                    border: 0;
+                    background-color: red;
+                    color: #fff;
+                    font-size: 2rem;
+                    font-family: 'Lilita One', cursive;
+                    letter-spacing: 2px;
+                    z-index: 21;   
+                    border: 2px solid rgb(255, 255, 255);  
+                    transition: .5s ease;
+
+
+        
+                    &:hover {
+                        transition: .5s;
+                        box-shadow: inset 0px 0px 50px 0 #000;
+                    }
+
+                    &:active {
+                        transition: transform .2s ;
+                        transform: scale(0.9);
+                        background: $solidblue;
+                        //padding: 15px 80px;
+                    }
+                }
+
+            }
+
+            .image {
+                position: absolute;
+                z-index: 10;
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    background-position: center ;
+                    pointer-events: none;
+                }
+            }
+        }
     }
     
 }
+
+
 
