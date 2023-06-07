@@ -3,7 +3,6 @@
     margin: 5rem 0 0 3rem;
     padding: 20px;
     width: 100%;
-    min-width: 10vw;
     max-width: 80vw;
     height: 85vh;
     display: grid;
@@ -16,16 +15,23 @@
     .YourLastMatch {
         width: 100%;
         grid-column: 2/10;
-        background: #fff;
         border-radius: 30px;
+        transition: .4s;
+        &:hover {
+            transition: box-shadow .4s;
+            box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+        }
 
         .card {
+            padding: 20px;
+            background: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             height: 100%;
             width: 100%;
+            border-radius: 30px;
             overflow: hidden;
 
             .left {
@@ -177,21 +183,96 @@
         grid-row: 1/ 6;
         background: #fff;
         border-radius: 30px;
+        transition: .4s;
+        &:hover {
+            transition: box-shadow .4s;
+            box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+        }
     }
 
     .Statistic {
         grid-column: 2/10;
         grid-row: 2/ 6;
-        background: #fff;
+        //background: #fff;
+        border: 1px solid blue;
         border-radius: 30px;
+        transition: .4s;
+
+        .statistic-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            align-items: center;
+            position: relative;
+            height: 100%;
+            //width: 100%;
+
+            .winrate {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 280px;
+                height: 300px;
+                background-color: #fff;
+                border-radius: 30px;
+
+                .skill {
+                    width: 160px;
+                    height: 160px;
+                    //background: cornflowerblue;
+                    position: relative;
+
+                    .outer {
+                        height: 160px;
+                        width: 160px;
+                        border-radius: 50%;
+                        border: 1px solid red;
+                        padding: 20px;
+;
+
+                        .inner {
+                            height: 120px;
+                            width: 120px;
+                            border-radius: 50%;
+                            border: 1px solid red;
+
+                        }
+                    }
+                }
+            }
+
+            .loggedin {
+                width: 280px;
+                height: 300px;
+                background-color: #fff;
+                border-radius: 30px;
+            }
+        }
+
+        &:hover {
+            transition: box-shadow .4s;
+            box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+        }
     }
 
     .Rank {
         grid-column : 2/10;
+        margin-top: 1rem;
         width: 100%;
         position: relative;
         height: 15vh;
+        
 
+        .title {
+            top: -25%;
+            position: absolute;
+            h3 {
+                font-family: 'Lilita One', cursive;
+                font-size: 1.2em;
+                color: #353E6C;
+            }
+        }
+        
         .rankWrapper {
             position: absolute;
             //bottom: 0;
@@ -202,7 +283,7 @@
             //max-height: 10vh;
             display: flex;
             gap: 10px;
-            align-items: flex-end;
+           // align-items: center;
 
             .rank-one {
                 background: #FFAD31;
@@ -217,6 +298,7 @@
                 padding-left: 20px;
                 position: relative;
                 overflow: hidden;
+                transition: .4s;
 
                 p {
                     color: #fff;
@@ -269,6 +351,12 @@
 
                 }
 
+
+                &:hover {
+                    transition:  transform .4s;
+                    box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+                    transform: translateY(-5px);
+                }
             }
 
             .rank-two {
@@ -284,6 +372,7 @@
                 padding-left: 20px;
                 position: relative;
                 overflow: hidden;
+                transition: .4s;
 
                 p {
                     color: #fff;
@@ -332,6 +421,11 @@
 
                 }
 
+                &:hover {
+                    transition:  transform .4s;
+                    box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+                    transform: translateY(-5px);
+                }
             }
 
             .rank-three {
@@ -347,6 +441,7 @@
                 padding-left: 20px;
                 position: relative;
                 overflow: hidden;
+                transition: .4s;
 
                 p {
                     color: #fff;
@@ -396,16 +491,27 @@
 
                 }
 
+                &:hover {
+                    transition:  transform .4s;
+                    box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+                    transform: translateY(-5px);
+                }
             }
         }
     }
 
     .RankedGame {
         grid-column: 10/20;
+        margin-top: 1rem;
         background: #fff;
         border-radius: 30px;
         overflow: hidden;
         height: 15vh;
+        transition: .4s;
+        &:hover {
+            transition: box-shadow .4s;
+            box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+        }
 
         .rankedGameWrapper {
             position: relative;
@@ -432,7 +538,7 @@
             .btn {
                 position: absolute;
 
-                button{
+                button  {
                     position: relative;
                     padding: 15px 50px;
                     border-radius: 30px;
@@ -446,9 +552,7 @@
                     z-index: 21;   
                     border: 2px solid rgb(255, 255, 255);  
                     transition: .5s ease;
-
-
-        
+ 
                     &:hover {
                         transition: .5s;
                         box-shadow: inset 0px 0px 50px 0 #000;
@@ -473,6 +577,7 @@
                     object-fit: cover;
                     background-position: center ;
                     pointer-events: none;
+                    opacity: 0.8;
                 }
             }
         }
