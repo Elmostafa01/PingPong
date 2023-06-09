@@ -1,16 +1,22 @@
+@mixin flexo() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .dashboard {
     margin-inline: auto;
-    margin: 5rem 0 0 3rem;
+    margin: 5rem 0 0 1rem;
     padding: 20px;
     width: 100%;
-    max-width: 80vw;
+    max-width: 85vw;
     height: 85vh;
     display: grid;
     grid-template-columns: repeat(20, 1fr);
+    gap: 2rem;
+    //border: 2px solid blue;
     //column-gap: 4rem;
     //row-gap: 2rem;
-    gap: 2rem;
-    //border: 1px solid red;
 
     .YourLastMatch {
         width: 100%;
@@ -25,9 +31,7 @@
         .card {
             padding: 20px;
             background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include flexo();
             position: relative;
             height: 100%;
             width: 100%;
@@ -37,9 +41,7 @@
             .left {
                 position: absolute;
                 left: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                @include flexo();
                 float: left;
                 width: 40px;
                 height: 100%;
@@ -62,9 +64,7 @@
             .right {
                 position: absolute;
                 right:0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                @include flexo();
                 float: right;
                 width: 40px;
                 height: 100%;
@@ -85,9 +85,8 @@
             }
 
             .card-content {
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            @include flexo();
+
                 width: 100%;
                 .title {
                     top: 0;
@@ -184,9 +183,96 @@
         background: #fff;
         border-radius: 30px;
         transition: .4s;
+        padding: 20px;
+        box-sizing: border-box;
         &:hover {
             transition: box-shadow .4s;
             box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+        }
+        //overflow: scroll;
+        //overflow-x: hidden;
+        
+        
+        .cards-wrapper {
+            height: 100%;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            border: 2px solid green;
+            inset: 0;
+            box-sizing:border-box;
+            
+            .card-friend {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    background: #F9FAFF;
+                    border-radius: 10px;
+                    padding: 20px 5px;
+                    border:1px solid #E4ECFF;
+
+                    .friend {
+                        position: absolute;
+                        left: 0;
+                        display: flex;
+                        align-items: center;
+                        border: 2px solid red;
+
+                        .avatar {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-around;
+                            padding-left: 20px;
+
+                            .online {
+                                width: 10px;
+                                height: 10px;
+                                background: #73ff00;
+                                border-radius: 100%;
+                                border: 1px solid #fff;
+    
+                            }
+                        }
+
+                        .card-name {
+                            display: flex;
+                            flex-direction: column;
+    
+                            .name {
+                                font-family: 'Poppins', sans-serif;
+                                font-size: 1.1em;
+                                color: #000;
+                            }
+                            .ingame {
+                                font-size: 0.75em;
+                                color: #16DBCC;
+                            }
+                        }
+                    }
+
+                    .send-msg {
+                        width: auto;
+                        display: flex;
+                        align-items: center;
+                        border: 2px solid red;
+                        padding: 5px;
+
+                        input {
+                            z-index: 55;
+                            right: 10px;
+                            //position: absolute;
+                            border-radius: 10px;
+                            outline: 0;
+                            border: 0;
+                            border: 1px solid #E4ECFF;
+                            background: #F9FFFF;
+                            padding: 1rem;
+                            width: 100%;
+                            max-width: 250px;
+                        }
+                    }
+            }
         }
     }
 
@@ -194,15 +280,27 @@
         grid-column: 2/10;
         grid-row: 2/ 6;
         //background: #fff;
-        border: 1px solid blue;
+        //border: 1px solid blue;
         border-radius: 30px;
         transition: .4s;
+        position: relative;
+
+        .title {
+            top: 0;
+            left: 0;
+            position: absolute;
+            font-family: 'Lilita One', cursive;
+            font-size: 1.2em;
+            color: #353E6C;
+            font-weight: 700;
+            z-index: 40;
+        }
 
         .statistic-wrapper {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
+            align-items: flex-end;
             gap: 0.5rem;
-            align-items: center;
             position: relative;
             height: 100%;
             //width: 100%;
@@ -211,10 +309,21 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                flex-direction: column;
+                gap: 2rem;
+                //padding-bottom: 3rem;
                 width: 280px;
                 height: 300px;
                 background-color: #fff;
                 border-radius: 30px;
+                &:hover {
+                    transition: box-shadow .4s;
+                    box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+                }
+
+                h1 {
+                    font-size: 1rem;
+                    font-family: 'Poppins', sans-serif;                }
 
                 .skill {
                     width: 160px;
@@ -223,10 +332,13 @@
                     position: relative;
 
                     .outer {
+                        position: relative;
                         height: 160px;
                         width: 160px;
                         border-radius: 50%;
-                        border: 1px solid red;
+                        //border: 1px solid red;
+                        background: #EFF3FE;
+                        
                         padding: 20px;
 ;
 
@@ -234,8 +346,41 @@
                             height: 120px;
                             width: 120px;
                             border-radius: 50%;
-                            border: 1px solid red;
+                            //border: 1px solid red;
+                            background-color: #fff;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
 
+                            .number {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                font-weight: 600;
+                                color: #000;
+
+                                .percent {
+                                    color: $bgel;
+                                    font-weight: 100;
+                                }
+                            }
+                        }
+                    }
+
+                    .svg {  
+                        svg {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+
+                        circle {
+                            fill: none;
+                            stroke: url(#GradientColor);
+                            stroke-width: 20px;
+                            stroke-dasharray: 482;
+                            stroke-dashoffset: 150;
                         }
                     }
                 }
@@ -246,13 +391,13 @@
                 height: 300px;
                 background-color: #fff;
                 border-radius: 30px;
+                &:hover {
+                    transition: box-shadow .4s;
+                    box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+                }
             }
         }
 
-        &:hover {
-            transition: box-shadow .4s;
-            box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
-        }
     }
 
     .Rank {
@@ -261,7 +406,6 @@
         width: 100%;
         position: relative;
         height: 15vh;
-        
 
         .title {
             top: -25%;
