@@ -4,6 +4,27 @@
     justify-content: center;
 }
 
+@mixin scrollbar() {
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: #E4ECFF;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: $solidblue;
+        border-radius: 30px;
+    }
+    
+    &::-webkit-scrollbar-button {
+        background: none;
+    }
+}
+
 .dashboard {
     margin-inline: auto;
     margin: 5rem 0 0 1rem;
@@ -184,25 +205,33 @@
         border-radius: 30px;
         transition: .4s;
         padding: 20px;
+        padding-inline: 30px;
         box-sizing: border-box;
         &:hover {
             transition: box-shadow .4s;
             box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
         }
-        //overflow: scroll;
-        //overflow-x: hidden;
+
+        @include scrollbar();
         
-        
+        .title {
+            font-family: 'Lilita One', cursive;
+            font-size: 1.2em;
+            color: #353E6C;
+            font-weight: 700;
+        }
+
         .cards-wrapper {
-            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             width: 100%;
-            max-width: 600px;
             padding: 20px;
-            border: 2px solid green;
             inset: 0;
             box-sizing:border-box;
             
             .card-friend {
+                    overflow: hidden;
                     position: relative;
                     display: flex;
                     align-items: center;
@@ -217,7 +246,7 @@
                         left: 0;
                         display: flex;
                         align-items: center;
-                        border: 2px solid red;
+                        //border: 2px solid red;
 
                         .avatar {
                             display: flex;
@@ -225,9 +254,13 @@
                             justify-content: space-around;
                             padding-left: 20px;
 
+                            img {
+                                pointer-events: none;
+                            }
+
                             .online {
-                                width: 10px;
-                                height: 10px;
+                                width: 12px;
+                                height: 12px;
                                 background: #73ff00;
                                 border-radius: 100%;
                                 border: 1px solid #fff;
@@ -252,25 +285,59 @@
                     }
 
                     .send-msg {
-                        width: auto;
+                        width: 100%;
                         display: flex;
                         align-items: center;
-                        border: 2px solid red;
-                        padding: 5px;
+                        //border: 2px solid red;
+                        padding: 20px;
 
                         input {
                             z-index: 55;
-                            right: 10px;
-                            //position: absolute;
+                            right: 20px;
+                            position: absolute;
+                            max-width: 20vw;
                             border-radius: 10px;
+                            white-space:nowrap;
                             outline: 0;
                             border: 0;
                             border: 1px solid #E4ECFF;
                             background: #F9FFFF;
-                            padding: 1rem;
-                            width: 100%;
-                            max-width: 250px;
+                            padding: 0.7rem 1rem;
+                            width: 80%;
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 1em;
+                            opacity: 1;
+
+                            &::placeholder {
+                                color: #9BA8FF;
+                            }
                         }
+
+                        .sendchat {
+                            position: absolute;
+                            @include flexo();
+                            right: 30px;
+                            width: 35px;
+                            height: 35px;
+                            background: $solidblue;
+                            border: 2px solid #BACCFD;
+                            border-radius: 100%;
+                            z-index: 80;
+                            &:active {
+                                transform: scale(0.9);
+                            }
+
+                            button {
+                                background: transparent;
+                                outline: 0;
+                                border: 0;
+                                cursor: pointer;
+                                height: 100%;
+                                width: 100%;
+
+                            }
+                        }
+                        
                     }
             }
         }
@@ -716,13 +783,16 @@
                 position: absolute;
                 z-index: 10;
                 img {
+                    position: relative;
                     height: 100%;
                     width: 100%;
                     object-fit: cover;
                     background-position: center ;
                     pointer-events: none;
                     opacity: 0.8;
+
                 }
+
             }
         }
     }
