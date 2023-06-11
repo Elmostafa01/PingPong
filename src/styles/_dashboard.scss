@@ -34,6 +34,7 @@
     height: 85vh;
     display: grid;
     grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: auto 200px;
     gap: 2rem;
     //border: 2px solid blue;
     //column-gap: 4rem;
@@ -113,7 +114,7 @@
                     top: 0;
                     left: 0;
                     position: absolute;
-                    margin-left: 4rem;
+                    margin-left: 3rem;
                     padding-top: 0.5rem;
                     h3 {
                         font-family: 'Lilita One', cursive;
@@ -202,6 +203,8 @@
         grid-column: 10/20;
         grid-row: 1/ 6;
         background: #fff;
+        width: 100%;
+        min-width: 300px;
         border-radius: 30px;
         transition: .4s;
         padding: 20px;
@@ -227,25 +230,28 @@
             gap: 10px;
             width: 100%;
             padding: 20px;
-            inset: 0;
-            box-sizing:border-box;
+
             
             .card-friend {
-                    overflow: hidden;
+                    //overflow: hidden;
                     position: relative;
                     display: flex;
                     align-items: center;
-                    justify-content: space-around;
+                    //flex-wrap: wrap;
+                    gap: 5px;
+                    //justify-content: space-around;
                     background: #F9FAFF;
                     border-radius: 10px;
-                    padding: 20px 5px;
+                    padding: 10px 5px;
                     border:1px solid #E4ECFF;
-
+                    
                     .friend {
-                        position: absolute;
+                        margin-right: auto;
                         left: 0;
                         display: flex;
                         align-items: center;
+                        width: 160px;
+                        //z-index: 500;
                         //border: 2px solid red;
 
                         .avatar {
@@ -259,12 +265,32 @@
                             }
 
                             .online {
+                                position: relative;
                                 width: 12px;
                                 height: 12px;
                                 background: #73ff00;
                                 border-radius: 100%;
                                 border: 1px solid #fff;
-    
+                                
+                                &::before {
+                                    content: 'Online';
+                                    background: $bgel;
+                                    padding: 5px;
+                                    color: #ffffff;
+                                    font-size: 0.75em;
+                                    font-family: 'Poppins', sans-serif;
+                                    border-radius: 30px;
+                                    position: absolute;
+                                    top: -10px;
+                                    left: -50px;
+                                    opacity: 0;
+                                    
+                                }
+                                
+                                &:hover::before {
+                                   opacity: 1;
+                                   transition: .5s all;
+                                }
                             }
                         }
 
@@ -286,30 +312,36 @@
 
                     .send-msg {
                         width: 100%;
+                        max-width: 300px;
                         display: flex;
                         align-items: center;
-                        //border: 2px solid red;
                         padding: 20px;
+                        //border: 2px solid red;
 
                         input {
                             z-index: 55;
                             right: 20px;
                             position: absolute;
-                            max-width: 20vw;
-                            border-radius: 10px;
+                            flex: 0 0 50%;
+                            max-width: 60%;
+                            border-radius: 6px;
                             white-space:nowrap;
                             outline: 0;
                             border: 0;
-                            border: 1px solid #E4ECFF;
+                            border: 2px solid #E4ECFF;
                             background: #F9FFFF;
                             padding: 0.7rem 1rem;
                             width: 80%;
                             font-family: 'Poppins', sans-serif;
-                            font-size: 1em;
+                            font-size: 0.9em;
                             opacity: 1;
 
                             &::placeholder {
                                 color: #9BA8FF;
+                            }
+
+                            &:focus {
+                                box-shadow: inset 0 0 2px $solidblue;
                             }
                         }
 
@@ -319,12 +351,16 @@
                             right: 30px;
                             width: 35px;
                             height: 35px;
-                            background: $solidblue;
+                            background: rgb(114,99,255);
+                            background: radial-gradient(circle, rgba(114,99,255,1)
+                                         0%, rgba(0,65,255,1) 100%);
                             border: 2px solid #BACCFD;
                             border-radius: 100%;
                             z-index: 80;
+
                             &:active {
-                                transform: scale(0.9);
+                                transition: .1s;
+                                transform: scale(0.8);
                             }
 
                             button {
@@ -346,12 +382,10 @@
     .Statistic {
         grid-column: 2/10;
         grid-row: 2/ 6;
-        //background: #fff;
         //border: 1px solid blue;
         border-radius: 30px;
         transition: .4s;
         position: relative;
-
         .title {
             top: 0;
             left: 0;
@@ -380,7 +414,7 @@
                 gap: 2rem;
                 //padding-bottom: 3rem;
                 width: 280px;
-                height: 300px;
+                height: calc(100% - 10%);
                 background-color: #fff;
                 border-radius: 30px;
                 &:hover {
@@ -390,7 +424,8 @@
 
                 h1 {
                     font-size: 1rem;
-                    font-family: 'Poppins', sans-serif;                }
+                    font-family: 'Poppins', sans-serif;
+                }
 
                 .skill {
                     width: 160px;
@@ -407,7 +442,6 @@
                         background: #EFF3FE;
                         
                         padding: 20px;
-;
 
                         .inner {
                             height: 120px;
@@ -454,13 +488,32 @@
             }
 
             .loggedin {
+                position: relative;
+                @include flexo();
+                flex-direction: column;
+                padding: 10px;
                 width: 280px;
-                height: 300px;
+                height: calc(100% - 10%);
                 background-color: #fff;
                 border-radius: 30px;
                 &:hover {
                     transition: box-shadow .4s;
                     box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+                }
+
+                .time {
+                    position: absolute;
+                    top: 3.2rem;
+
+                    h1 {
+                        font-size: 1rem;
+                        font-family: 'Poppins', sans-serif;  
+                        text-align: center;
+                    }
+
+                    .chart {
+                        padding: 20px;
+                    }
                 }
             }
         }
@@ -517,6 +570,7 @@
                     font-family: 'Inter', sans-serif;
                     font-weight: 700;
                     text-align: center;
+                    z-index: 80;
                 }
 
                 .rankNumber {
@@ -550,14 +604,13 @@
                     justify-content: center;
                     position: absolute;
                     right: 0;
-                    top: 0;
-                    object-fit: cover;
-                    height: 100%;
-                    width: 100%;
                     pointer-events: none;
-
+                    
                     img {
-                        height: 150px;
+                        height: 250px;
+                        width: 100%;
+                        
+                        object-fit: cover;
                     }
 
                 }
@@ -590,75 +643,7 @@
                     font-size: 1.2rem;
                     font-family: 'Inter', sans-serif;
                     font-weight: 700;
-                }
-
-                .rankNumber {
-                    padding-left: 5px;
-                    letter-spacing: 2px;
-                }
-
-                .player {
-                    display: flex;
-                    align-items: flex-end;
-                    .playerName {
-                        font-size: 1.2em;
-                        font-family: 'Comfortaa', cursive;
-                        font-weight: 700;
-                        color: #fff;
-                        z-index: 60;
-                    }
-
-                    img {
-                        margin-left: 5px;
-                        z-index: 75;
-                        margin-bottom: 4px;
-                    }
-                }
-
-                .rectangle {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    position: absolute;
-                    top: 0;
-                    height: 100%;
-                    width: 100%;
-                    pointer-events: none;
-
-                    img {
-                        object-fit: cover;
-                        height: 150px;
-                    }
-
-                }
-
-                &:hover {
-                    transition:  transform .4s;
-                    box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
-                    transform: translateY(-5px);
-                }
-            }
-
-            .rank-three {
-                background: #605C59;
-                border-radius: 20px;
-                height: 100%;
-                width: 211px;
-                display: flex;
-                gap: 20px;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: center;
-                padding-left: 20px;
-                position: relative;
-                overflow: hidden;
-                transition: .4s;
-
-                p {
-                    color: #fff;
-                    font-size: 1.2rem;
-                    font-family: 'Inter', sans-serif;
-                    font-weight: 700;
+                    z-index: 80;
                 }
 
                 .rankNumber {
@@ -690,18 +675,87 @@
                     justify-content: center;
                     position: absolute;
                     right: 0;
-                    top: 0;
-                    object-fit: cover;
-                    height: 100%;
-                    width: 100%;
                     pointer-events: none;
-
+                    
                     img {
-                        height: 150px;
+                        height: 250px;
+                        width: 100%;
+                        
+                        object-fit: cover;
                     }
 
                 }
 
+                &:hover {
+                    transition:  transform .4s;
+                    box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+                    transform: translateY(-5px);
+                }
+            }
+
+            .rank-three {
+                background: #605C59;
+                border-radius: 20px;
+                height: 100%;
+                width: 211px;
+                display: flex;
+                gap: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                padding-left: 20px;
+                position: relative;
+                overflow: hidden;
+                transition: .4s;
+
+                p {
+                    color: #fff;
+                    font-size: 1.2rem;
+                    font-family: 'Inter', sans-serif;
+                    font-weight: 700;
+                    z-index: 80;
+                }
+
+                .rankNumber {
+                    padding-left: 5px;
+                    letter-spacing: 2px;
+                    z-index: 56;
+                }
+
+                .player {
+                    display: flex;
+                    align-items: flex-end;
+                    .playerName {
+                        font-size: 1.2em;
+                        font-family: 'Comfortaa', cursive;
+                        font-weight: 700;
+                        color: #fff;
+                        z-index: 60;
+                    }
+
+                    img {
+                        margin-left: 5px;
+                        z-index: 55;
+                        margin-bottom: 4px;
+                    }
+                }
+
+                .rectangle {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    right: 0;
+                    pointer-events: none;
+                    
+                    img {
+                        height: 250px;
+                        width: 100%;
+                        
+                        object-fit: cover;
+                    }
+
+                }
                 &:hover {
                     transition:  transform .4s;
                     box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
@@ -800,4 +854,51 @@
 }
 
 
+@media (max-width: 1460px) {
+    .dashboard {
+        gap: 1rem;
+        align-items: center;
+        //border: 2px solid red;
+        margin-top: 30rem;
+        margin-inline: auto;
+        height: 100%;
+        .YourLastMatch {
+            grid-column: 2/20;
+            grid-row: 1/2;
+        }
+        .OnlineFriends {
+            grid-column: 2/20;
+            grid-row: 2/4;
+            max-height: 30vh;
+        }
+        .Statistic {
+            grid-column: 2/20;
+            grid-row: 4/7;
 
+            .title {
+                top: 0.5rem;
+                left: 1.5rem;
+            }
+
+            .statistic-wrapper {
+                //flex-wrap: wrap;
+
+                .winrate,.loggedin {
+                    position: relative;
+                    //width: 100%;
+                    //min-width: 300px;
+                    height: 300px;
+                }
+            }
+        }
+        .Rank {
+            grid-column: 2/20;
+            grid-row: auto;
+        }
+        .RankedGame {
+            grid-column: 2/20;
+            grid-row: auto;
+        }
+    }
+    
+}
