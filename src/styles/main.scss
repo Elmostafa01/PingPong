@@ -2,6 +2,11 @@
 @import './sidebar.scss';
 @import './navbar.scss';
 @import './dashboard.scss';
+@import './profil.scss';
+@import './history.scss';
+@import './game.scss';
+@import './friends.scss';
+@import './chat.scss';
 //Variables
 $white: #FFFFFF;
 $solidblue: #1657FF;
@@ -15,6 +20,7 @@ $bgel: #BACCFD;
 
 @mixin scrollbar() {
     overflow-y: scroll;
+    overflow-block: scroll;
 
     &::-webkit-scrollbar {
         width: 10px;
@@ -22,15 +28,17 @@ $bgel: #BACCFD;
     
     &::-webkit-scrollbar-track {
         background: #E4ECFF;
+        z-index: 980;
     }
     
     &::-webkit-scrollbar-thumb {
         background: $solidblue;
+        box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
         border-radius: 30px;
     }
     
     &::-webkit-scrollbar-button {
-        background: none;
+        background: #E4ECFF;        
     }
 }
 
@@ -64,9 +72,12 @@ body {
 }
 */
 
+
+
 @media (max-width: 1500px) {
     body {
         @include scrollbar();
     }
     
 }
+
