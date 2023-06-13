@@ -1,9 +1,303 @@
-.history {
-    margin-inline: auto;
-    margin: 5rem 0 0 1rem;
-    padding: 20px;
-    width: 100%;
-    max-width: 85vw;
-    height: 85vh;
-    background-color: red;
+@mixin scrollbar() {
+    overflow-y: scroll;
+    overflow-block: scroll;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: #E4ECFF;
+        border-radius: 30px;
+        //border-bottom-right-radius: 30px;
+        //border-top-right-radius: 30px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: $solidblue;
+        box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+        border-radius: 30px;
+    }
+    
+
 }
+
+.history {
+    position: relative;
+    margin-inline: auto;
+    margin: 5rem 0 0 3rem;
+    padding: 20px;
+    width: 80vw;
+    height: 80vh;
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    flex-wrap: wrap;
+    @include flexo();
+
+    .title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        overflow: hidden;
+        max-width: 300px;
+
+        h1 {
+            font-family: 'Lilita One', cursive;
+            font-size: 2.2em;
+            color: #353E6C;
+            font-weight: 700;
+            animation: slide 1.8s cubic-bezier(0.365, 0.84, 0.44, 1) forwards ;
+            transform: translateY(-180%);
+            margin: 0;
+
+        }
+    }
+
+    .wrapper {
+        //overflow: scroll;
+        //@include scrollbar();
+        overflow: hidden;
+        overflow-x: hidden;
+        position: absolute;
+        padding-inline: 5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        height: 60vh;
+
+        .card {
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            flex: 0 0 320px;
+            height: 12vh;
+            margin-bottom: 10px;
+            border: 1px solid #F4F6FF;
+            background: #FBFCFF;
+            transition: .5s all;
+            transform: translateY(-500%);
+            animation: slide 1.8s cubic-bezier( 0.13, 0.22, 0.01, 1.01 ) forwards ;
+            &:hover {
+                transition: box-shadow .4s;
+                box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+                scale: 1.05;
+                transition: .5s all;
+            }
+
+            .date {
+                position: absolute;
+                top: 0;
+                font-family: 'Inter', sans-serif;
+                font-size: 0.6em;
+                font-weight: 700;
+                padding-top: 10px;
+            }
+
+            .content {
+                display: flex;
+                position: absolute;
+                top: 2.3rem;
+                gap: 0.5rem;
+
+                .leftPlayer {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    .player-title {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+
+                        .playerName {
+                            font-size: 0.7em;
+                            font-family: 'Comfortaa', cursive;
+                            font-weight: 700 !important;
+                            color: #000;
+                        }
+                        .playerRank {
+                            font-size: 0.6em;
+                            font-family: sans-serif;
+                            color: #BACCFD;
+                        }
+                    }
+                    .avatar {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 40px;
+                        cursor: pointer;
+
+                        img {
+                            height: 100%;
+                            width: 100%;
+                        }
+                    }
+
+                    .score {
+                        font-family: sans-serif;
+                        font-weight: 700
+                    }
+
+                }
+
+                .vs {
+                    @include flexo();
+                    flex-direction: column;
+                    gap: 5px;
+
+                    span {
+                        width: 3px;
+                        height: 3px;
+                        border-radius: 50%;
+                        background: $solidblue;
+                    }
+                }
+
+                .rightPlayer {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row-reverse;
+                    gap: 0.5rem;
+                    .player-title {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+
+                        .playerName {
+                            font-size: 0.7em;
+                            font-family: 'Comfortaa', cursive;
+                            font-weight: bolder;
+                            color: #000;
+                        }
+                        .playerRank {
+                            font-size: 0.6em;
+                            font-family: sans-serif;
+                            color: #BACCFD;
+                        }
+                    }
+                    .avatar {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 40px;
+                        cursor: pointer;
+
+                        img {
+                            height: 100%;
+                            width: 100%;
+                        }
+                    }
+
+                    .score {
+                        font-family: sans-serif;
+                        font-weight: 700
+
+                    }
+                }
+            }
+
+            .left {
+                position: absolute;
+                left: 0;
+                float: left;
+                width: 20px;
+                background-color: #62FFA1;
+                height: 100%;
+
+                span {
+                    letter-spacing: 5px;
+                    writing-mode: vertical-rl;
+                    text-orientation: upright;
+                    font-family: 'Comfortaa', cursive;
+                    font-weight: 600;
+                    font-size: 0.85em;
+                    color: #fff;
+                    pointer-events: none;
+                }
+            }
+
+            .right {
+                position: absolute;
+                right: 0;
+                float: right;
+                width: 20px;
+                background-color: #FF7272;
+                height: 100%;
+            }
+
+            .left,.right {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span {
+                    letter-spacing: 5px;
+                    writing-mode: vertical-rl;
+                    text-orientation: upright;
+                    font-family: 'Comfortaa', cursive;
+                    font-size: 0.65em;
+                    color: #fff;
+                    pointer-events: none;
+                }
+            }
+          }
+    }
+
+    .pagination {
+        display: flex;
+        gap: 1rem;
+        position: absolute;
+        bottom: 2rem;
+
+        button {
+            outline: 0;
+            border: 0;
+            background: #F4F6FF;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;            
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: $solidblue;
+            transition: .5s all;
+            cursor: pointer;
+            &:first-child {
+                &:hover {
+                    backdrop-filter: blur(5px);
+                    background-color: rgba(255, 255, 255, 1);
+                    border-radius: 26px; 
+                    transition: .5s all;
+                    box-shadow: 35px 15px 68px 0px rgba(145, 192, 255, 0.5), inset -8px -8px 16px 0px rgba(145, 192, 255, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
+                }
+            }
+            &:last-child {
+                color: #fff;
+                background: $solidblue;
+            }
+        }
+    }
+}
+
+@media (max-width: 1440px) {
+    .history {
+        .wrapper {
+        overflow-x: hidden;
+        @include scrollbar();
+        }
+    }
+}
+
+@keyframes slide {
+    to {
+     transform: translateY(0%);
+    }
+  }
