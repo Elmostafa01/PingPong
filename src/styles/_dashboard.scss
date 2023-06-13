@@ -46,6 +46,8 @@
         grid-column: 2/10;
         border-radius: 30px;
         transition: .4s;
+        animation: slide 1.8s cubic-bezier(0.105, 0.84, 0.44, 1) forwards ;
+        transform: translateY(-180%);
         &:hover {
             transition: box-shadow .4s;
             box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
@@ -210,6 +212,8 @@
         padding: 20px;
         //padding-inline: 30px;
         box-sizing: border-box;
+        animation: slide 1.8s cubic-bezier(0.105, 0.84, 0.44, 1) forwards ;
+        transform: translateX(180%);
         &:hover {
             transition: box-shadow .4s;
             box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
@@ -282,12 +286,12 @@
                                     position: absolute;
                                     top: -10px;
                                     left: -50px;
-                                    opacity: 0;
+                                    display: none;
                                     
                                 }
                                 
                                 &:hover::before {
-                                   opacity: 1;
+                                   display: block;
                                    transition: .5s all;
                                 }
                             }
@@ -320,8 +324,7 @@
                         input {
                             right: 10px;
                             position: absolute;
-                            flex: 0 0 50%;
-                            max-width: 60%;
+                            max-width: 65%;
                             border-radius: 6px;
                             white-space:nowrap;
                             outline: 0;
@@ -384,6 +387,8 @@
         border-radius: 30px;
         transition: .4s;
         position: relative;
+        animation: slide 1.8s cubic-bezier(0.105, 0.84, 0.44, 1) forwards ;
+        transform: translateX(-180%);
         .title {
             top: 0;
             left: 0;
@@ -524,6 +529,8 @@
         width: 100%;
         position: relative;
         height: 15vh;
+        animation: slide 1.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards ;
+        transform: translateY(180%);
 
         .title {
             top: -25%;
@@ -771,6 +778,8 @@
         overflow: hidden;
         height: 15vh;
         transition: .4s;
+        animation: slide 1.8s cubic-bezier(0.565, 0.84, 0.44, 1) forwards ;
+        transform: translateY(180%);
         &:hover {
             transition: box-shadow .4s;
             box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
@@ -851,6 +860,7 @@
     
 }
 
+//Queries
 
 @media only screen and (max-width: 1460px) {
     .dashboard {
@@ -901,13 +911,13 @@
     
 }
 
-//Queries
 @media only screen and (max-width: 715px) {
     .dashboard {
+        
         margin-top: 55rem;
         .YourLastMatch {
             grid-column: 2/20;
-
+            
             .card {
                 .left,.right{
                     width: 30px;
@@ -943,7 +953,6 @@
         }
         .OnlineFriends {
             grid-column: 2/20;
-
             .card-friend {
                 padding-left: 0 !important;
                 
@@ -1038,7 +1047,7 @@
     }
 }
 
-@media (max-width: 573px){
+@media only screen and (max-width: 573px){
     .dashboard {
         .OnlineFriends {
             .send-msg {
@@ -1187,7 +1196,7 @@
     }
 }
 
-@media (max-width: 376px){
+@media only screen and  (max-width: 376px){
     .dashboard {
         margin-top: 60rem;
         
