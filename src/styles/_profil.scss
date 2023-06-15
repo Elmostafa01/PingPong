@@ -5,7 +5,7 @@ $fontcolor: #353E6C;
     //position: relative;
     margin-inline: auto;
     margin: 5rem 0 0 3rem;
-    padding: 2rem;
+    padding: 1rem;
     width: 80vw;
     height: 80vh;
     //background-color: rgb(255, 255, 255);
@@ -17,18 +17,24 @@ $fontcolor: #353E6C;
         align-items: center;
         padding: 1rem;
         width: 100%;
-        height: 70vh;
+        height: 75vh;
         border: 2px solid red;
 
         .profil-card {
             //border: 2px solid blue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
             background: #fff;
             width: 100%;
             max-width: 350px;
             height: 100%;
+            max-height: 750px;
             padding: 20px;
             border-radius: 30px;
             overflow: hidden;
+            position: relative;
 
             .top-header {
                 padding: 10px;
@@ -40,11 +46,14 @@ $fontcolor: #353E6C;
                     width: 100%;
                     overflow: hidden;
                     max-width: 100px;
+                    position: absolute;
+                    top: 1.2rem;
+                    left: 2rem;
             
                     h1 {
                         font-family: 'Lilita One', cursive;
-                        font-size: 1.5em;
                         color: #353E6C;
+                        font-size: 1.5em;
                         font-weight: 700;
                         animation: slide 1.8s cubic-bezier(0.365, 0.84, 0.44, 1) forwards ;
                         transform: translateY(-180%);
@@ -61,18 +70,112 @@ $fontcolor: #353E6C;
                     background: $lightblue;
                     padding: 20px;
                     cursor: pointer;
-                    animation: slide 1.8s cubic-bezier(0.365, 0.84, 0.44, 1) forwards ;
-                    transform: translateX(180%);
+                    transition: .4s ease;
+                    position: absolute;
+                    top: 1.2rem;
+                    right: 2rem;
+                    &:hover {
+                        background-color: #dfe6ff;
+                    }
+
 
                     .btn {
-                        @include flexo();
-                        gap: 3px;
-                        span {
-                            width: 4px;
-                            height: 4px;
-                            background: $solidblue;
-                            border-radius: 50%;
+                        display: inline-block;                        
+                        position: relative;
+                        padding: 10px;
+                        //border: 1px solid red;
+
+                        .dots {
+                            @include flexo();
+                        }
                     }
+                    
+                    .dropProfil {
+                        z-index: 88;
+                        position: absolute;
+                        width: 180px;
+                        height: auto;
+                        top: 3rem;
+                        right: 0;
+                        border: 2px solid #fff;
+                        border-radius: 10px;
+                        background: #F4F6FF;
+                        box-shadow: 0 5px 15px #1830552a;
+                        overflow: hidden;
+                        transition: .5s all;
+                        display: none;
+                        animation: fade .8s  forwards ;
+                        opacity: 0;
+                        transform: translateY(-20%);
+
+                        .change-avatar {
+                            .change-avatar-btn {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-around;
+                                gap: 5px;
+                                padding: 10px;
+                                width: 100%;
+                                background: transparent;
+                                outline: 0;
+                                border: 0;
+                                transition: .5s all;
+                                border-bottom: 2px solid #fff; 
+                                cursor: pointer;
+                                &:hover {
+                                    transition: .5s all;
+                                    background: #e1e6fd;
+                                }
+                                &:active {
+                                    background: #ffffff;
+                                    transition: .2s;
+                                }
+
+                                span {
+                                    font-family: 'Poppins', sans-serif;
+                                    color: $solidblue;
+                                    font-size: 1em;
+                                }
+                            }
+                        }
+
+                        .change-name {
+                            .change-name-btn {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-evenly;
+                                gap: 5px;
+                                cursor: pointer;
+                                padding: 10px;
+                                transition: .3s all;
+                                width: 100%;
+                                background: transparent;
+                                outline: 0;
+                                border: 0;
+                                &:hover {
+                                    transition: .5s all;
+                                    background: #e1e6fd;
+                                }
+                                &:active {
+                                    background: #ffffff;
+                                    transition: .2s;
+                                }
+
+                                svg {
+                                    transform: translateX(-50%);
+                                }
+
+                                span {
+                                    transform: translateX(-15%);
+                                    font-family: 'Poppins', sans-serif;
+                                    color: $solidblue;
+                                    font-size: 1em;
+                                }
+                            }
+                        }
+                    }
+                    .dropProfil.active {
+                        display: block
                     }
                 }
             }
@@ -80,12 +183,14 @@ $fontcolor: #353E6C;
             .content {
                 @include flexo();
                 flex-direction: column;
-                //gap: 1rem;
+                //border: 1px solid blue;
+                transform: translateY(2%);
+                //gap: 3rem;
 
                 .level-avatar {
                     @include flexo();
                     flex-direction: column;
-                    margin-top: 1rem;
+                    //margin-top: 1rem;
 
                     .level {
                         span {
@@ -95,9 +200,11 @@ $fontcolor: #353E6C;
                     }
 
                     .avatar {
+                        width: 8rem;
                         height: 8rem;
                         border-radius: 100%;
-                        padding: 10px;
+                        margin-bottom: 1rem;
+
                         img {
                             height: 100%;
                             width: 100%;
@@ -113,7 +220,7 @@ $fontcolor: #353E6C;
                         .name {
                             display: flex;
                             flex-direction: column;
-                            gap: 3px;
+                            gap: 0.8rem;
                             p {
                                 font-family: 'Comfortaa', cursive;
                                 color: #BACCFD ;
@@ -131,7 +238,7 @@ $fontcolor: #353E6C;
                         .rank {
                             display: flex;
                             flex-direction: column;
-                            gap: 3px;
+                            gap: 0.8rem;
                             p {
                                 font-family: 'Comfortaa', cursive;
                                 font-size: 0.9em;
@@ -199,6 +306,7 @@ $fontcolor: #353E6C;
                     flex-direction: column;
                     gap: 3px;
                     position: relative;
+                    margin-top: 1rem;
     
                     .rankxp-label {
                         transform: translateX(-80%);
@@ -238,10 +346,82 @@ $fontcolor: #353E6C;
                 }
 
                 .current-achievement {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    margin-top: 2rem;
+                    width: 100%;
+                    max-width: 250px;
 
+                    .header {
+                        p {
+                            font-family: 'Comfortaa', cursive;
+                            font-size: 0.9em;
+                            text-transform: uppercase;
+                            color: #BACCFD;
+                        }
+                    }
+
+                    .achievement {
+                        @include flexo();
+                        border: 2px solid #EFF2FF;
+                        background: #FBFCFF;
+                        border-radius: 20px;
+                        padding: 0.5rem;
+                        gap: 1rem;
+                        margin-top: 0.5rem;
+
+                        .symbol {
+                            @include flexo();
+                            img {
+                                height: 70px;
+                                width: 100%;
+                                pointer-events: none;
+                            }
+                        }
+                        .symbol-text {
+                            @include flexo();
+                            flex-direction: column;
+                            width: 200px;
+                            height: 100px;
+                            //border: 2px solid green;
+
+                            .title {
+                                margin-bottom: 0.3rem;
+                                span {
+                                    font-family: 'Lilita One', cursive;
+                                    color: #353E6C;
+                                    font-size: 1.2em;
+                                    letter-spacing: 1px;
+                                    text-transform: uppercase;
+                                }
+                            }
+
+                            .text {
+                                //border: 1px solid red;
+                                inline-size: 150px;
+                                overflow-wrap: break-word;
+                                p {
+                                    font-family: 'Poppins', sans-serif;
+                                    font-size: 0.6em;
+                                    text-align: left;
+                                    line-height: 12px;
+                                    
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
         }
+    }
+}
+
+
+@keyframes fade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
