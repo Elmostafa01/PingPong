@@ -6,14 +6,14 @@ import friends from '../images/friends.svg';
 import history from '../images/history.svg';
 import game from '../images/game.svg';
 import settings from '../images/settings.svg';
-import chat from '../images/Chat.svg';
+import chat from '../images/newchat.svg';
 import logo from '../images/logo.svg';
 
 
-const Sidebar = () => {
+const Sidebar: React.FC = () => {
     const location = useLocation();
 
-    const [closeMenu, setCloseMenu] = useState(false);
+    const [closeMenu, setCloseMenu] = useState(true);
 
     const handleCloseMenu = () => {
         setCloseMenu(!closeMenu);

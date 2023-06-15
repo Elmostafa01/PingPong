@@ -12,12 +12,18 @@ $white: #FFFFFF;
 $solidblue: #1657FF;
 $lightblue: #F4F6FF;
 $bgel: #BACCFD;
-//Fonts
-/*Poppins*/@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-/*Lillita One*/@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
-/*Comfortaa instead of Jua*/@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
-/*Inter*/@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
 
+////////Fonts///////////
+/*Poppins///font-family: 'Poppins', sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/*Lillita One///font-family: 'Lilita One', cursive;*/
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+/*Comfortaa instead of Jua///font-family: 'Comfortaa', cursive;*/
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+/*Inter////font-family: 'Inter', sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+
+////////////Mixin//////////
 @mixin scrollbar() {
     overflow-y: scroll;
     overflow-block: scroll;
@@ -49,32 +55,19 @@ $bgel: #BACCFD;
 }
 
 body {
-    //@include scrollbar();
     overflow: hidden;
     overflow-x: hidden;
     height: 100vh;
     width: 100vw;
     background-color: #F4F5F7;
     font-family: sans-serif;
-    //margin: 1rem 3rem 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 
-/*.App {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-*/
-
-
-
-@media (max-width: 1500px) {
+@media (max-width: 1460px) {
     body {
         @include scrollbar();
     }

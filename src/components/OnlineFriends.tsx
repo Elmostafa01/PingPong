@@ -27,7 +27,7 @@ const OnlineFriends = () => {
             <input type="text" placeholder='Send a Msg . . .'/>
             <div className="sendchat">
               <button>
-              <img src={sendchat} alt="chat" />
+              <img src={sendchat} alt="send chat" />
               </button>
             </div>
           </div>

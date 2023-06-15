@@ -46,7 +46,7 @@
         grid-column: 2/10;
         border-radius: 30px;
         transition: .4s;
-        animation: slide 1.8s cubic-bezier(0.105, 0.84, 0.44, 1) forwards ;
+        animation: slide 1.8s cubic-bezier(0.160, 0.84, 0.44, 1) forwards ;
         transform: translateY(-180%);
         &:hover {
             transition: box-shadow .4s;
@@ -212,7 +212,7 @@
         padding: 20px;
         //padding-inline: 30px;
         box-sizing: border-box;
-        animation: slide 1.8s cubic-bezier(0.105, 0.84, 0.44, 1) forwards ;
+        animation: slide 1.8s cubic-bezier(0.160, 0.84, 0.44, 1) forwards ;
         transform: translateX(180%);
         &:hover {
             transition: box-shadow .4s;

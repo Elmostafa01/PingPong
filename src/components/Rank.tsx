@@ -9,7 +9,8 @@ import blackrectangle from '../images/blackrectangle.svg';
 const Rank = () => {
   return (
     <div className='Rank'>
-      <div className="rankWrapper">
+      <div className="title"><h3>✨Rank✨</h3></div>
+        <div className="rankWrapper">
         <div className="rank-one">
             <p>Rank<span className='rankNumber'>#1</span></p>
             <div className="player">
@@ -21,7 +22,7 @@ const Rank = () => {
             </div>
         </div>
         <div className="rank-two">
-        <p>Rank<span className='rankNumber'>#1</span></p>
+        <p>Rank<span className='rankNumber'>#2</span></p>
             <div className="player">
               <span className='playerName'>ISSAM</span>
               <img src={arrowtop} height={25}/>
@@ -31,13 +32,13 @@ const Rank = () => {
             </div>
         </div>
         <div className="rank-three">
-        <p>Rank<span className='rankNumber'>#1</span></p>
+        <p>Rank<span className='rankNumber'>#3</span></p>
             <div className="player">
               <span className='playerName'>OUSSAMA06</span>
               <img src={arrowtop} height={25}/>
             </div>
             <div className="rectangle">
-              <img src={blackrectangle} alt='svg'  />
+              <img src={blackrectangle} alt='svg' />
             </div>
         </div>
       </div>
