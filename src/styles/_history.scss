@@ -38,15 +38,15 @@
 
     .title {
         position: absolute;
-        top: 0;
-        left: 0;
-        padding: 2rem;
+        top: 2rem;
+        left: 2.5rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
         overflow: hidden;
-        max-width: 300px;
+        width: 100%;
+        max-width: 200px;
+        height: 50px;
 
         h1 {
             font-family: 'Lilita One', cursive;
@@ -61,8 +61,6 @@
     }
 
     .wrapper {
-        //overflow: scroll;
-        //@include scrollbar();
         overflow: hidden;
         overflow-x: hidden;
         position: absolute;
@@ -212,7 +210,7 @@
                 left: 0;
                 float: left;
                 width: 20px;
-                background-color: #62FFA1;
+                background-color: #22fc79;
                 height: 100%;
 
                 span {
@@ -232,7 +230,7 @@
                 right: 0;
                 float: right;
                 width: 20px;
-                background-color: #FF7272;
+                background-color: #22fc79;
                 height: 100%;
             }
 
@@ -255,9 +253,10 @@
 
     .pagination {
         display: flex;
+        align-items: center;
         gap: 1rem;
         position: absolute;
-        bottom: 2rem;
+        bottom: 3rem;
 
         button {
             outline: 0;
@@ -289,6 +288,13 @@
                     transform: scale(0.95);
                 }
             }
+        }
+        
+        p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8em;
+            font-weight: 400;
+            color:#353E6C;
         }
     }
 }
