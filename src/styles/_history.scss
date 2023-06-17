@@ -271,6 +271,10 @@
             cursor: pointer;
 
             &:first-child {
+                &:active{
+                    transform: scale(0.85);
+                    transition: .2s;
+                }
                 &:hover {
                     backdrop-filter: blur(5px);
                     background-color: rgba(255, 255, 255, 1);
@@ -291,6 +295,8 @@
         }
         
         p {
+            @include flexo();
+            gap: 5px;
             font-family: 'Inter', sans-serif;
             font-size: 0.8em;
             font-weight: 400;

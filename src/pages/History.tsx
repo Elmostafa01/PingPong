@@ -80,7 +80,7 @@ const History: React.FC = () => {
       </div>
       <div className="pagination">
         <button>Previous</button>
-        <p>Page~<span>1</span></p>
+        <p>Page <span>~</span><span>15</span></p>
         <button>Next Page</button>
       </div>
     </div>
