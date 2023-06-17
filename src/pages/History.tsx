@@ -66,13 +66,13 @@ const History: React.FC = () => {
             <div className="left">
               {player1.winHistory ?
               (<span>WIN</span>) 
-              :(<span>LOSE</span>)
+              :(<span style={{background: 'red', height: '100%', width: '100%', display: 'flex',alignItems: 'center',justifyContent: 'center'}}>LOSE</span>)
               }
             </div>
             <div className="right">
             {!player1.winHistory ?
               (<span>WIN</span>) 
-              :(<span>LOSE</span>)
+              :(<span style={{background: 'red', height: '100%', width: '100%', display: 'flex',alignItems: 'center',justifyContent: 'center'}}>LOSE</span>)
               }
             </div>
           </div>
@@ -80,6 +80,7 @@ const History: React.FC = () => {
       </div>
       <div className="pagination">
         <button>Previous</button>
+        <p>Page~<span>1</span></p>
         <button>Next Page</button>
       </div>
     </div>
