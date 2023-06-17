@@ -3,6 +3,7 @@ import LevelAvatar from '../components/LevelAvatar'
 import LevelXp from '../components/LevelXp'
 import RankXp from '../components/RankXp'
 import CurrentAchievement from '../components/CurrentAchievement'
+import Achievements from '../components/Achievements'
 
 const Profil = () => {
   return (
@@ -22,9 +23,7 @@ const Profil = () => {
             <CurrentAchievement />
           </div>
         </div>
-        <div className="achievements">
-
-        </div>
+        <Achievements />
       </div>
     </div>
   )

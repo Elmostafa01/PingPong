@@ -1,16 +1,38 @@
 //Var
 $fontcolor: #353E6C;
 
+@mixin scrollbar() {
+    overflow-y: scroll;
+    overflow-block: scroll;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: #E4ECFF;
+        border-radius: 30px;
+        //border-bottom-right-radius: 30px;
+        //border-top-right-radius: 30px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: $solidblue;
+        box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+        border-radius: 30px;
+    }
+    
+
+}
+
 .profil {
-    //position: relative;
     margin-inline: auto;
     margin: 5rem 0 0 3rem;
     padding: 1rem;
     width: 80vw;
     height: 80vh;
-    //background-color: rgb(255, 255, 255);
     border-radius: 30px;
-    border: 2px solid blue;
+    //border: 2px solid blue;
 
     .wrapper {
         display: flex;
@@ -18,7 +40,8 @@ $fontcolor: #353E6C;
         padding: 1rem;
         width: 100%;
         height: 75vh;
-        border: 2px solid red;
+        //border: 2px solid red;
+        gap: 1rem;
 
         .profil-card {
             //border: 2px solid blue;
@@ -35,6 +58,10 @@ $fontcolor: #353E6C;
             border-radius: 30px;
             overflow: hidden;
             position: relative;
+            &:hover {
+                transition: box-shadow .4s;
+                box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+            }
 
             .top-header {
                 padding: 10px;
@@ -368,7 +395,7 @@ $fontcolor: #353E6C;
                         background: #FBFCFF;
                         border-radius: 20px;
                         padding: 0.5rem;
-                        gap: 1rem;
+                        //gap: 1rem;
                         margin-top: 0.5rem;
 
                         .symbol {
@@ -415,8 +442,92 @@ $fontcolor: #353E6C;
             }
 
         }
+
+        .achievements {
+            @include scrollbar();
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            align-content:center;
+            gap: 1rem;
+            overflow: scroll;
+            overflow-x: hidden;
+            background: #fff;
+            width: 100%;
+            max-width: 1100x;
+            height: 100%;
+            max-height: 750px;
+            border-radius: 30px;
+            padding: 0 2rem 0 2rem;
+            &:hover {
+                transition: box-shadow .4s;
+                box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+            }
+
+            .achievement {
+                @include flexo();
+                width: 100%;
+                max-width: 300px;
+                //flex: 0 0 300px;
+                height: 12vh;
+                border: 2px solid #EFF2FF;
+                background: #FBFCFF;
+                border-radius: 20px;
+                padding: 1rem;
+                transition: .3s all;
+                margin-top: 0.5rem;
+                animation: slide 1.8s cubic-bezier(0.365, 0.84, 0.44, 1) forwards ;
+                transform: translateX(-180%);
+                &:hover {
+                    transition: .3s all;
+                    scale: 1.05;
+                }
+
+                .symbol {
+                    @include flexo();
+                    overflow: hidden;
+                    img {
+                        height: 70px;
+                        width: 100%;
+                        pointer-events: none;
+                    }
+                }
+                .symbol-text {
+                    @include flexo();
+                    flex-direction: column;
+                    width: 200px;
+                    height: 100px;
+                    //border: 2px solid green;
+
+                    .title {
+                        margin-bottom: 0.3rem;
+                        span {
+                            font-family: 'Lilita One', cursive;
+                            color: #353E6C;
+                            font-size: 1em;
+                            letter-spacing: 1px;
+                            text-transform: uppercase;
+                        }
+                    }
+
+                    .text {
+                        //border: 1px solid red;
+                        inline-size: 180px;
+                        overflow-wrap: break-word;
+                        p {
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 0.7em;
+                            text-align: left;
+                            line-height: 12px;
+                            
+                        }
+                    }
+                }
+            }
+        }
     }
-}
+    }
+
 
 
 @keyframes fade {
