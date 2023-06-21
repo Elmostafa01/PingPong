@@ -1,9 +1,13 @@
-import React from 'react'
+import AddFriend from "../components/AddFriend"
+import Invitations from "../components/Invitations"
 
 const Friends = () => {
   return (
     <div className='Friends'>
-      <h1>Friends</h1>
+      <div className="addFriend-acceptFriend">
+        <AddFriend />
+        <Invitations />
+      </div>
     </div>
   )
 }

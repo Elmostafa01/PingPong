@@ -1,0 +1,288 @@
+@mixin scrollbar() {
+    overflow-y: scroll;
+    overflow-block: scroll;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: #E4ECFF;
+        border-radius: 20px;
+        //border-bottom-right-radius: 30px;
+        //border-top-right-radius: 30px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: $solidblue;
+        box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+        border-radius: 30px;
+    }
+    
+    &::-webkit-scrollbar-button {
+        background: transparent;
+    }
+}
+
+.Friends {
+    //background: #fff;
+    margin-inline: auto;
+    margin: 5rem 0 0 3rem;
+    padding: 2rem;
+    width: 80vw;
+    height: 80vh;
+    border: 1px solid red;;
+    border-radius: 30px;
+
+        .addFriend-acceptFriend {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: 400px;
+        height: 100%;
+        max-height: 750px;
+        padding: 20px;
+
+        .addFriend {
+            position: relative;
+            @include flexo();
+            flex-direction: column;
+            background: #fff;
+            border-radius: 30px;
+            width: 100%;
+            max-width: 400px;
+            height: 200px;
+            transition: .4s;
+            &:hover {
+                transition: box-shadow .4s;
+                box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+            }
+
+            .title {
+                position: absolute;
+                width: 150px;
+                height: 30px;
+                top: 10px;
+                left: 20px;
+                overflow: hidden;
+
+                h1 {
+                    font-family: 'Lilita One', cursive;
+                    color: #353E6C;
+                    font-size: 1.4em;
+                    font-weight: 700;
+                    margin: 0;
+                    animation: slide 1.8s cubic-bezier(0.365, 0.84, 0.44, 1) forwards ;
+                    transform: translateY(-180%);
+                }
+            }
+
+            .add {
+                margin-top: 1rem;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                padding: 0.5rem;
+                gap: 1rem;
+
+                input {
+                    font-family: 'Poppins', sans-serif;
+                    width: 250px;
+                    height: 50px;
+                    padding: 1rem 1rem;
+                    outline: 0;
+                    border: 0;
+                    background: #F4F6FF;
+                    border-radius: 30px;
+                    &:focus {
+                        border: 1px solid $bgel;
+                    }
+                    &::placeholder {
+                        color: $bgel;
+                        font-family: 'Inter', sans-serif;
+                        text-align: center;
+                    }
+                }
+                
+                button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    padding: 1rem;
+                    width: 200px;
+                    margin-inline: auto;
+                    outline: 0;
+                    border: 0;
+                    transition: .3s;
+                    border-radius: 10px;
+                    background: $solidblue;
+                    font-family: 'Poppins', sans-serif;
+                    color: #fff;
+                    box-shadow: 0 10px 15px #1c5cff63;
+                    cursor: pointer;
+                    &:hover {
+                        background: #217aff;
+                        box-shadow: 0 10px 15px #217aff65;
+                        transition: .3s all;
+                    }
+                    &:active {
+                        background: #002fa7;
+                        transition: .2s all;
+                        scale: 0.9;
+                    }
+                }
+            }
+        }
+
+        .invitations {
+            @include scrollbar();
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-around;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-height: 420px;
+            max-width: 400px;
+            transition: .5s all;
+            background: #fff;
+            border-radius: 30px;
+            &:hover {
+                transition: box-shadow .4s;
+                box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+            }
+
+            .title {
+                position: absolute;
+                width: 150px;
+                height: 30px;
+                top: 10px;
+                left: 20px;
+                overflow: hidden;
+
+                h1 {
+                    font-family: 'Lilita One', cursive;
+                    color: #353E6C;
+                    font-size: 1.4em;
+                    font-weight: 700;
+                    margin: 0;
+                    animation: slide 1.8s cubic-bezier(0.765, 0.84, 0.44, 1) forwards ;
+                    transform: translateY(-180%);
+                }
+            }
+            
+            .inv-list {
+                margin-top: 5rem;
+                width: 100%;
+                max-width: 300px;
+                height: 100%;
+                //max-height: 360px;
+                //border: 1px solid blue;
+
+                .demand {
+                    position: relative;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    height: 70px;
+                    width: 100%;
+                    max-width: 300px;
+
+                    .content {
+                        position: absolute;
+                        left: 0;
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        max-width: 200px;
+                        height: 100%;
+                        .avatar {
+                            display: flex;
+                            border-radius: 50%;
+                            width: 60px;
+                            height: 60px;
+                            img {
+                                @include flexo();
+                                width: 60px;
+                                cursor: pointer;
+                            }
+                        }
+
+                        .name-level {
+                            flex-direction: column;
+                            display: flex;
+                            align-items: flex-start;
+                            justify-content: center;
+                            width: 100%;
+                            //border: 1px solid red;
+
+                            .name {
+                            font-family: 'Poppins', sans-serif;
+                            font-weight: 700;
+                            font-size: 1em;
+                            text-transform: uppercase;
+                            color: #000;
+                        }
+                            .lvl {
+                                font-family: 'Poppins', sans-serif;
+                                text-transform: uppercase;
+                                font-size: 0.9em;
+                                color: #94A7FF;
+                            }
+                        }
+                    }
+
+                    .accept-decline {
+                        position: absolute;
+                        right: 0;
+                        @include flexo();
+                        padding: 1rem;
+                        gap: 20px;
+
+                        .validation {
+                            outline: 0;
+                            border: 0;
+                            width: 50px;
+                            height: 30px;
+                            background: #16DBCC;
+                            border-radius: 30px;
+                            @include flexo();
+                            cursor: pointer;
+                            &:active {
+                                scale: 0.9;
+                            }
+                            &:hover {
+                                transition: .3s all;
+                                background: #06ffde;
+                                box-shadow: 0 0 20px #06ffde5b;
+                            }
+                        }
+                        .decline {
+                            outline: 0;
+                            border: 0;
+                            width: 50px;
+                            height: 30px;
+                            background: #FF5A5A;
+                            border-radius: 20px;
+                            @include flexo();
+                            cursor: pointer;
+                            &:active {
+                                scale: 0.9;
+                            }
+                            &:hover {
+                                transition: .3s all;
+                                background: #ff1919;
+                                box-shadow: 0 0 20px #ff19193d;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
