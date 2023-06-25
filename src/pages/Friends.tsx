@@ -1,5 +1,7 @@
 import AddFriend from "../components/AddFriend"
 import Invitations from "../components/Invitations"
+import Table from "../components/Table"
+
 
 const Friends = () => {
   return (
@@ -7,6 +9,9 @@ const Friends = () => {
       <div className="addFriend-acceptFriend">
         <AddFriend />
         <Invitations />
+      </div>
+      <div className="dataTable-friends">
+        <Table />
       </div>
     </div>
   )

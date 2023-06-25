@@ -1,9 +1,8 @@
-import React from 'react'
 import menone from '../images/menone.svg'
 
 const LevelAvatar = () => {
   const statut = {
-    level: 11,
+    level: 18,
     username: 'SIMO09',
     rank: 'Silver'
   };

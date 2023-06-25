@@ -72,6 +72,7 @@ const Achievements = () => {
 
   return (
   <div className='achievements'>
+    <h1>Achievement</h1>
     {achievementsData.map((achievement, index) => (
         <div className="achievement" key={index}>
           <div className="symbol">

@@ -6,7 +6,6 @@ import Chat from './pages/Chat';
 import Game from './pages/Game';
 import History from './pages/History';
 import Profil from './pages/Profil';
-import Settings from './pages/Settings';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
 
@@ -27,7 +26,6 @@ function App() {
           <Route path='/history' element={<History />} />
           <Route path='/game' element={<Game />} />
           <Route path='/chat' element={<Chat />} />
-          <Route path='/settings' element={<Settings />} />
         </Routes>
       </div>
 

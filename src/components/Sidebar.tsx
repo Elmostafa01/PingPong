@@ -5,7 +5,6 @@ import profil from '../images/profil.svg';
 import friends from '../images/friends.svg';
 import history from '../images/history.svg';
 import game from '../images/game.svg';
-import settings from '../images/settings.svg';
 import chat from '../images/newchat.svg';
 import logo from '../images/logo.svg';
 
@@ -18,7 +17,6 @@ const Sidebar: React.FC = () => {
     const handleCloseMenu = () => {
         setCloseMenu(!closeMenu);
     }
-
 
   return (
     <div className={closeMenu === false ? 'sidebar' : 'sidebar active'}>
@@ -74,13 +72,6 @@ const Sidebar: React.FC = () => {
                   <Link className='Link' to="/chat">
                      <img className='chatIcon' height={22} alt='chat' src={chat} />
                      <span className='span'>Chat</span>
-                     <div className="stroke"></div>
-                  </Link>
-                </li>
-                <li className={location.pathname === '/settings' ? 'active' : ''}>
-                  <Link className='Link' to="/settings">
-                     <img className='settingsIcon' height={22} alt='settings' src={settings} />
-                     <span className='span'>Settings</span>
                      <div className="stroke"></div>
                   </Link>
                 </li>

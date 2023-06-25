@@ -6,14 +6,13 @@ $fontcolor: #353E6C;
     overflow-block: scroll;
 
     &::-webkit-scrollbar {
-        width: 10px;
+        width: 5px;
     }
     
     &::-webkit-scrollbar-track {
         background: #E4ECFF;
-        border-radius: 30px;
-        //border-bottom-right-radius: 30px;
-        //border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+        border-top-right-radius: 30px;
     }
     
     &::-webkit-scrollbar-thumb {
@@ -22,7 +21,9 @@ $fontcolor: #353E6C;
         border-radius: 30px;
     }
     
-
+    &::-webkit-scrollbar-button {
+        background: transparent;
+    }
 }
 
 .profil {
@@ -444,13 +445,13 @@ $fontcolor: #353E6C;
         }
 
         .achievements {
-            @include scrollbar();
+            position: relative;
             display: flex;
             justify-content: space-evenly;
             flex-wrap: wrap;
             align-content:center;
             gap: 1rem;
-            overflow: scroll;
+            overflow: hidden;
             overflow-x: hidden;
             background: #fff;
             width: 100%;
@@ -462,6 +463,19 @@ $fontcolor: #353E6C;
             &:hover {
                 transition: box-shadow .4s;
                 box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+            }
+
+            h1 {
+                position: absolute;
+                left: 2rem;
+                top: 1rem;
+                font-family: 'Lilita One', cursive;
+                font-size: 1.5em;
+                color: #353E6C;
+                font-weight: 700;
+                animation: slide 1.8s cubic-bezier(0.365, 0.84, 0.44, 1) forwards ;
+                transform: translateY(-180%);
+                margin: 0;         
             }
 
             .achievement {
@@ -488,8 +502,10 @@ $fontcolor: #353E6C;
                     overflow: hidden;
                     img {
                         height: 70px;
-                        width: 100%;
+                        width: 70px;
                         pointer-events: none;
+                        animation: fade 1.5s linear forwards;
+                        opacity: 0;
                     }
                 }
                 .symbol-text {
@@ -518,7 +534,7 @@ $fontcolor: #353E6C;
                             font-family: 'Poppins', sans-serif;
                             font-size: 0.7em;
                             text-align: left;
-                            line-height: 12px;
+                            line-height: 13px;
                             
                         }
                     }
@@ -527,6 +543,37 @@ $fontcolor: #353E6C;
         }
     }
     }
+
+@media (max-width: 1390px) {
+    .profil {
+        .wrapper {
+            .achievements {
+                overflow: scroll;
+                @include scrollbar();
+                padding-top: 35em;
+                padding-bottom: 1rem;
+                gap: 0px;
+                overflow-x: hidden;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .profil {
+        height: 100%;
+        .wrapper {
+            height: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .profil-card {
+                margin-top: 45rem;
+            }
+        }
+    }
+}
+
 
 
 
