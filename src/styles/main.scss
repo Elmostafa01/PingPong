@@ -12,16 +12,13 @@ $white: #FFFFFF;
 $solidblue: #1657FF;
 $lightblue: #F4F6FF;
 $bgel: #BACCFD;
-
-////////Fonts///////////
-/*Poppins///font-family: 'Poppins', sans-serif;*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-/*Lillita One///font-family: 'Lilita One', cursive;*/
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
-/*Comfortaa instead of Jua///font-family: 'Comfortaa', cursive;*/
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
-/*Inter////c*/
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+//Fonts
+/*font-family: 'Comfortaa', cursive;
+font-family: 'Inter', sans-serif;
+font-family: 'Lilita One', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Righteous', cursive;*/
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Inter:wght@500&family=Lilita+One&family=Poppins&family=Righteous&display=swap');
 
 ////////////Mixin//////////
 @mixin scrollbar() {
