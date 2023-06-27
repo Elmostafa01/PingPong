@@ -45,14 +45,14 @@
         border: 4px solid #F4F6FF;
         border-radius: 30px;
         background: linear-gradient(to bottom, #F4F6FF , #ffff 80%);
-        padding: 2rem;
+        padding: 2rem ;
         overflow: hidden;
 
         .game-image {
             z-index: 90;
             position: absolute;
             left: 0;
-            opacity: 0.6;
+            opacity: 0.7;
             img {
                 width: 400px;
                 pointer-events: none;
@@ -60,23 +60,39 @@
         }
 
         .game-modes {
+            //position: relative;
             width: 100%;
-            max-width: 500px;
+            //max-width: 100%;
             height: auto;
             z-index: 100;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-evenly;
+
 
             .vsBot {
                 padding: 10px;
                 .switcher {
+                    outline: 0;
+                    border: 0;
+                    background: transparent;
                     padding: 20px;
                     @include flexo();
                     gap: 13px;
                     flex-direction: column;
                     text-decoration: none;
-                    
+                    transition: .2s all;
+                    border-radius: 30px;
+                    cursor: pointer;
+                    &:active {
+                        transform: scale(0.95);
+                        transition: transform .2s all;
+                    }
+                    &:hover {
+                        backdrop-filter: blur(10px);
+                        background: linear-gradient(to top , #f4f6ff1e , #0b23ff2d 200%);                   
+                    }
+
                     img {
                         width: 150px;
                     }
@@ -87,6 +103,7 @@
                         border-radius: 30px;
                         padding: 1rem 2rem;
                         color: #fff;
+                        cursor: pointer;
                     }
                 }
             }
@@ -94,11 +111,25 @@
             .vsPlayer {
                 padding: 10px;
                 .switcher {
+                    outline: 0;
+                    border: 0;
+                    background: transparent;
                     padding: 20px;
                     @include flexo();
                     gap: 10px;
                     flex-direction: column;
                     text-decoration: none;
+                    border-radius: 30px;
+                    transition: .2s all;
+                    cursor: pointer;
+                    &:active {
+                        transform: scale(0.95);
+                        transition: transform .2s all;
+                    }
+                    &:hover {
+                        backdrop-filter: blur(10px);
+                        background: linear-gradient(to top , #f4f6ff1e , #0b23ff2d 200%);                  
+                    }
 
                     img {
                         width: 150px;
@@ -110,10 +141,189 @@
                         border-radius: 30px;
                         padding: 1rem 2rem;
                         color: #fff;
+                        cursor: pointer;
                     }
                 }
             }
+
+            .gameChoice {
+                position: relative;
+                @include flexo();
+                flex-direction: column;
+                margin-inline: auto;
+                width: 100%;
+                height: 400px;
+                backdrop-filter: blur(10px);
+                border-radius: 30px;
+            
+                .header {
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    p {
+                        text-align: center;
+                        font-family: 'Righteous', cursive;
+                        font-size: 3.5em;
+                        color: #333;
+                    }
+                }
+
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+
+                    .input {
+                        margin-top: 7rem;
+                        position: relative;
+                        width: 350px;
+                        
+                        input {
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 1.2em;
+                            overflow: hidden;
+                            width: 100%;
+                            padding: 1.5rem 2rem;
+                            border: 0;
+                            outline: 0;
+                            transition: .5s all;
+                            border-radius: 30px;
+                            background: #E0E5FF;
+                            &::placeholder {
+                                color: $bgel;
+                            }
+                            &:focus {
+                                //border: 2px solid $bgel;
+                                box-shadow: inset 0 0 10px $bgel;
+                                background: #f0f2ff;
+                                transition: .5s
+                            }
+                        }
+
+                        button {
+                            @include flexo();
+                            right: 10px;
+                            top: 14px;
+                            position: absolute;
+                            width: 50px;
+                            height: 50px;
+                            background: $solidblue;
+                            outline: 0;
+                            border: 0;
+                            border-radius: 50%;
+                            box-shadow: 0 5px 20px #1658ff7a;
+                            cursor: pointer;
+                            &:active {
+                                transform: scale(0.9);
+                                transition: .2s all;
+                            }
+                        }
+                    }
+
+                    .line {
+                        span {
+                            color: #9999;
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 0.9em;
+                            pointer-events: none;
+                        }
+                    }
+
+                    .gameisready {
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        .play {
+                            @include flexo();
+                            transition: .2s all;
+                            gap: 10px;
+                            width: 120px;
+                            height: 50px;
+                            background: red;
+                            border: 0;
+                            outline: 0;
+                            border-radius: 10px;
+                            color: #fff;
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 1.3em;
+                            cursor: pointer;
+                            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.349);
+                            &:hover {
+                                scale: 1.03;
+                                transition: .2s all;
+                            }
+                        }
+
+                        .tip {
+                            display: flex;
+                            align-items: flex-start;
+                            justify-content: center;
+                            flex-direction: column;
+                            gap: 10px;
+                            margin-top: 30px;
+                            font-family: 'Poppins', sans-serif;
+                            font-weight: 200;
+                            color: #bbcbff;
+                            font-size: 0.9em;
+
+                            p {
+                                @include flexo();
+                                font-family: 'Poppins', sans-serif;
+                            }
+                        }
+
+                        .goback {
+                            button {
+                                @include flexo();
+                                font-size: 1.2em;
+                                outline: 0;
+                                border: 0;
+                                background: #E0E5FF;
+                                height: 40px;
+                                width: 150px;
+                                border-radius: 30px;
+                                cursor: pointer;
+                                margin-top: 10px;
+                                border: 1px solid #7A9BF8;
+                                color: #7299FF;
+                                font-family: 'Purple Purse', cursive; 
+                                
+                                p {
+                                    transform: translateY(2px);
+                                    font-size: 1.5em;
+                                }
+
+                                span {
+                                    padding-left: 5px;
+                                    font-family: 'Poppins', sans-serif;
+                                    font-size: 1em !important;
+                                }
+                            }
+                        }
+                    }
+                    }
+                }
+            }
+
         }
     }
+
+
+    @media (max-width: 701px ) {
+        .gameChoice {
+            .header {
+                p {
+                    font-size: 2.3em !important;
+                }
+            }
+            .content {
+                .input {
+                    width: 300px !important;
+                }
+            }
+        }
 }
 

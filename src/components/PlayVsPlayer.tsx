@@ -1,16 +1,20 @@
+import React from "react";
 import playerVsPlayer from '../images/playerVsPlayer.svg';
-import { Link } from 'react-router-dom';
 
-
-const PlayVsPlayer = () => {
-  return (
-    <div className='vsPlayer'>
-      <Link className='switcher' to=''>
-        <img src={playerVsPlayer} alt='Play vs Bot'/>
-        <p>Play VS Player</p>
-      </Link>
-    </div>
-  )
+interface ChildProps {
+  gamePlayer: boolean;
+  handlePlayerGame: () => void;
 }
 
-export default PlayVsPlayer
+const PlayVsPlayer: React.FC<ChildProps> = ({ gamePlayer, handlePlayerGame }) => {
+  return (
+    <div className='vsPlayer'>
+      <button className='switcher' onClick={handlePlayerGame}>
+        <img src={playerVsPlayer} alt='Play vs Player' />
+        <p>Play VS Player</p>
+      </button>
+    </div>
+  );
+};
+
+export default PlayVsPlayer;
