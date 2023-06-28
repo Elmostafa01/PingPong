@@ -3,18 +3,19 @@ import playerVsBot from "../images/playerVsBot.svg";
 
 interface ChildProps {
   gameBot: boolean;
-  handleBotGame: () => void; 
+  handlePingPongGame: () => void;
 }
 
-const PlayVsBot: React.FC<ChildProps> = ({ gameBot, handleBotGame }) => {
+const PlayVsBot: React.FC<ChildProps> = ({ gameBot, handlePingPongGame }) => {
   return (
     <div className="vsBot">
-      <button className="switcher" onClick={handleBotGame}>
+      <button className="switcher" onClick={handlePingPongGame}>
         <img src={playerVsBot} alt="Play vs Bot" />
-        <p >Play VS Bot</p>
+        <p>Play VS Bot</p>
       </button>
     </div>
   );
 };
 
 export default PlayVsBot;
+
