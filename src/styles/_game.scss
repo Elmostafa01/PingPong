@@ -324,7 +324,7 @@
                 border-radius: 30px;
 
                 .gameboard {
-                    background: #031644;
+                    background: #030e27;
                     backdrop-filter: blur(5px);
                     width: 100%;
                     height: 100%;
@@ -339,7 +339,8 @@
                         p {
                             font-family: 'Righteous', cursive;
                             letter-spacing: 2px;
-                            color: #fff;
+                            color: #006eff;
+                            pointer-events: none;
                         }
                     }
 

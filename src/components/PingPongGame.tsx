@@ -21,20 +21,20 @@ interface PingPongGameProps {
                 <div className="right-paddle"></div>
             </div>
         </div>
-        <div className="btn">
+        <div className="btn" style={{display: 'flex', gap: '1rem'}}>
             <button style={{outline: '0', border: '0',
-             backgroundColor:'#7A9BF8', height: '30px',
+             backgroundColor:'#E0E5FF', height: '30px',
             width: '100px', marginTop: '5px', borderRadius: '30px',
-            color: '#fff',fontFamily: "Poppins', sans-serif",fontWeight:'700', cursor: 'pointer',
+            color: '#7299FF',fontFamily: "Poppins', sans-serif",fontWeight:'700', cursor: 'pointer',
             fontSize: '0.9em',
             }}>
             Start
             </button>
 
             <button style={{display:'flex',alignItems: 'center',justifyContent: 'center',outline: '0', border: '0',
-             backgroundColor:'#7A9BF8', height: '30px',
+             backgroundColor:'#E0E5FF', height: '30px',
             width: '100px', marginTop: '5px', borderRadius: '30px',
-            color: '#fff',fontFamily: "Poppins', sans-serif",fontWeight:'700', cursor: 'pointer',
+            color: '#7299FF',fontFamily: "Poppins', sans-serif",fontWeight:'700', cursor: 'pointer',
             fontSize: '0.9em',
             }}
              className='close' onClick={handleClose}>

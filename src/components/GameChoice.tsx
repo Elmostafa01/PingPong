@@ -8,6 +8,8 @@ interface GameChoiceProps {
 }
 
 const GameChoice: React.FC<GameChoiceProps> = ({gameName, handleClose}) => {
+    const back = '<'
+
     const [gameAccepted, setGameAccepted] = useState<boolean>(false);
 
   return (
@@ -38,6 +40,7 @@ const GameChoice: React.FC<GameChoiceProps> = ({gameName, handleClose}) => {
             </div>
             <div className="goback">
                 <button onClick={handleClose}>
+                    <p>{back}</p>
                     <span>Go Back</span>
                 </button>
             </div>
