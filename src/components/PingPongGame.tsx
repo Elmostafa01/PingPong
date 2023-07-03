@@ -5,7 +5,6 @@ interface PingPongGameProps {
   }
   
   const PingPongGame: React.FC<PingPongGameProps> = ({ handleClose }) => {
-    const back = '<'
 
     return (
       <div className="ping-pong-game">

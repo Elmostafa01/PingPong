@@ -2,7 +2,7 @@ import React from 'react'
 import players from '../images/players.jpg'
 
 
-const RankedGame = () => {
+const RankedGame: React.FC = () => {
   return (
     <div className='RankedGame'>
       <div className="rankedGameWrapper">

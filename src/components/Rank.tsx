@@ -6,7 +6,7 @@ import blackrectangle from '../images/blackrectangle.svg';
 
 
 
-const Rank = () => {
+const Rank: React.FC = () => {
   return (
     <div className='Rank'>
       <div className="title"><h3>✨Rank✨</h3></div>
