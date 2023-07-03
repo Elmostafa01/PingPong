@@ -34,7 +34,7 @@ const Sidebar: React.FC = () => {
         <div className="linksContainer">
             <ul>
                 <li className={location.pathname === '/' ? 'active' : ''}>
-                  <Link className='Link' to="/">
+                  <Link className='Link' to="/dashboard">
                      <img className='dashboardIcon' height={22} alt='mainboard' src={main} />
                      <span className='span'>Home</span>
                      <div className="stroke"></div>
