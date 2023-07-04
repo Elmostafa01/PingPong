@@ -15,6 +15,7 @@ $white: #FFFFFF;
 $solidblue: #1657FF;
 $lightblue: #F4F6FF;
 $bgel: #BACCFD;
+
 //Fonts
 /*font-family: 'Comfortaa', cursive;
 font-family: 'Inter', sans-serif;
@@ -22,9 +23,9 @@ font-family: 'Lilita One', cursive;
 font-family: 'Poppins', sans-serif;
 font-family: 'Righteous', cursive;*/
 /*font-family: 'Purple Purse', cursive;*/
+/*font-family: 'Open Sans', sans-serif;*/
 
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Inter:wght@500&family=Lilita+One&family=Poppins&family=Purple+Purse&family=Righteous&display=swap');
-////////////Mixin//////////
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Inter:wght@500&family=Lilita+One&family=Open+Sans&family=Poppins&family=Purple+Purse&family=Righteous&display=swap');////////////Mixin//////////
 @mixin scrollbar() {
     overflow-y: scroll;
     overflow-block: scroll;
@@ -68,10 +69,11 @@ body {
 }
 
 
+
 @media (max-width: 1460px) {
-    body {
-        @include scrollbar();
-    }
+   // body {
+     //   @include scrollbar();
+    //}
     
 }
 
