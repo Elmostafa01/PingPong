@@ -10,7 +10,7 @@ import { FaPenToSquare } from "react-icons/fa6";
 const LandingNav: React.FC = () => {
   return (
       <>
-      <nav className="nav">
+      <div className="nav">
             <div className="logo">
                <img className="img" src={logo} />
             </div>
@@ -24,7 +24,7 @@ const LandingNav: React.FC = () => {
                   <Link className='anchor' to="#"><FaPenToSquare />Sign In</Link>
                 </div>
             </div>
-        </nav>
+        </div>
       </>
   )
 }
