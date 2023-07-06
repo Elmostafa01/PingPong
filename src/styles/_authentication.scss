@@ -12,7 +12,11 @@
     @include flexo();
 
 
-    .authentication {
+    .auth-component {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
         width: 100%;
         max-width: 900px;
         min-width: 370px;
@@ -21,5 +25,158 @@
         border-radius: 30px;
         box-shadow: 0 3px  10px #0000000c;
         padding: 2rem;
+        
+        .auth-providers {
+            flex-direction: column;
+            @include flexo();
+            gap: 1.8rem;
+            //margin-inline: auto;
+
+            .text {
+                @include flexo();
+                flex-direction: column;
+                gap: 20px;
+
+                h2 {
+                    font-family: 'Poppins', sans-serif;
+                    text-transform: uppercase;
+                    font-weight: 100;
+                    font-size: 1.5em;
+                    text-align: center;
+                }
+    
+                p {
+                    font-family: 'Poppins', sans-serif;
+                    color: #A19E99;
+                    font-weight: 100;
+                    font-size:0.7em;
+                    text-align: center;
+                }
+            }
+
+            .Intra-comp {
+
+                button {
+                    position: relative;
+                    display: flex;
+                    max-width: 200px;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 1rem 120px;
+                    border-radius: 4px;
+                    outline: 0;
+                    border: 0;
+                    background: #16DBCC;
+                    color: #fff;
+                    font-family: 'Inter', sans-serif;
+                    font-size: 1em;
+                    cursor: pointer;
+
+                    span {
+                        position: absolute;
+                        left: 50px;
+                        width: 2px;
+                        height: 100%;
+                        background: #0dcdc78c;
+                    }
+
+                    img {
+                        position: absolute;
+                        left: 14px;
+                    }
+                }
+            }
+
+            .line-seperated {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+
+                p {
+                    color: #A19E99;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 0.8em;
+                    padding: 0 22px;
+                }
+                
+                span {
+                    height: 2px;
+                    width: 90px;
+                    background: #ECECEB;
+                    border-radius: 20px;
+                }
+            }
+
+            .Google-comp {
+                button {
+                    position: relative;
+                    display: flex;
+                    max-width: 200px;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 1rem 120px;
+                    border-radius: 4px;
+                    outline: 0;
+                    border: 0;
+                    background: #FF5C5C;
+                    color: #fff;
+                    font-family: 'Inter', sans-serif;
+                    font-size: 1em;
+                    cursor: pointer;
+
+                    span {
+                        position: absolute;
+                        left: 50px;
+                        width: 2px;
+                        height: 100%;
+                        background: #F05050;
+                    }
+
+                    img {
+                        position: absolute;
+                        left: 14px;
+                    }
+                }
+            }
+
+            .goback {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+                .back {
+                    @include flexo();
+                    padding: 0.8rem 1rem;
+                    outline: 0;
+                    border: 0;
+                    border-radius: 10px;
+                    cursor: pointer;
+                }
+
+                p {
+                    font-family: 'Poppins', sans-serif;
+                    color: #A19E99;
+                    font-size: 0.8em;
+                }
+            }
+
+        }
+
+        .hero-img {
+            img {
+                width: 400px;
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .Authentincation-page {
+        .auth-component {
+            .hero-img {
+                display: none;
+            }
+        }
     }
 }
