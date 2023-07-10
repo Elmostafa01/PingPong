@@ -6,7 +6,6 @@ import LandingPageRight from '../components/LandingPageRight';
 const LandingPage: React.FC = () => {
   useEffect(() => {
     const blob = document.getElementById('blob');
-    console.log('hmm')
     if (blob) {
       document.body.onpointermove = event => {
         const { clientX, clientY } = event;

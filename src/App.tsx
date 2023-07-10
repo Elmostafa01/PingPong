@@ -10,34 +10,43 @@ import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
 import LandingPage from './pages/LandingPage';
 import Authentication from './pages/Authentication';
+import Registration from './pages/Registration';
+
+
 
 function App() {
-  const excludeRoutes = ['/authentication', '/'];
-
-  const shouldRenderNavbarSidebar = (routePath: string) => {
+  const excludeRoutes = [
+    '/authentication',
+    '/authentication/',
+    '/',
+    '/authentication/register'
+  ];
+  
+  const doNotRenderNavbarSidebar = (routePath: string) => {
     return !excludeRoutes.includes(routePath);
   };
 
   return (
     <Router>
-      <div className="App">
-        {shouldRenderNavbarSidebar(window.location.pathname) && (
-          <>
-            <Navbar />
-            <Sidebar />
-          </>
-        )}
-        <Routes>
-          <Route path='/' element={<LandingPage />} />
-          <Route path='/authentication' element={<Authentication />} />
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/profil' element={<Profil />} />
-          <Route path='/friends' element={<Friends />} />
-          <Route path='/history' element={<History />} />
-          <Route path='/game' element={<Game />} />
-          <Route path='/chat' element={<Chat />} />
-        </Routes>
-      </div>
+        <div className="App">
+          {doNotRenderNavbarSidebar(window.location.pathname) && (
+            <>
+              <Navbar />
+              <Sidebar />
+            </>
+          )}
+          <Routes>
+            <Route path='/' element={<LandingPage />} />
+            <Route path='/authentication' element={<Authentication />} />
+            <Route path='/authentication/register' element={<Registration />} /> 
+            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/profil' element={<Profil />} />
+            <Route path='/friends' element={<Friends />} />
+            <Route path='/history' element={<History />} />
+            <Route path='/game' element={<Game />} />
+            <Route path='/chat' element={<Chat />} />
+          </Routes>
+        </div>
     </Router>
   );
 }

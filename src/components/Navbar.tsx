@@ -5,8 +5,8 @@ import menone from '../images/menone.svg';
 import useClickOutside from '../hooks/useClickOutside';
 
 const Navbar: React.FC = () => {
-  const [expand, setExpand] = useState(false);
-  const [notificationActive, setNotificationActive] = useState(false);
+  const [expand, setExpand] = useState<boolean>(false);
+  const [notificationActive, setNotificationActive] = useState<boolean>(false);
 
   const handleExpand = () => {
     setExpand(!expand);

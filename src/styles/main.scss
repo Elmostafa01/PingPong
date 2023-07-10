@@ -24,8 +24,10 @@ font-family: 'Poppins', sans-serif;
 font-family: 'Righteous', cursive;*/
 /*font-family: 'Purple Purse', cursive;*/
 /*font-family: 'Open Sans', sans-serif;*/
+/*font-family: 'M PLUS Rounded 1c', sans-serif;*/
+/*font-family: 'Manjari', sans-serif;*/
 
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Inter:wght@500&family=Lilita+One&family=Open+Sans&family=Poppins&family=Purple+Purse&family=Righteous&display=swap');////////////Mixin//////////
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Inter:wght@500&family=Lilita+One&family=M+PLUS+Rounded+1c:wght@500&family=Manjari:wght@100&family=Open+Sans&family=Poppins&family=Purple+Purse&family=Righteous&display=swap');
 @mixin scrollbar() {
     overflow-y: scroll;
     overflow-block: scroll;

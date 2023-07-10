@@ -8,6 +8,7 @@ import { FaPenToSquare } from "react-icons/fa6";
 
 
 const LandingNav: React.FC = () => {
+
   return (
       <>
       <div className="nav">
@@ -21,7 +22,7 @@ const LandingNav: React.FC = () => {
                 </button>
                 <div className="dropdown-content">
                   <a className='anchor' href="https://github.com/Elmostafa01/PingPong" target="_blank" ><FaGithub />Github</a>
-                  <Link className='anchor' to="#"><FaPenToSquare />Sign In</Link>
+                  <Link className='anchor' to="/authentication"><FaPenToSquare />Sign In</Link>
                 </div>
             </div>
         </div>

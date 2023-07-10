@@ -12,7 +12,7 @@ import logo from '../images/logo.svg';
 const Sidebar: React.FC = () => {
     const location = useLocation();
 
-    const [closeMenu, setCloseMenu] = useState(true);
+    const [closeMenu, setCloseMenu] = useState<boolean>(true);
 
     const handleCloseMenu = () => {
         setCloseMenu(!closeMenu);

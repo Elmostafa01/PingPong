@@ -285,6 +285,10 @@ $vanilla: #F4F6FF;
             }
             .about {
                 right: 3rem;
+
+                .dropdown-content {
+                    transform: translateX(-20%);
+                }
             }
         }
         .effect {
@@ -299,6 +303,14 @@ $vanilla: #F4F6FF;
                     }
                 }
             }
+
+
+                .mid-right {
+                    .image {
+                        margin-top: 0;
+                        width: 500px;
+                    }
+                }
         }
     }
 }
@@ -312,5 +324,7 @@ $vanilla: #F4F6FF;
                 }
             }
         }
+
+
     }
 }
