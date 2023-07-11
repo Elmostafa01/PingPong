@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import leftimage from '../images/backgrounds/img-3.png';
 import menone from '../images/icons/m-1.png';
 import mentwo from '../images/icons/m-2.png';
 import girlone from '../images/icons/g-1.png';
-import girltwo from '../images/icons/g-2.png'
+import girltwo from '../images/icons/g-2.png';
+import { addDoc, collection } from 'firebase/firestore';
+import { db, auth } from '../utils/firebase';
 
 interface image {
   image: string;
@@ -31,11 +34,51 @@ const images: image[] = [
 
 
 const Registration: React.FC = () => {
+  const [selectedImageId, setSelectedImageId] = useState<number | null>(null);
+  const [username, setUsername] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSelectedImage = (id: number) => {
+    setSelectedImageId(id);
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  
+    try {
+      setIsLoading(true);
+      // Validate username
+      if (username.length < 4 || username.length > 10 || /[@$!%*?&]/.test(username)) {
+        alert('Username must be between 4 and 10 characters long and cannot contain special characters.');
+        return;
+      }
+      // Get user info from Google authentication
+      const user = auth.currentUser;
+      if (!user) {
+        throw new Error('User not authenticated');
+      }
+      // Add user's profile data to Firebase Firestore
+      await addDoc(collection(db, 'users'), {
+        uid: user.uid,
+        username,
+        photoURL: selectedImageId !== null ? images.find(image => image.id === selectedImageId)?.image : undefined,
+      });
+      // Redirect user to dashboard
+      navigate('/dashboard');
+    } catch (error) {
+      console.error(error);
+      // Handle error
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className='Registration'>
       <div className="register-component">
         <div className="hero-img">
-          <img src={leftimage} />
+          <img src={leftimage} alt="background" />
         </div>
         <div className="user-choice">
           <div className="text">
@@ -46,17 +89,31 @@ const Registration: React.FC = () => {
           <div className="icons">
             <ul>
               {images.map((image) => (
-                <li>
-                  <img height={40} src={image.image} alt="`${image.id}`" />
+                <li key={image.id} className={selectedImageId === image.id ? 'selected' : ''}>
+                  <img
+                    src={image.image}
+                    alt=""
+                    onClick={() => handleSelectedImage(image.id)}
+                  />
                 </li>
               ))}
             </ul>
           </div>
-          <div className="enter-username">
-            <input type="text" placeholder='username'/>
-            <button>register</button>
-          </div>
-          
+          <form onSubmit={handleSubmit}>
+            <div className="enter-username">
+              <input type="text" placeholder='username' 
+                     value={username} onChange={(e) => setUsername(e.target.value)}
+               />
+              <button type='submit' 
+                      disabled={!selectedImageId || !username || isLoading}>
+                      {isLoading ?
+                       (                      
+                       <span className='loader'></span>                   
+                      ) 
+                      : 'Register'}
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

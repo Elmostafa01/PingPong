@@ -1,24 +1,27 @@
-import React from 'react'
-import { FaFacebookF } from "react-icons/fa";
-import googleImg from '../images/google_logo.png';
+import React , { useEffect } from 'react'
 import arrowLeft from '../images/arrow-left.svg'
 import hero from '../images/SVG-HERO.svg'
+import Google from '../components/Google';
+import Facebook from '../components/Facebook';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../utils/firebase';
-import { signInWithRedirect, GoogleAuthProvider } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 
 
 const Authentication: React.FC = () => {
- const GoogleAuth = async () => {
-  const provider = new GoogleAuthProvider();
-  try {
-    const result = await signInWithRedirect(auth, provider);
-    console.log(result);
+  const navigate = useNavigate();
 
-  } catch (error) {
-    console.log(error);
-  }
-};
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate('/authentication/register');
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, [navigate]);
 
   const history = useNavigate();
   const goBack = () => {
@@ -33,25 +36,13 @@ const Authentication: React.FC = () => {
             <h2>welcome 👋</h2>
             <p>Please log in with</p>
           </div>
-          <div className='Google-comp'>
-            <button onClick={GoogleAuth} className='gauth'>
-              <img src={googleImg} />
-              <span></span>
-              <p>Google</p>
-            </button>
-          </div>
+          <Google />
           <div className="line-seperated">
             <span></span>
             <p>Or</p>
             <span></span>
           </div>
-          <div className='Facebook-comp'>
-            <button className='fauth'>
-              <FaFacebookF className='facebook' />
-              <span></span>
-              <p>Facebook</p>
-            </button>
-          </div>
+          <Facebook />
           <div className="goback">
             <button onClick={goBack} className='back'>
               <img src={arrowLeft} />

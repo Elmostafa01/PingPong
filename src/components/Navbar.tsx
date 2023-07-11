@@ -7,6 +7,7 @@ import useClickOutside from '../hooks/useClickOutside';
 const Navbar: React.FC = () => {
   const [expand, setExpand] = useState<boolean>(false);
   const [notificationActive, setNotificationActive] = useState<boolean>(false);
+  const [isSignoutVisible, setIsSignoutVisible] = useState<boolean>(false);
 
   const handleExpand = () => {
     setExpand(!expand);
@@ -23,6 +24,11 @@ const Navbar: React.FC = () => {
   const notificationContainerRef = useClickOutside(() => {
     setNotificationActive(false);
   });
+
+  const handleAvatarClick = () => {
+    setIsSignoutVisible(!isSignoutVisible);
+    console.log('oero')
+  };
 
   return (
     <div className="navbar">
@@ -50,10 +56,10 @@ const Navbar: React.FC = () => {
           </div>
         </div>
         <div className="avatarContainer">
-          <div className="avatar">
+          <div className={`avatar ${isSignoutVisible ? 'active' : ''}`} onClick={handleAvatarClick}>
             <img className="rasta" height={52} alt="avatar" src={menone} />
           </div>
-        </div>
+          <button className={`signout ${isSignoutVisible ? 'visible' : ''}`}>Signout</button>        </div>
       </div>
     </div>
   );

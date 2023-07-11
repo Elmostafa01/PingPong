@@ -292,10 +292,17 @@
                     align-items: center;
                     gap: 20px;
 
+                    li.selected {
+                        img {
+                            border: 2px solid  $solidblue;
+                            border-radius: 50%;
+                        }
+                    }
+
                     li {
                         cursor: pointer;
-
                         list-style: none;
+
                         img {
                             border-radius: 50%;
                             //border: 2px solid $solidblue; 
@@ -342,7 +349,9 @@
                     background:#1657FF;
                     color: #fff;
                     font-family: 'Poppins', sans-serif;
-                    padding: 12px 2rem;
+                    //padding: 12px 2rem;
+                    width: 120px;
+                    height: 45px;
                     border-radius:  8px;
                     cursor: pointer;
                     transition: .5s all;
@@ -359,11 +368,33 @@
                         text-shadow: 0 0 4px #2222226c;
                     }
 
+                    .loader {
+                        width: 18px;
+                        height: 18px;
+                        border-radius: 50%;
+                        display: inline-block;
+                        margin-top: 5px;
+                        border-top: 3px solid #FFF;
+                        border-right: 3px solid transparent;
+                        box-sizing: border-box;
+                        animation: rotation 1s linear infinite;
+                    }
+
                 }
             }
         }
     }
 }
+
+@keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+
 
 
 @media (max-width: 900px) {

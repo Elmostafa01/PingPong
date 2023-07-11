@@ -37,8 +37,9 @@ function App() {
           )}
           <Routes>
             <Route path='/' element={<LandingPage />} />
-            <Route path='/authentication' element={<Authentication />} />
-            <Route path='/authentication/register' element={<Registration />} /> 
+            <Route path='/authentication' element={<Authentication />} >
+              <Route path='/authentication/register' element={<Registration />} /> 
+            </Route>
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/profil' element={<Profil />} />
             <Route path='/friends' element={<Friends />} />

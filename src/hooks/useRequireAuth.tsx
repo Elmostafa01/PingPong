@@ -1,6 +1,6 @@
-/* import { useEffect } from 'react';
+ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from './firebase-config';
+import { auth } from '../utils/firebase';
 
 const useRequireAuth = () => {
   const navigate = useNavigate();
@@ -20,4 +20,4 @@ const useRequireAuth = () => {
 };
 
 export default useRequireAuth;
- */
+ 

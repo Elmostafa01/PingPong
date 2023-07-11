@@ -70,27 +70,7 @@ const Statistic = () => {
       <div className="statistic-wrapper">
         <div className="winrate">
           <h1>Games Winrate</h1>
-          <div className="skill">
-            <div className="outer">
-              <div className="inner">
-                <div className="number">
-                  23 Wins 
-                  <span className='percent'>75%</span>
-                </div>
-              </div>
-            </div>
-            <div className="svg">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
-            <defs>
-            <linearGradient id="GradientColor">
-               <stop offset="0%" stop-color="#1657FF" />
-               <stop offset="100%" stop-color="#5D73FA" />
-            </linearGradient>
-            </defs>
-            <circle cx="80" cy="80" r="70" stroke-linecap="round" />
-          </svg> 
-            </div>
-          </div>
+
         </div>
         <div className="loggedin">
           <div className="time">
