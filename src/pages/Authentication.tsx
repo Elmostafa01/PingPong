@@ -1,33 +1,17 @@
-import React , { useEffect } from 'react'
+import React  from 'react'
 import arrowLeft from '../images/arrow-left.svg'
 import hero from '../images/SVG-HERO.svg'
 import Google from '../components/Google';
 import Facebook from '../components/Facebook';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../utils/firebase';
-import { onAuthStateChanged } from 'firebase/auth';
+
 
 
 const Authentication: React.FC = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        navigate('/authentication/register');
-      }
-    });
-
-    return () => {
-      unsubscribe();
-    };
-  }, [navigate]);
-
   const history = useNavigate();
   const goBack = () => {
     history('/');
   }
-
   return (
     <div className='Authentincation-page'>
       <div className="auth-component">

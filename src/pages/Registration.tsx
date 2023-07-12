@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import leftimage from '../images/backgrounds/img-3.png';
 import menone from '../images/icons/m-1.png';
 import mentwo from '../images/icons/m-2.png';
 import girlone from '../images/icons/g-1.png';
 import girltwo from '../images/icons/g-2.png';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, getDoc, doc } from 'firebase/firestore';
 import { db, auth } from '../utils/firebase';
 
 interface image {
@@ -32,12 +32,29 @@ const images: image[] = [
   }
 ]
 
-
 const Registration: React.FC = () => {
   const [selectedImageId, setSelectedImageId] = useState<number | null>(null);
   const [username, setUsername] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const unregisterAuthObserver = auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const userDoc = doc(db, 'users', user.uid);
+        const snapshot = await getDoc(userDoc);
+        const userData = snapshot.data();
+
+        if (userData && userData.username) {
+          navigate('/dashboard');
+        }
+      }
+    });
+
+    return () => {
+      unregisterAuthObserver();
+    };
+  }, [navigate]);
 
   const handleSelectedImage = (id: number) => {
     setSelectedImageId(id);
@@ -63,6 +80,7 @@ const Registration: React.FC = () => {
         uid: user.uid,
         username,
         photoURL: selectedImageId !== null ? images.find(image => image.id === selectedImageId)?.image : undefined,
+        registrationComplete: true,
       });
       // Redirect user to dashboard
       navigate('/dashboard');

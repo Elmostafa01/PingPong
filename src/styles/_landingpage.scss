@@ -124,6 +124,7 @@ $vanilla: #F4F6FF;
             position: absolute;
             z-index: 2;
             backdrop-filter: blur(300px);
+            -webkit-backdrop-filter: blur(300px);
         }
     }
 
