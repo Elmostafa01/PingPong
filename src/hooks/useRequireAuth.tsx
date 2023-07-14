@@ -10,6 +10,7 @@ const useRequireAuth = () => {
       if (!user) {
         // User is not authenticated, redirect to authentication page
         navigate('/authentication');
+        alert('You are Not Signed-In , Please Sign-In...')
       }
     });
 

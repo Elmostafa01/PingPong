@@ -1,9 +1,13 @@
 import AddFriend from "../components/AddFriend"
 import Invitations from "../components/Invitations"
 import Table from "../components/Table"
+//import useRequireAuth from '../hooks/useRequireAuth'
+
 
 
 const Friends = () => {
+//  useRequireAuth() 
+
   return (
     <div className='Friends'>
       <div className="addFriend-acceptFriend">

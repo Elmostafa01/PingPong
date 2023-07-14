@@ -5,7 +5,6 @@ const ChangingProfilHolder = () => {
 
   const AppearBtn = () => {
     setBtnShowUp(!btnShowUp);
-    console.log(btnShowUp)
   }
 
   return (

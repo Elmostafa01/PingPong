@@ -7,9 +7,9 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Authentication: React.FC = () => {
-  const history = useNavigate();
+  const goToLandingPage = useNavigate();
   const goBack = () => {
-    history('/');
+    goToLandingPage('/');
   }
   return (
     <div className='Authentincation-page'>

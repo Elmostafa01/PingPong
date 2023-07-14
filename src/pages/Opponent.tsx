@@ -1,5 +1,5 @@
 import React from 'react'
-import ChangingProfilHolder from '../components/ChangingProfilHolder'
+import ChangingProfilHolderOpponent from '../components/ChangingProfilHolderOpponent'
 import OpponentLevelAvatar from '../components/OpponentLevelAvatar'
 import LevelXp from '../components/LevelXp'
 import RankXp from '../components/RankXp'
@@ -15,7 +15,7 @@ const Opponent: React.FC = () => {
               <div className="title">
                 <h1>Profil</h1>
               </div>
-              <ChangingProfilHolder /> 
+              <ChangingProfilHolderOpponent /> 
           </div>
           <div className="content">
             <OpponentLevelAvatar />

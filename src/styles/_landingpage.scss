@@ -185,52 +185,53 @@ $vanilla: #F4F6FF;
                 }
         }
 
-            .btn-div {
-                margin-top: 2rem;
-                overflow: hidden;
-                .btn {
-                    padding: 0 20px;
-                    position: relative;
-                    background: transparent;
-                    outline: 0;
-                    border: 0;
-                    height: 80px;
-                    font-family: 'Righteous', cursive;
-                    font-size: 2rem;
-                    text-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-                    color: #fff;
-                    cursor: pointer;
-                    animation: slide 1.8s cubic-bezier(0.665, 0.84, 0.44, 1) forwards ;
-                    transform: translateY(180%);
+    .btn-div {
+        margin-top: 2rem;
+        overflow: hidden;
+        
+    .btn {
+            padding: 0 20px;
+            position: relative;
+            background: transparent;
+            outline: 0;
+            border: 0;
+            height: 80px;
+            font-family: 'Righteous', cursive;
+            font-size: 2rem;
+            text-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+            color: #fff;
+            cursor: pointer;
+            animation: slide 1.8s cubic-bezier(0.665, 0.84, 0.44, 1) forwards ;
+            transform: translateY(180%);
                   
-                    &::before {
-                      content: '';
-                      display: block;
-                      position: absolute;
-                      inset: 0;
-                      height: 80px;
-                      width: 80px;
-                      border-radius: 50px;
-                      z-index: -1;
-                      background: rgb(255, 99, 99);
-                      background: linear-gradient(
-                        0deg,
-                        rgba(255, 99, 99, 1) 0%,
-                        rgba(212, 0, 0, 1) 100%
-                      );
-                      transition: width 200ms;
-                    }
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                inset: 0;
+                height: 80px;
+                width: 80px;
+                border-radius: 50px;
+                z-index: -1;
+                background: rgb(255, 99, 99);
+                background: linear-gradient(
+                0deg,
+                rgba(255, 99, 99, 1) 0%,
+                rgba(212, 0, 0, 1) 100%
+                );
+                transition: width 200ms;
+            }
                   
-                    &:is(:hover, :focus)::before {
-                      width: 100%;
-                    }
+            &:is(:hover, :focus)::before {
+                width: 100%;
+            }
                   
                 }
                 &:active {
                   transform: scale(0.8);
                   transition: transform 200ms ;
                 }
-            }
+        }
 
             .mid-right {
                 //border: 1px solid red;

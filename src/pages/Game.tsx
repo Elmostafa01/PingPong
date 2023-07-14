@@ -1,8 +1,11 @@
 import bgplayer from '../images/bgplayer.svg';
 import GameMode from '../components/GameMode';
+//import useRequireAuth from '../hooks/useRequireAuth'
 
 
 const Game = () => {
+ // useRequireAuth() 
+
   return (
     <div className='Game'>
       <div className="title">

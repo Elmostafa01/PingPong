@@ -12,6 +12,7 @@ import LandingPage from './pages/LandingPage';
 import Authentication from './pages/Authentication';
 import Registration from './pages/Registration';
 import Opponent from './pages/Opponent';
+import Error from './pages/Error';
 
 
 
@@ -46,6 +47,7 @@ function App() {
           <Route path="/history" element={<History />} />
           <Route path="/game" element={<Game />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/error404" element={<Error />} />
         </Routes>
       </div>
     </Router>

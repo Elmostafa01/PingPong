@@ -4,8 +4,12 @@ import LevelXp from '../components/LevelXp'
 import RankXp from '../components/RankXp'
 import CurrentAchievement from '../components/CurrentAchievement'
 import Achievements from '../components/Achievements'
+//import useRequireAuth from '../hooks/useRequireAuth'
+
 
 const Profil = () => {
+ // useRequireAuth() 
+
   return (
     <div className='profil'>
       <div className="wrapper">
