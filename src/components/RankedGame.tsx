@@ -1,5 +1,6 @@
 import React from 'react'
 import players from '../images/players.jpg'
+import { Link } from 'react-router-dom'
 
 
 const RankedGame: React.FC = () => {
@@ -10,7 +11,9 @@ const RankedGame: React.FC = () => {
           <h3>✨Game✨</h3>
         </div>
         <div className="btn">
-          <button>PLAY</button>
+          <Link to='/game'>
+            <button>PLAY</button>
+          </Link>
         </div>
         <div className="image">
           <img src={players} alt="" />

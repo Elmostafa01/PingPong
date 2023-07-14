@@ -1,10 +1,9 @@
-import React  from 'react'
+import React, { useEffect}  from 'react'
 import arrowLeft from '../images/arrow-left.svg'
 import hero from '../images/SVG-HERO.svg'
 import Google from '../components/Google';
 import Facebook from '../components/Facebook';
 import { useNavigate } from 'react-router-dom';
-
 
 
 const Authentication: React.FC = () => {

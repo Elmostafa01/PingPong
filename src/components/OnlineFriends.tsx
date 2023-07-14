@@ -80,28 +80,31 @@ const OnlineFriends = () => {
         <h3>✨Friends✨</h3>
       </div>
       <div className="cards-wrapper">
-        {friendsData.map((card, i) => (
-        <div className="card-friend" key={i}>
-          <div className="friend">
-            <div className="avatar">
-              <span className='online'></span>
-              <img src={card.image} alt='friend image' height={60} />
+        {friendsData ? 
+        (friendsData.map((card, i) => (
+            <div className="card-friend" key={i}>
+              <div className="friend">
+                <div className="avatar">
+                  <span className={friendsData[1] ? 'online' : 'occupied'}></span>
+                  <img src={card.image} alt='friend image' height={60} />
+                </div>
+                <div className="card-name">
+                  <span className='name'>{card.name}</span>
+                  <span className='ingame'>{card.statut}</span>
+                </div>
+              </div>
+              <div className="send-msg">
+                <input type="text" placeholder='Send a Msg . . .'/>
+                <div className="sendchat">
+                  <button>
+                  <img src={sendchat} alt="send chat" />
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="card-name">
-              <span className='name'>{card.name}</span>
-              <span className='ingame'>{card.statut}</span>
-            </div>
-          </div>
-          <div className="send-msg">
-            <input type="text" placeholder='Send a Msg . . .'/>
-            <div className="sendchat">
-              <button>
-              <img src={sendchat} alt="send chat" />
-              </button>
-            </div>
-          </div>
-        </div>
-        ))}
+            ))
+        ):
+        (<p className='friends-off'>No Friend Online</p>)}
       </div>
     </div>
   )

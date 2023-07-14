@@ -295,6 +295,15 @@
                                    transition: .5s all;
                                 }
                             }
+
+                            .occupied {
+                                position: relative;
+                                width: 12px;
+                                height: 12px;
+                                background: #ffa600;
+                                border-radius: 100%;
+                                border: 1px solid #fff;
+                            }
                         }
 
                         .card-name {
@@ -308,7 +317,7 @@
                             }
                             .ingame {
                                 font-size: 0.75em;
-                                color: #16DBCC;
+                                color: #09db5a;
                             }
                         }
                     }
@@ -377,6 +386,13 @@
                         
                     }
             }
+            .friends-off {
+                color: $bgel;
+                font-size: 1.8rem;
+                display: flex;
+                justify-content: center;
+                font-family: 'Manjari', sans-serif
+            }
         }
     }
 
@@ -426,68 +442,40 @@
                 }
 
                 h1 {
-                    font-size: 1rem;
-                    font-family: 'Poppins', sans-serif;
+                    position: absolute;
+                    top: 4rem;
+                    font-size: 1em;
+                    font-family: 'Poppins', sans-serif;  
                 }
 
-                .skill {
-                    width: 160px;
-                    height: 160px;
-                    //background: cornflowerblue;
-                    position: relative;
-
-                    .outer {
-                        position: relative;
-                        height: 160px;
-                        width: 160px;
-                        border-radius: 50%;
-                        //border: 1px solid red;
-                        background: #EFF3FE;
-                        
-                        padding: 20px;
-
-                        .inner {
-                            height: 120px;
-                            width: 120px;
-                            border-radius: 50%;
-                            //border: 1px solid red;
-                            background-color: #fff;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-
-                            .number {
-                                display: flex;
-                                flex-direction: column;
-                                align-items: center;
-                                justify-content: center;
-                                font-weight: 600;
-                                color: #000;
-
-                                .percent {
-                                    color: $bgel;
-                                    font-weight: 100;
-                                }
-                            }
-                        }
-                    }
-
-                    .svg {  
-                        svg {
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                        }
-
-                        circle {
-                            fill: none;
-                            stroke: url(#GradientColor);
-                            stroke-width: 20px;
-                            stroke-dasharray: 482;
-                            stroke-dashoffset: 150;
-                        }
+                p {
+                    color: #000;
+                    display: flex;
+                    text-align: center;
+                    justify-content: center;
+                    gap: 10px;
+                    margin-top: 4rem;
+                    flex-direction: column;
+                    font-family: 'Inter', sans-serif;
+                    font-weight: 700;
+                    
+                    span {
+                        font-family: 'Manjari', sans-serif;
+                        color: $bgel;
                     }
                 }
+
+                .PieChart {
+                    position: absolute;
+                    width: 220px;
+                    height: 220px;
+                }
+                .BarChart {
+                    position: absolute;
+                    width: 200px;
+                    height: 200px;
+                }
+                
             }
 
             .loggedin {
@@ -506,7 +494,7 @@
 
                 .time {
                     position: absolute;
-                    top: 3.2rem;
+                    top: 2rem;
 
                     h1 {
                         font-size: 1rem;
@@ -809,7 +797,6 @@
 
             .btn {
                 position: absolute;
-
                 button  {
                     position: relative;
                     padding: 15px 50px;
@@ -889,7 +876,12 @@
             }
 
             .statistic-wrapper {
-                //flex-wrap: wrap;
+                
+                .winrate {
+                    h1 {
+                        display: none;
+                    }
+                }
 
                 .winrate,.loggedin {
                     position: relative;

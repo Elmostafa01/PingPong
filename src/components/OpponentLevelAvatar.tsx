@@ -1,10 +1,10 @@
-import menone from '../images/menone.svg'
+import mentwo from '../images/mentwo.svg'
 
-const LevelAvatar = () => {
+const OpponentLevelAvatar = () => {
   const statut = {
-    level: 18,
-    username: 'SIMO09',
-    rank: 'Faker'
+    level: 10,
+    username: 'Doopa',
+    rank: 'Gold'
   };
 
   return (
@@ -13,7 +13,7 @@ const LevelAvatar = () => {
         <span>LVL {statut.level}</span>
       </div>
       <div className="avatar">
-        <img src={menone} alt="avatar" />
+        <img src={mentwo} alt="avatar" />
       </div>
       <div className="labels">
         <div className="name">
@@ -29,4 +29,4 @@ const LevelAvatar = () => {
   )
 }
 
-export default LevelAvatar
+export default OpponentLevelAvatar

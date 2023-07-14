@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LevelXp = () => {
+const LevelXp: React.FC = () => {
   return (
     <div className='level-xp'>
       <div className="levelxp-label">
@@ -9,7 +9,7 @@ const LevelXp = () => {
       <div className="progress-bar">
         <div className="progress-bar-fill"></div>
       </div>    
-      <div className="percent">90%</div>
+      <div className="percent">30%</div>
     </div>
   )
 }

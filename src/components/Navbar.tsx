@@ -78,7 +78,7 @@ const Navbar: React.FC = () => {
           <button 
             className={`signout ${isSignoutVisible ? 'visible' : ''}`}
             onClick={handleSignOut}
-          ><PiSignOutFill />Exit</button>
+          ><PiSignOutFill />Log out</button>
         </div>
       </div>
     </div>

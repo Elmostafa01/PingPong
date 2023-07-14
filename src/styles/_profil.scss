@@ -544,6 +544,524 @@ $fontcolor: #353E6C;
     }
     }
 
+.Opponent {
+        margin-inline: auto;
+        margin: 5rem 0 0 3rem;
+        padding: 1rem;
+        width: 80vw;
+        height: 80vh;
+        border-radius: 30px;
+        //border: 2px solid blue;
+    
+        .wrapper {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            width: 100%;
+            height: 75vh;
+            //border: 2px solid red;
+            gap: 1rem;
+    
+            .profil-card {
+                //border: 2px solid blue;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                background: #fff;
+                width: 100%;
+                max-width: 350px;
+                height: 100%;
+                max-height: 750px;
+                padding: 20px;
+                border-radius: 30px;
+                overflow: hidden;
+                position: relative;
+                &:hover {
+                    transition: box-shadow .4s;
+                    box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+                }
+    
+                .top-header {
+                    padding: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+    
+                    .title {
+                        width: 100%;
+                        overflow: hidden;
+                        max-width: 100px;
+                        position: absolute;
+                        top: 1.2rem;
+                        left: 2rem;
+                
+                        h1 {
+                            font-family: 'Lilita One', cursive;
+                            color: #353E6C;
+                            font-size: 1.5em;
+                            font-weight: 700;
+                            animation: slide 1.8s cubic-bezier(0.365, 0.84, 0.44, 1) forwards ;
+                            transform: translateY(-180%);
+                            margin: 0;
+                
+                        }
+                    }
+    
+                    .profil-btn {
+                        @include flexo();
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        background: $lightblue;
+                        padding: 20px;
+                        cursor: pointer;
+                        transition: .4s ease;
+                        position: absolute;
+                        top: 1.2rem;
+                        right: 2rem;
+                        &:hover {
+                            background-color: #dfe6ff;
+                        }
+    
+    
+                        .btn {
+                            display: inline-block;                        
+                            position: relative;
+                            padding: 10px;
+                            //border: 1px solid red;
+    
+                            .dots {
+                                @include flexo();
+                            }
+                        }
+                        
+                        .dropProfil {
+                            z-index: 88;
+                            position: absolute;
+                            width: 180px;
+                            height: auto;
+                            top: 3rem;
+                            right: 0;
+                            border: 2px solid #fff;
+                            border-radius: 10px;
+                            background: #F4F6FF;
+                            box-shadow: 0 5px 15px #1830552a;
+                            overflow: hidden;
+                            transition: .5s all;
+                            display: none;
+                            animation: fade .8s  forwards ;
+                            opacity: 0;
+                            transform: translateY(-20%);
+    
+                            .change-avatar {
+                                .change-avatar-btn {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-around;
+                                    gap: 5px;
+                                    padding: 10px;
+                                    width: 100%;
+                                    background: transparent;
+                                    outline: 0;
+                                    border: 0;
+                                    transition: .5s all;
+                                    border-bottom: 2px solid #fff; 
+                                    cursor: pointer;
+                                    &:hover {
+                                        transition: .5s all;
+                                        background: #e1e6fd;
+                                    }
+                                    &:active {
+                                        background: #ffffff;
+                                        transition: .2s;
+                                    }
+    
+                                    span {
+                                        font-family: 'Poppins', sans-serif;
+                                        color: $solidblue;
+                                        font-size: 1em;
+                                    }
+                                }
+                            }
+    
+                            .change-name {
+                                .change-name-btn {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-evenly;
+                                    gap: 5px;
+                                    cursor: pointer;
+                                    padding: 10px;
+                                    transition: .3s all;
+                                    width: 100%;
+                                    background: transparent;
+                                    outline: 0;
+                                    border: 0;
+                                    &:hover {
+                                        transition: .5s all;
+                                        background: #e1e6fd;
+                                    }
+                                    &:active {
+                                        background: #ffffff;
+                                        transition: .2s;
+                                    }
+    
+                                    svg {
+                                        transform: translateX(-50%);
+                                    }
+    
+                                    span {
+                                        transform: translateX(-15%);
+                                        font-family: 'Poppins', sans-serif;
+                                        color: $solidblue;
+                                        font-size: 1em;
+                                    }
+                                }
+                            }
+                        }
+                        .dropProfil.active {
+                            display: block
+                        }
+                    }
+                }
+    
+                .content {
+                    @include flexo();
+                    flex-direction: column;
+                    //border: 1px solid blue;
+                    transform: translateY(2%);
+                    //gap: 3rem;
+    
+                    .level-avatar {
+                        @include flexo();
+                        flex-direction: column;
+                        //margin-top: 1rem;
+    
+                        .level {
+                            span {
+                                font-family: 'Lilita One', cursive;
+                                color: $fontcolor;
+                            }
+                        }
+    
+                        .avatar {
+                            width: 8rem;
+                            height: 8rem;
+                            border-radius: 100%;
+                            margin-bottom: 1rem;
+    
+                            img {
+                                height: 100%;
+                                width: 100%;
+                                filter: brightness(1.08);
+                                pointer-events: none;
+                            }
+                        }
+    
+                        .labels {
+                            @include flexo();
+                            gap: 2rem;
+    
+                            .name {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 0.8rem;
+                                p {
+                                    font-family: 'Comfortaa', cursive;
+                                    color: #BACCFD ;
+                                    font-size: 0.9em;
+                                    font-weight: 900;
+                                }
+                                span {
+                                    font-family: 'Poppins', sans-serif;
+                                    font-size: 0.8em;
+                                    font-weight: 600;
+                                    color: #000;
+                                }
+                            }
+    
+                            .rank {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 0.8rem;
+                                p {
+                                    font-family: 'Comfortaa', cursive;
+                                    font-size: 0.9em;
+                                    font-weight: 900;
+                                    color: #BACCFD ;
+                                }
+                                span {
+                                    font-family: 'Poppins', sans-serif;
+                                    font-size: 0.8em;
+                                    font-weight: 600;
+                                    color: #000;
+                                }
+                            }
+                        }
+                    }
+    
+                    .level-xp {
+                    width: 200px;
+                    @include flexo();
+                    flex-direction: column;
+                    gap: 3px;
+                    position: relative;
+    
+                    .levelxp-label {
+                        transform: translateX(-60%);
+                        margin-top: 1.3rem;
+                        p {
+                            font-family: 'Comfortaa', cursive;
+                            color: #BACCFD ;
+                            font-size: 0.9em;
+                        }
+                    }
+    
+                    .progress-bar {
+                        width: 100%;
+                        height: 35px;
+                        border-radius: 20px;
+                        background: #E7EBFF;
+                        overflow: hidden;
+                        //border: 1px solid $bgel;
+    
+                        .progress-bar-fill {
+                            height: 100%;
+                            background-image: linear-gradient(to right, #1758ff, #3861fe, #4c69fc, #5e5bfb, #826cff);
+                            width: 30%;
+                            box-shadow: inset 0 0 10px #f1f1f1a1;
+                        }
+    
+                    }
+    
+                    .percent {
+                        position: absolute;
+                        bottom: 13%;
+                        font-family: 'Inter', sans-serif;
+                        color: #fff;
+                        font-size: 0.8em;
+                        font-weight: 400;
+                        text-shadow: 0 0 5px #000;
+                    }
+                    }
+    
+                    .rank-xp {
+                        width: 200px;
+                        @include flexo();
+                        flex-direction: column;
+                        gap: 3px;
+                        position: relative;
+                        margin-top: 1rem;
+        
+                        .rankxp-label {
+                            transform: translateX(-80%);
+                            margin-top: 0.8rem;
+                            p {
+                                font-family: 'Comfortaa', cursive;
+                                color: #BACCFD ;
+                                font-size: 0.9em;
+                            }
+                        }
+        
+                        .progress-bar {
+                            width: 100%;
+                            height: 35px;
+                            border-radius: 20px;
+                            background: #E7EBFF;
+                            //border: 1px solid $bgel;
+                            overflow: hidden;
+        
+                            .progress-bar-fill {
+                                height: 100%;
+                                background-image: linear-gradient(to right, #ff1311, #ff380a, #ff4d04, #ff5f00, #ff6e00);                            
+                                width: 80%;
+                                box-shadow: inset 0 0 10px #f1f1f1a1;
+                            }
+                        } 
+    
+                        .percent {
+                            position: absolute;
+                            bottom: 13%;
+                            font-family: 'Inter', sans-serif;
+                            color: #fff;
+                            font-size: 0.8em;
+                            font-weight: 400;
+                            text-shadow: 0 0 5px #000;
+                        }
+                    }
+    
+                    .current-achievement {
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        margin-top: 2rem;
+                        width: 100%;
+                        max-width: 250px;
+    
+                        .header {
+                            p {
+                                font-family: 'Comfortaa', cursive;
+                                font-size: 0.9em;
+                                text-transform: uppercase;
+                                color: #BACCFD;
+                            }
+                        }
+    
+                        .achievement {
+                            @include flexo();
+                            border: 2px solid #EFF2FF;
+                            background: #FBFCFF;
+                            border-radius: 20px;
+                            padding: 0.5rem;
+                            //gap: 1rem;
+                            margin-top: 0.5rem;
+    
+                            .symbol {
+                                @include flexo();
+                                img {
+                                    height: 70px;
+                                    width: 100%;
+                                    pointer-events: none;
+                                }
+                            }
+                            .symbol-text {
+                                @include flexo();
+                                flex-direction: column;
+                                width: 200px;
+                                height: 100px;
+                                //border: 2px solid green;
+    
+                                .title {
+                                    margin-bottom: 0.3rem;
+                                    span {
+                                        font-family: 'Lilita One', cursive;
+                                        color: #353E6C;
+                                        font-size: 1.2em;
+                                        letter-spacing: 1px;
+                                        text-transform: uppercase;
+                                    }
+                                }
+    
+                                .text {
+                                    //border: 1px solid red;
+                                    inline-size: 150px;
+                                    overflow-wrap: break-word;
+                                    p {
+                                        font-family: 'Poppins', sans-serif;
+                                        font-size: 0.6em;
+                                        text-align: left;
+                                        line-height: 12px;
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+    
+            }
+    
+            .achievements {
+                position: relative;
+                display: flex;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+                align-content:center;
+                gap: 1rem;
+                overflow: hidden;
+                overflow-x: hidden;
+                background: #fff;
+                width: 100%;
+                max-width: 1100x;
+                height: 100%;
+                max-height: 750px;
+                border-radius: 30px;
+                padding: 0 2rem 0 2rem;
+                &:hover {
+                    transition: box-shadow .4s;
+                    box-shadow: 0 10px 20px rgba(1, 63, 133, 0.11);
+                }
+    
+                h1 {
+                    position: absolute;
+                    left: 2rem;
+                    top: 1rem;
+                    font-family: 'Lilita One', cursive;
+                    font-size: 1.5em;
+                    color: #353E6C;
+                    font-weight: 700;
+                    animation: slide 1.8s cubic-bezier(0.365, 0.84, 0.44, 1) forwards ;
+                    transform: translateY(-180%);
+                    margin: 0;         
+                }
+    
+                .achievement {
+                    @include flexo();
+                    width: 100%;
+                    max-width: 300px;
+                    //flex: 0 0 300px;
+                    height: 12vh;
+                    border: 2px solid #EFF2FF;
+                    background: #FBFCFF;
+                    border-radius: 20px;
+                    padding: 1rem;
+                    transition: .3s all;
+                    margin-top: 0.5rem;
+                    animation: slide 1.8s cubic-bezier(0.365, 0.84, 0.44, 1) forwards ;
+                    transform: translateX(-180%);
+                    &:hover {
+                        transition: .3s all;
+                        scale: 1.05;
+                    }
+    
+                    .symbol {
+                        @include flexo();
+                        overflow: hidden;
+                        img {
+                            height: 70px;
+                            width: 70px;
+                            pointer-events: none;
+                            animation: fade 1.5s linear forwards;
+                            opacity: 0;
+                        }
+                    }
+                    .symbol-text {
+                        @include flexo();
+                        flex-direction: column;
+                        width: 200px;
+                        height: 100px;
+                        //border: 2px solid green;
+    
+                        .title {
+                            margin-bottom: 0.3rem;
+                            span {
+                                font-family: 'Lilita One', cursive;
+                                color: #353E6C;
+                                font-size: 1em;
+                                letter-spacing: 1px;
+                                text-transform: uppercase;
+                            }
+                        }
+    
+                        .text {
+                            //border: 1px solid red;
+                            inline-size: 180px;
+                            overflow-wrap: break-word;
+                            p {
+                                font-family: 'Poppins', sans-serif;
+                                font-size: 0.7em;
+                                text-align: left;
+                                line-height: 13px;
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+}
+
 @media (max-width: 1390px) {
     .profil {
         .wrapper {

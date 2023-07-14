@@ -22,7 +22,7 @@ const cardData = [
 const HistoryWrapper = () => {
   return (
     <>
-    <div className="wrapper">
+    <div className="wrapper HW">
       {cardData.map((card) => (
           <div key={card.id} className="card">
             <div className="date">

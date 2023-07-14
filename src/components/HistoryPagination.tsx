@@ -3,7 +3,7 @@ const HistoryPagination = () => {
   return (
     <div className="pagination">
         <button>Previous</button>
-        <p>Page <span>~</span><span>1</span></p>
+        <p>Page <span>~</span><span>1 / 1</span></p>
         <button>Next Page</button>
   </div>
   )

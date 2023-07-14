@@ -1,6 +1,5 @@
 import '../src/styles/main.scss';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useState } from 'react';
 import Dashboard from './pages/Dashboard';
 import Friends from './pages/Friends';
 import Chat from './pages/Chat';
@@ -12,17 +11,11 @@ import Navbar from './components/Navbar';
 import LandingPage from './pages/LandingPage';
 import Authentication from './pages/Authentication';
 import Registration from './pages/Registration';
+import Opponent from './pages/Opponent';
+
+
 
 function App() {
-/*   const dashboardPages = [
-    '/dashboard',
-    '/profil',
-    '/friends',
-    '/history',
-    '/game',
-    '/chat',
-  ]; */
-
   const NavbarSidebar: React.FC = () => {
     const location = useLocation();
 
@@ -48,6 +41,7 @@ function App() {
           <Route path="/register" element={<Registration />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profil" element={<Profil />} />
+          <Route path="/profil/opponent" element={<Opponent />} />
           <Route path="/friends" element={<Friends />} />
           <Route path="/history" element={<History />} />
           <Route path="/game" element={<Game />} />

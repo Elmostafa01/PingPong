@@ -5,8 +5,8 @@ import menone from '../images/icons/m-1.png';
 import mentwo from '../images/icons/m-2.png';
 import girlone from '../images/icons/g-1.png';
 import girltwo from '../images/icons/g-2.png';
-import { addDoc, collection, getDoc, doc } from 'firebase/firestore';
-import { db, auth } from '../utils/firebase';
+import { addDoc, getDoc, doc } from 'firebase/firestore';
+import { db, auth, usersCollection } from '../utils/firebase';
 
 interface image {
   image: string;
@@ -46,6 +46,7 @@ const Registration: React.FC = () => {
         const userData = snapshot.data();
 
         if (userData && userData.username) {
+          localStorage.setItem('userId', JSON.stringify(user.uid));
           navigate('/dashboard');
         }
       }
@@ -64,31 +65,32 @@ const Registration: React.FC = () => {
     event.preventDefault();
   
     try {
-      setIsLoading(true);
-      // Validate username
-      if (username.length < 4 || username.length > 10 || /[@$!%*?&]/.test(username)) {
+      setIsLoading(true); 
+  
+      if (username.length < 4 || username.length > 10 || /[@$!_%*?&]/.test(username)) {
         alert('Username must be between 4 and 10 characters long and cannot contain special characters.');
+        setIsLoading(false);
         return;
       }
-      // Get user info from Google authentication
+  
       const user = auth.currentUser;
       if (!user) {
         throw new Error('User not authenticated');
       }
-      // Add user's profile data to Firebase Firestore
-      await addDoc(collection(db, 'users'), {
+  
+      await addDoc(usersCollection, {
         uid: user.uid,
         username,
         photoURL: selectedImageId !== null ? images.find(image => image.id === selectedImageId)?.image : undefined,
         registrationComplete: true,
       });
-      // Redirect user to dashboard
+  
+      window.localStorage.setItem('userId', user.uid);
       navigate('/dashboard');
     } catch (error) {
       console.error(error);
-      // Handle error
     } finally {
-      setIsLoading(false);
+      setIsLoading(false); 
     }
   };
 

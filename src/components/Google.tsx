@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import googleImg from '../images/google_logo.png';
-import { auth } from '../utils/firebase';
 import { signInWithRedirect, GoogleAuthProvider } from 'firebase/auth';
-import { onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { onAuthStateChanged } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
+import { auth, usersCollection, } from '../utils/firebase';
+
 
 const Google: React.FC = () => {
   const navigate = useNavigate();
@@ -19,18 +21,26 @@ const Google: React.FC = () => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unregisterAuthObserver = onAuthStateChanged(auth, async (user) => {
       if (user) {
-        navigate('/dashboard');
-      } if (!user) {
-        navigate('/authentication')
+        const userDoc = doc(usersCollection, user.uid);
+        const snapshot = await getDoc(userDoc);
+
+        if (snapshot.exists()) {
+          // User data exists, navigate to Dashboard
+          navigate('/dashboard');
+        } else {
+          // User data doesn't exist, navigate to Register
+          navigate('/register');
+        }
       }
     });
 
     return () => {
-      unsubscribe();
+      unregisterAuthObserver();
     };
-  }, []);
+  }, [navigate]);
+
 
   return (
     <div className="Google-comp">
