@@ -384,6 +384,27 @@
             }
         }
     }
+
+    .congratulations-component {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 900px;
+        min-width: 370px;
+        height: 500px;
+        background: #ffffff;
+        border-radius: 30px;
+        box-shadow: 0 3px  10px #0000000c;
+        overflow: hidden;
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+    }
 }
 
 @keyframes rotation {

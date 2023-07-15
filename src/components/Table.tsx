@@ -1,8 +1,9 @@
-import menone from '../images//menone.svg';
-import mentwo from '../images//mentwo.svg';
-import girlone from '../images//girlone.svg';
-import girltwo from '../images//girltwo.svg';
+import menone from '../images/menone.svg';
+import mentwo from '../images/mentwo.svg';
+import girlone from '../images/girlone.svg';
+import girltwo from '../images/girltwo.svg';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface Data {
   image: string;
@@ -293,11 +294,20 @@ const tableData: Data[] = [
     blocked: false,
     delete: 'REMOVE'
   },
-]
-
+];
 
 const Table = () => {
   const [search, setSearch] = useState('');
+  const [rows, setRows] = useState<Data[]>(tableData);
+
+  const handleDeleteClick = (index: number) => {
+    const confirmDelete = window.confirm('Are you sure?');
+    if (confirmDelete) {
+      const updatedRows = [...rows];
+      updatedRows.splice(index, 1);
+      setRows(updatedRows);
+    }
+  };
 
   return (
     <div className='TableComponent'>
@@ -305,9 +315,10 @@ const Table = () => {
         <div className="header">
           <h1>Friend List</h1>
         </div>
-        <input 
-        onChange={(e) => setSearch(e.target.value)} 
-        type='text' placeholder='Filter Name Players . . .' 
+        <input
+          onChange={(e) => setSearch(e.target.value)}
+          type='text'
+          placeholder='Filter Name Players . . .'
         />
       </div>
       <div className="columns">
@@ -318,40 +329,44 @@ const Table = () => {
         <p>DELETE</p>
       </div>
       <div className="rows">
-        {tableData.filter((player) => {
-          return search.toLocaleLowerCase() === '' ? 
-          player : 
-          player.user_name.toLowerCase().includes(search)
-        }).map((row, i) => (
-          <div className="row" key={i}>
-            <div className="avatar">
-              <img src={row.image} alt="avatar" />
-            </div>
-            <div className="username">
-              <p>{row.user_name}</p>
-            </div>
-            <div className="level">
-              <p>{row.level}</p>
-            </div>
-            <div className="blocked">
-              <label className="switch">
-                <input type="checkbox" />
+        {rows
+          .filter((player) =>
+            search.toLocaleLowerCase() === ''
+              ? player
+              : player.user_name.toLowerCase().includes(search)
+          )
+          .map((row, i) => (
+            <div className="row" key={i}>
+              <div className="avatar">
+                <Link to='/profil/opponent'>
+                  <img src={row.image} alt="avatar" />
+                </Link>
+              </div>
+              <div className="username">
+                <p>{row.user_name}</p>
+              </div>
+              <div className="level">
+                <p>{row.level}</p>
+              </div>
+              <div className="blocked">
+                <label className="switch">
+                  <input type="checkbox" />
                   <span>
                     <em></em>
                     <strong></strong>
-                 </span>
-              </label>
+                  </span>
+                </label>
+              </div>
+              <div className="delete">
+                <button onClick={() => handleDeleteClick(i)}>
+                  <span>{row.delete}</span>
+                </button>
+              </div>
             </div>
-            <div className="delete">
-              <button>
-                <span>{row.delete}</span>
-              </button>
-            </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );
-}
+};
 
-export default Table
+export default Table;

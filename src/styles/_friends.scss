@@ -105,6 +105,7 @@ $lightGrey: #99A3BA;
                     border: 0;
                     background: #F4F6FF;
                     border-radius: 30px;
+                    text-align: center;
                     &:focus {
                         border: 1px solid $bgel;
                     }
@@ -140,7 +141,7 @@ $lightGrey: #99A3BA;
                     &:active {
                         background: #002fa7;
                         transition: .2s all;
-                        scale: 0.9;
+                        scale: 0.95;
                     }
                 }
             }
@@ -206,6 +207,9 @@ $lightGrey: #99A3BA;
                     &:not(:first-child){
                         border-top: 1px dotted #E4ECFF;
                     }
+                    
+
+
                     .content {
                         position: absolute;
                         left: 0;
@@ -298,6 +302,7 @@ $lightGrey: #99A3BA;
                         }
                     }
                 }
+
             }
 
         }
@@ -620,8 +625,15 @@ $lightGrey: #99A3BA;
 
                 }
             }
+
         }
 
+    }
+}
+
+@keyframes disapearing {
+    to {
+            opacity: 0;
     }
 }
 

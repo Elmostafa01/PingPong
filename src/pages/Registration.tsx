@@ -83,6 +83,8 @@ const Registration: React.FC = () => {
         username,
         photoURL: selectedImageId !== null ? images.find(image => image.id === selectedImageId)?.image : undefined,
         registrationComplete: true,
+        level: 1,
+        rank: "iron"
       });
   
       window.localStorage.setItem('userId', user.uid);
@@ -121,8 +123,9 @@ const Registration: React.FC = () => {
           </div>
           <form onSubmit={handleSubmit}>
             <div className="enter-username">
-              <input type="text" placeholder='username' 
-                     value={username} onChange={(e) => setUsername(e.target.value)}
+              <input 
+              type="text" placeholder='username' 
+              value={username} onChange={(e) => setUsername(e.target.value)}
                />
               <button type='submit' 
                       disabled={!selectedImageId || !username || isLoading}>

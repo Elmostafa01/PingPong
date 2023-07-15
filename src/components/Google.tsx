@@ -1,41 +1,41 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import googleImg from '../images/google_logo.png';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
-import { auth, usersCollection } from '../utils/firebase';
+import { auth} from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
-import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Google: React.FC = () => {
-  const [user, loading] = useAuthState(auth);
   const route = useNavigate();
+  const [userAuth, setUserAuth] = useState<string>('');
 
   const provider = new GoogleAuthProvider();
   const GoogleAuth = async () => {
     try {
-      const result = await signInWithPopup(auth, provider);
-      console.log(result.user);
-      if (user) {
-        const userDoc = doc(usersCollection, user.uid);
-        const snapshot = await getDoc(userDoc);
+      const userAuth = await signInWithPopup(auth, provider);
+      //console.log(userAuth.user);
 
-        if (snapshot.exists()) {
-          // User data exists, navigate to Dashboard
-          route('/dashboard');
-        } else {
-          // User data doesn't exist, navigate to Register
-          route('/register');
-        }
-      }
+      const userId = localStorage.getItem('userId');
+      if (userId) {
+        route('/dashboard');
+      } if(!userId) {
+        route('/register')
+      } 
+      
+      setUserAuth(userAuth.user.uid);
     } catch (error) {
       console.log('Google sign-in error:', error);
     }
   };
 
+  useEffect(() => {
+    // Store user ID in local storage
+    localStorage.setItem('userId', JSON.stringify(userAuth));
+  }, [userAuth]);
+
   return (
     <div className="Google-comp">
       <button onClick={GoogleAuth} className="gauth">
-        <img src={googleImg} />
+        <img src={googleImg} alt="Google Logo" />
         <span></span>
         <p>Google</p>
       </button>
