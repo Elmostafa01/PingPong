@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import ChangingProfilHolderOpponent from '../components/ChangingProfilHolderOpponent'
 import OpponentLevelAvatar from '../components/OpponentLevelAvatar'
 import LevelXp from '../components/LevelXp'
@@ -7,6 +7,15 @@ import OpponentCurrentAchievement from '../components/OpponentCurrentAchievement
 import Achievements from '../components/Achievements'
 
 const Opponent: React.FC = () => {
+  const [xpLevel, setXpLevel] = useState(20);
+  const [xpRank, setXpRank] = useState(60);
+
+    /*Logic for adding point % when winning*/
+    const winGame = () => {
+      setXpLevel(prevXpLevel => prevXpLevel + 10);
+      setXpRank(prevXp => prevXp + 10);
+    };
+
   return (
     <div className='Opponent'>
       <div className="wrapper">
@@ -19,8 +28,8 @@ const Opponent: React.FC = () => {
           </div>
           <div className="content">
             <OpponentLevelAvatar />
-            <LevelXp />
-            <RankXp />
+            <LevelXp xpLevel={xpLevel} />
+            <RankXp xpRank={xpRank} />
             <OpponentCurrentAchievement />
           </div>
         </div>
