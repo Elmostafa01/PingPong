@@ -23,7 +23,7 @@ const tableData: Data[] = [
   },
   {
     image: mentwo,
-    user_name: 'spicy',
+    user_name: 'Doopa',
     level: 10,
     blocked: false,
     delete: 'REMOVE'

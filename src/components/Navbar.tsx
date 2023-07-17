@@ -7,7 +7,13 @@ import useClickOutside from '../hooks/useClickOutside';
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  uploadedImage: File | null;
+  onImageUpload: (file: File) => void;
+}
+
+
+const Navbar: React.FC<NavbarProps> = (props) => {
   const [expand, setExpand] = useState<boolean>(false);
   const [notificationActive, setNotificationActive] = useState<boolean>(false);
   const [isSignoutVisible, setIsSignoutVisible] = useState<boolean>(false);
@@ -45,6 +51,8 @@ const Navbar: React.FC = () => {
     });
   };
 
+
+
   return (
     <div className="navbar">
       <div className="navWrapper">
@@ -73,8 +81,11 @@ const Navbar: React.FC = () => {
         <div className="avatarContainer">
           <div className={`avatar ${isSignoutVisible ? 'active' : ''}`}
            onClick={handleAvatarClick}>
-            <img className="rasta" height={52} alt="avatar" src={menone} />
-          </div>
+            {props.uploadedImage ? (
+              <img className='new-image' src={URL.createObjectURL(props.uploadedImage)} alt="avatar" />
+            ) : (
+              <img src={menone} alt="avatar" />
+            )}          </div>
           <button 
             className={`signout ${isSignoutVisible ? 'visible' : ''}`}
             onClick={handleSignOut}

@@ -11,6 +11,15 @@ const GameChoice: React.FC<GameChoiceProps> = ({gameName, handleClose}) => {
     const back = '<'
 
     const [gameAccepted, setGameAccepted] = useState<boolean>(false);
+    const [inputClear, setInputClear] = useState('')
+
+    const handleChange = (event:any) => {
+      setInputClear(event.target.value);
+    };
+
+    const clearField = () => {
+      setInputClear("")
+    }
 
   return (
     <div className='gameChoice'>
@@ -19,8 +28,12 @@ const GameChoice: React.FC<GameChoiceProps> = ({gameName, handleClose}) => {
       </div>
       <div className="content">
         <div className="input">
-            <input type="text" placeholder='invite a friend'/>
-            <button onClick={() => setGameAccepted(!gameAccepted)}>
+            <input 
+            type="text" 
+            placeholder='invite a friend'
+            value={inputClear}
+            onChange={handleChange} />
+            <button onClick={() => {setGameAccepted(!gameAccepted), clearField()}}>
                 <img src={plus} />
             </button>
         </div>

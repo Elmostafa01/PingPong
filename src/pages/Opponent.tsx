@@ -10,7 +10,7 @@ const Opponent: React.FC = () => {
   const [xpLevel, setXpLevel] = useState(20);
   const [xpRank, setXpRank] = useState(60);
 
-    /*Logic for adding point % when winning*/
+    /*Logic for adding points when winning*/
     const winGame = () => {
       setXpLevel(prevXpLevel => prevXpLevel + 10);
       setXpRank(prevXp => prevXp + 10);

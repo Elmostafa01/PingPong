@@ -164,6 +164,14 @@ $fontcolor: #353E6C;
                                     color: $solidblue;
                                     font-size: 1em;
                                 }
+
+                                input {
+                                    position: absolute;
+                                    width: 100%;
+                                    opacity: 0;
+                                    cursor: pointer;
+                                    z-index: 10;
+                                }
                             }
                         }
 
@@ -221,6 +229,7 @@ $fontcolor: #353E6C;
                     //margin-top: 1rem;
 
                     .level {
+                        margin-bottom: 0.2rem;
                         span {
                             font-family: 'Lilita One', cursive;
                             color: $fontcolor;
@@ -232,12 +241,14 @@ $fontcolor: #353E6C;
                         height: 8rem;
                         border-radius: 100%;
                         margin-bottom: 1rem;
+                        border-radius: 50%;
 
                         img {
                             height: 100%;
                             width: 100%;
                             filter: brightness(1.08);
                             pointer-events: none;
+                            border-radius: 50%
                         }
                     }
 
@@ -682,6 +693,15 @@ $fontcolor: #353E6C;
                                         color: $solidblue;
                                         font-size: 1em;
                                     }
+
+                                    input {
+                                        position: absolute;
+                                        width: 100%;
+                                        opacity: 0;
+                                        z-index: 10;
+                                        cursor: pointer;
+                                    }
+                                    
                                 }
                             }
     
@@ -748,14 +768,19 @@ $fontcolor: #353E6C;
                         .avatar {
                             width: 8rem;
                             height: 8rem;
-                            border-radius: 100%;
+                            //border-radius: 100%;
                             margin-bottom: 1rem;
     
                             img {
                                 height: 100%;
                                 width: 100%;
                                 filter: brightness(1.08);
-                                pointer-events: none;
+                                //pointer-events: none;
+                                border-radius: 50%
+                            }
+
+                            .new-image {
+                                display: none
                             }
                         }
     

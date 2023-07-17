@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore, collection } from 'firebase/firestore';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 //Firebase Configuration
 const firebaseConfig = {
@@ -19,3 +19,12 @@ export const auth = getAuth(app);
 //Firestore Database
 export const db = getFirestore(app)
 export const usersCollection = collection(db, 'users');
+//getting Data
+/* export const usersData = getDocs(usersCollection)
+.then((snapshot) => {
+  let users = []
+  snapshot.docs.forEach((doc) => {
+    users.push({...doc.data(), id: doc.id})
+  })
+  console.log(users)
+}) */

@@ -1,24 +1,34 @@
-import menone from '../images/menone.svg'
+import React, { useState} from 'react';
+import menone from '../images/menone.svg';
 
-const LevelAvatar = () => {
+interface LevelAvatarProps {
+  uploadedImage: File | null;
+  username: string;
+}
+
+const LevelAvatar: React.FC<LevelAvatarProps> = (props) => {
   const statut = {
     level: 18,
     username: 'SIMO09',
-    rank: 'Faker'
+    rank: 'Faker',
   };
 
   return (
-    <div className='level-avatar'>
+    <div className="level-avatar">
       <div className="level">
         <span>LVL {statut.level}</span>
       </div>
       <div className="avatar">
-        <img src={menone} alt="avatar" />
+        {props.uploadedImage ? (
+          <img className='new-image' src={URL.createObjectURL(props.uploadedImage)} alt="avatar" />
+        ) : (
+          <img src={menone} alt="avatar" />
+        )}
       </div>
       <div className="labels">
         <div className="name">
           <p>USERNAME</p>
-          <span>{statut.username}</span>
+          <span>{props.username}</span>
         </div>
         <div className="rank">
           <p>RANK</p>
@@ -26,7 +36,7 @@ const LevelAvatar = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LevelAvatar
+export default LevelAvatar;

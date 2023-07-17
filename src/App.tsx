@@ -1,4 +1,6 @@
 import '../src/styles/main.scss';
+import React, { useState } from 'react';
+import '../src/styles/main.scss';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Friends from './pages/Friends';
@@ -14,8 +16,6 @@ import Registration from './pages/Registration';
 import Opponent from './pages/Opponent';
 import Error from './pages/Error';
 
-
-
 function App() {
   const NavbarSidebar: React.FC = () => {
     const location = useLocation();
@@ -24,9 +24,15 @@ function App() {
       return null;
     }
 
+    const [uploadedImage, setUploadedImage] = useState<File | null>(null);
+
+    const handleImageUpload = (file: File) => {
+      setUploadedImage(file);
+    };
+
     return (
       <>
-        <Navbar />
+        <Navbar uploadedImage={uploadedImage} onImageUpload={handleImageUpload} />
         <Sidebar />
       </>
     );
@@ -55,3 +61,4 @@ function App() {
 }
 
 export default App;
+
