@@ -52,10 +52,11 @@ $fontcolor: #353E6C;
             flex-direction: column;
             background: #fff;
             width: 100%;
-            max-width: 350px;
+            max-width: 400px;
+            min-width: 300px;
             height: 100%;
             max-height: 750px;
-            padding: 20px;
+            padding: 4rem;
             border-radius: 30px;
             overflow: hidden;
             position: relative;
@@ -493,7 +494,7 @@ $fontcolor: #353E6C;
                 @include flexo();
                 width: 100%;
                 max-width: 300px;
-                //flex: 0 0 300px;
+                flex: 0 0 300px;
                 height: 12vh;
                 border: 2px solid #EFF2FF;
                 background: #FBFCFF;
@@ -1117,7 +1118,27 @@ $fontcolor: #353E6C;
     }
 }
 
+@media (max-width: 400px) {
+    .profil {
+        .wrapper {
+            .achievements {
+                .achievement {
+                    flex: 0 0 200px;
 
+                    .symbol {
+                        width: 150px;
+                    }
+
+                    .symbol-text {
+                        .text {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 
 @keyframes fade {
