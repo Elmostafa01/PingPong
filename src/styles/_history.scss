@@ -305,6 +305,12 @@
     }
 }
 
+@keyframes slide {
+    to {
+     transform: translateY(0%);
+    }
+  }
+
 @media (max-width: 1440px) {
     .history {
         .wrapper {
@@ -314,8 +320,26 @@
     }
 }
 
-@keyframes slide {
-    to {
-     transform: translateY(0%);
+@media (max-width: 400px) {
+    .history {
+        .wrapper {
+            .card {
+                flex: 0 0 280px;
+
+                .leftPlayer,.rightPlayer {
+                    .player-title {
+                        .playerName {
+                            font-size: 0.5em !important;
+                        }
+                    }
+                }
+            }
+        }
+        .pagination {
+            button {
+                padding: 10px 10px;
+                font-size: 0.7em;
+            }
+        }
     }
-  }
+}

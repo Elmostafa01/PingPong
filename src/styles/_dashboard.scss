@@ -278,7 +278,7 @@
                                 border: 1px solid #fff;
                                 
                                 &::before {
-                                    content: 'Online';
+                                    content: 'online';
                                     background: $bgel;
                                     padding: 5px;
                                     color: #ffffff;
@@ -305,6 +305,26 @@
                                 background: #ffa600;
                                 border-radius: 100%;
                                 border: 1px solid #fff;
+
+                                &::before {
+                                    content: 'occupied';
+                                    background: $bgel;
+                                    padding: 5px;
+                                    color: #ffffff;
+                                    font-size: 0.75em;
+                                    font-family: 'Poppins', sans-serif;
+                                    border-radius: 30px;
+                                    position: absolute;
+                                    top: -10px;
+                                    left: -50px;
+                                    display: none;
+                                    
+                                }
+                                
+                                &:hover::before {
+                                   display: block;
+                                   transition: .5s all;
+                                }
                             }
                         }
 
@@ -365,16 +385,16 @@
                             height: 35px;
                             background: rgb(114,99,255);
                             background: radial-gradient(circle, rgba(114,99,255,1)
-                                         0%, rgba(0,65,255,1) 100%);
+                            0%, rgba(0,65,255,1) 100%);
                             border: 2px solid #BACCFD;
                             border-radius: 100%;
                             z-index: 80;
-
+                            
                             &:active {
                                 transition: .1s;
                                 transform: scale(0.8);
                             }
-
+                            
                             button {
                                 background: transparent;
                                 outline: 0;

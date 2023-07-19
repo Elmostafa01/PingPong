@@ -29,42 +29,42 @@ const achievementsData: Achievement[] = [
   {
     image: silver,
     title: 'Silver',
-    text: 'Lorem Ipsum lorepator who desiorel mundo la cupa dilaperva mostafaesti mulaca abepsum dolerum casa.'
+    text: 'Strive for silver, let determination shine bright. Climb the ladder, embrace the fight.'
   },
   {
     image: gold,
     title: 'Gold',
-    text: 'Lorem Ipsum lorepator who desiorel mundo la cupa dilaperva mostafaesti mulaca abepsum dolerum casa.'
+    text: 'Forge a path to gold, let resilience be your guide. Unleash your potential, reach the other side.'
   },
   {
     image: plat,
     title: 'Platinuim',
-    text: 'Lorem Ipsum lorepator who desiorel mundo la cupa dilaperva mostafaesti mulaca abepsum dolerum casa.'
+    text: 'Aim for platinum, let excellence lead the way. Embrace challenges, make progress every day.'
   },
   {
     image: diamond,
     title: 'Diamond',
-    text: 'Lorem Ipsum lorepator who desiorel mundo la cupa dilaperva mostafaesti mulaca abepsum dolerum casa.'
+    text: 'Ascend to diamond, let perseverance define. Unleash your skills, surpass boundaries with a shine.'
   },
   {
     image: knight,
     title: 'Knight',
-    text: 'Lorem Ipsum lorepator who desiorel mundo la cupa dilaperva mostafaesti mulaca abepsum dolerum casa.'
+    text: 'Become a knight, let valor be your might. Courageously advance, championing what is right.'
   },
   {
     image: goldenknight,
     title: 'Golden-Knight',
-    text: 'Lorem Ipsum lorepator who desiorel mundo la cupa dilaperva mostafaesti mulaca abepsum dolerum casa.'
+    text: 'Rise as a golden knight, let glory crown your quest. Unyielding spirit, stand above the rest.'
   },
   {
     image: master,
     title: 'Master',
-    text: 'Lorem Ipsum lorepator who desiorel mundo la cupa dilaperva mostafaesti mulaca abepsum dolerum casa.'
+    text: 'Master the art, let expertise be your reign. Unleash your wisdom, leave an indelible stain.'
   },
   {
     image: challenger,
     title: 'Faker',
-    text: 'Lorem Ipsum lorepator who desiorel mundo la cupa dilaperva mostafaesti mulaca abepsum dolerum casa.'
+    text: 'Congratulations, Ping Pong Realm Faker! Unmatched skills, prestigious title. Extraordinary achievement!'
     },
 ]
 

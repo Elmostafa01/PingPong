@@ -4,8 +4,6 @@ import LandingPageLeft from '../components/LandingPageLeft';
 import LandingPageRight from '../components/LandingPageRight';
 
 const LandingPage: React.FC = () => {
-
-  
   useEffect(() => {
     const blob = document.getElementById('blob');
     if (blob) {
@@ -19,7 +17,7 @@ const LandingPage: React.FC = () => {
           },
           { duration: 3000, fill: 'forwards' }
         );
-      };
+      };     
     }
   }, []);
 

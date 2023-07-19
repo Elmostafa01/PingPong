@@ -104,7 +104,7 @@ $vanilla: #F4F6FF;
 	}
 
     .effect {
-        display: none;
+        //display: none;
         z-index: 29;
         .circle {
             background: linear-gradient(190deg, #1f005c, #01eeff, #ff0000, #ff6ca9, #0059ff, #0affd6, #008cff, #6bdcff);
@@ -365,3 +365,4 @@ $vanilla: #F4F6FF;
         }
     }
 }
+

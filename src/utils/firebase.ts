@@ -19,6 +19,7 @@ export const auth = getAuth(app);
 //Firestore Database
 export const db = getFirestore(app)
 export const usersCollection = collection(db, 'users');
+
 //getting Data
 /* export const usersData = getDocs(usersCollection)
 .then((snapshot) => {
