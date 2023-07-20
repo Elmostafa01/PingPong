@@ -1,4 +1,6 @@
 import React, { useState, ChangeEvent } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 interface ChangingProfilHolderProps {
   onImageUpload: (file: File) => void;
@@ -20,15 +22,33 @@ const ChangingProfilHolder: React.FC<ChangingProfilHolderProps> = (props) => {
     }
   };
 
+
   const handleNameReset = () => {
     const newName = prompt('Enter a new name:');
     if (newName) {
-      props.onNameChange(newName);
+      const trimmedNewName = newName.trim();
+      if (trimmedNewName.length >= 4 && trimmedNewName.length <= 10) {
+        props.onNameChange(trimmedNewName);
+      } else {
+        toast.error('Name should be more than 4 and less than 10 characters.', {
+          position: 'top-center',
+          duration: 3000,
+          style: {
+            zIndex: '900',
+            background: '#390000',
+            color: '#fff',
+            boxShadow: '0 0 2px rgba(0, 0, 0, 0.1)',
+            fontFamily: "'Poppins', sans-serif",
+            fontSize: '0.9rem'
+          },
+        });
+      }
     }
   };
 
   return (
     <div className="profil-btn">
+      <Toaster />
       <div
         className="btn"
         onClick={() => {

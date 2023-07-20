@@ -6,17 +6,13 @@ import sendchat from '../images/sendchat.svg';
 import toast, { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
 
-
 interface Contact {
   name: string;
   statut: string;
   image: string;
-  message: string; 
+  message: string; // Add a new property to store the message
 }
 
-interface OnlineFriendsProps {
-  toaster: JSX.Element; 
-}
 const allFriendsData: Contact[] = [
   {
     name: 'Zetrix',
@@ -92,20 +88,9 @@ const allFriendsData: Contact[] = [
   },
 ];
 
-const OnlineFriends: React.FC<OnlineFriendsProps> = ({toaster}) => {
-  const [friendsData, setFriendsData] = useState<Contact[]>(allFriendsData); 
-
-  //toast notification
-  const notify = () =>
-    toast.success('message has been sent.', {
-      position: 'top-center',
-      style: {
-        zIndex: '900',
-        background: '#333',
-        color: '#fff',
-        boxShadow: '0 0 2px rgba(0, 0, 0, 0.1)',
-      },
-    });
+const OnlineFriends: React.FC = () => {
+  const [friendsData, setFriendsData] = useState<Contact[]>(allFriendsData);
+  const [hasText, setHasText] = useState(false); // New state to track if the input has text
 
   const clearField = () => {
     setFriendsData((prevData) => prevData.map((friend) => ({ ...friend, message: '' })));
@@ -118,10 +103,36 @@ const OnlineFriends: React.FC<OnlineFriendsProps> = ({toaster}) => {
       updatedData[index].message = newMessage;
       return updatedData;
     });
+    setHasText(newMessage.trim().length > 0); // Update hasText state based on input value
+  };
+
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>, index: number) => {
+    if (event.key === 'Enter') {
+      notify();
+      clearField();
+    }
+  };
+
+  const notify = () => {
+    if (hasText) { // Show the toast only if the input has text
+      toast.success('Message has been sent.', {
+        position: 'top-center',
+        duration: 1200,
+        style: {
+          zIndex: '900',
+          background: '#333',
+          color: '#fff',
+          boxShadow: '0 0 2px rgba(0, 0, 0, 0.1)',
+          fontFamily: "'Poppins', sans-serif",
+          fontSize: '0.9rem'
+        },
+      });
+    }
   };
 
   return (
     <div className='OnlineFriends'>
+        <Toaster />
       <div className='title'>
         <h3>✨Friends✨</h3>
       </div>
@@ -145,9 +156,9 @@ const OnlineFriends: React.FC<OnlineFriendsProps> = ({toaster}) => {
                   placeholder='Send a Msg . . .'
                   onChange={(event) => handleChange(event, i)}
                   value={card.message}
+                  onKeyPress={(event) => handleKeyPress(event, i)}
                 />
                 <div className='sendchat' onClick={() => { notify(); clearField(); }}>
-                  {toaster}
                   <button>
                     <img src={sendchat} alt='send chat' />
                   </button>

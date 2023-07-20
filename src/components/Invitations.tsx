@@ -7,6 +7,8 @@ import decline from '../images/decline.svg';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import useInvitations from '../hooks/useInvitation';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 interface Invitation {
   image: string;
@@ -95,7 +97,44 @@ const Invitations = () => {
 
 const  handleAnimation = () => {
     setDisapear(!disapear)
-    console.log(disapear)
+  }
+
+  const toastAppearValidated = (name: string) => {
+    toast.success(`You just have Accepted ${name}`, { 
+      position: 'top-center',
+      duration: 3000,
+      iconTheme: {
+        primary: '#fff',
+        secondary: '#1657FF',
+      },
+      style: {
+        zIndex: '900',
+        background: '#16DBCC',
+        color: '#fff',
+        boxShadow: '0 0 2px rgba(0, 0, 0, 0.1)',
+        fontFamily: "'Poppins', sans-serif",
+        fontSize: '0.9rem',
+      },
+    });
+  }
+
+  const toastAppearDecline = (name: string) => {
+    toast.success(`You just have Declined ${name}`, { 
+      position: 'top-center',
+      duration: 3000,
+      iconTheme: {
+        primary: '#fff',
+        secondary: '#1657FF',
+      },
+      style: {
+        zIndex: '900',
+        background: '#FF5A5A',
+        color: '#fff',
+        boxShadow: '0 0 2px rgba(0, 0, 0, 0.1)',
+        fontFamily: "'Poppins', sans-serif",
+        fontSize: '0.9rem',
+      },
+    });
   }
 
   return (
@@ -122,7 +161,8 @@ const  handleAnimation = () => {
                 className="validation"
                 onClick={() => {
                   handleValidationClick(i),
-                  handleAnimation();
+                  handleAnimation(),
+                  toastAppearValidated(demand.name)
                 }}>
                 <img src={demand.validation} alt="valid-demand" />
               </button>
@@ -130,7 +170,8 @@ const  handleAnimation = () => {
                 className="decline" 
                 onClick={() => {
                   handleValidationClick(i),
-                  handleAnimation();
+                  handleAnimation()
+                  toastAppearDecline(demand.name)
                 }}>
                 <img src={demand.decline} alt="decline demand" />
               </button>
