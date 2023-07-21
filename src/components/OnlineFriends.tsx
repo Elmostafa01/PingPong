@@ -90,7 +90,7 @@ const allFriendsData: Contact[] = [
 
 const OnlineFriends: React.FC = () => {
   const [friendsData, setFriendsData] = useState<Contact[]>(allFriendsData);
-  const [hasText, setHasText] = useState(false); // New state to track if the input has text
+  const [hasText, setHasText] = useState(false); 
 
   const clearField = () => {
     setFriendsData((prevData) => prevData.map((friend) => ({ ...friend, message: '' })));
@@ -103,7 +103,7 @@ const OnlineFriends: React.FC = () => {
       updatedData[index].message = newMessage;
       return updatedData;
     });
-    setHasText(newMessage.trim().length > 0); // Update hasText state based on input value
+    setHasText(newMessage.trim().length > 0); 
   };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>, index: number) => {
@@ -114,7 +114,7 @@ const OnlineFriends: React.FC = () => {
   };
 
   const notify = () => {
-    if (hasText) { // Show the toast only if the input has text
+    if (hasText) { 
       toast.success('Message has been sent.', {
         position: 'top-center',
         duration: 1200,

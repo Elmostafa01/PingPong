@@ -69,7 +69,6 @@ const achievementsData: Achievement[] = [
 ]
 
 const Achievements = () => {
-
   return (
   <div className='achievements'>
     <h1>Achievement</h1>

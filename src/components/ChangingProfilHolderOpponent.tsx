@@ -1,16 +1,49 @@
 import React from 'react'
 import { useState } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
-const ChangingProfilHolderOpponent = () => {
+
+const ChangingProfilHolderOpponent: React.FC = () => {
     const [btnShowUp, setBtnShowUp] = useState(false);
 
     const AppearBtn = () => {
       setBtnShowUp(!btnShowUp);
     }
+
+    const notifyToastMsg = () => {
+      toast.error('You need to Add Player First !', {
+        position: 'top-center',
+        duration: 3000,
+        style: {
+          zIndex: '900',
+          background: '#333',
+          color: '#fff',
+          boxShadow: '0 0 2px rgba(0, 0, 0, 0.1)',
+          fontFamily: "'Poppins', sans-serif",
+          fontSize: '0.9rem'
+        },
+      });
+    }
+    const notifyToastAdd = () => {
+      toast.success('Your Friend request has been sent', {
+        position: 'top-center',
+        duration: 3000,
+        style: {
+          zIndex: '900',
+          background: '#333',
+          color: '#fff',
+          boxShadow: '0 0 2px rgba(0, 0, 0, 0.1)',
+          fontFamily: "'Poppins', sans-serif",
+          fontSize: '0.9rem'
+        },
+      });
+    }
+
   return (
     <div className='profil-btn'>
+      <Toaster />
         <div className="btn" onClick={AppearBtn}>
           <svg className='dots' width="17" height="4" viewBox="0 0 17 4" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M3.89 2C3.89 2.52 3.7 2.96 3.32 3.32C2.96 3.7 2.52 3.89 2 3.89C1.48 3.89 1.03 3.7 0.65 3.32C0.29 2.96 0.11 2.52 0.11 2C0.11 1.48 0.29 1.03 0.65 0.65C1.03 0.27 1.48 0.0799999 2 0.0799999C2.52 0.0799999 2.96 0.27 3.32 0.65C3.7 1.03 3.89 1.48 3.89 2ZM10.3959 2C10.3959 2.52 10.2059 2.96 9.82586 3.32C9.46586 3.7 9.02586 3.89 8.50586 3.89C7.98586 3.89 7.53586 3.7 7.15586 3.32C6.79586 2.96 6.61586 2.52 6.61586 2C6.61586 1.48 6.79586 1.03 7.15586 0.65C7.53586 0.27 7.98586 0.0799999 8.50586 0.0799999C9.02586 0.0799999 9.46586 0.27 9.82586 0.65C10.2059 1.03 10.3959 1.48 10.3959 2ZM16.9017 2C16.9017 2.52 16.7117 2.96 16.3317 3.32C15.9717 3.7 15.5317 3.89 15.0117 3.89C14.4917 3.89 14.0417 3.7 13.6617 3.32C13.3017 2.96 13.1217 2.52 13.1217 2C13.1217 1.48 13.3017 1.03 13.6617 0.65C14.0417 0.27 14.4917 0.0799999 15.0117 0.0799999C15.5317 0.0799999 15.9717 0.27 16.3317 0.65C16.7117 1.03 16.9017 1.48 16.9017 2Z" fill="#1657FF"/>
@@ -18,7 +51,7 @@ const ChangingProfilHolderOpponent = () => {
         </div>
         <div className={btnShowUp === false ? 'dropProfil' : 'dropProfil active'}>
           <div className="change-avatar">
-            <button className='change-avatar-btn'>
+            <button className='change-avatar-btn' onClick={notifyToastMsg}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.25 12C2.25 12.8273 2.92275 13.5 3.75 13.5H6.4395L9 16.0605L11.5605 13.5H14.25C15.0773 13.5 15.75 12.8273 15.75 12V3C15.75 2.17275 15.0773 1.5 14.25 1.5H3.75C2.92275 1.5 2.25 2.17275 2.25 3V12ZM3.75 3H14.25V12H10.9395L9 13.9395L7.0605 12H3.75V3Z" fill="#1657FF"/>
                 <path d="M8.25 10.5H9.75V8.25H12V6.75H9.75V4.5H8.25V6.75H6V8.25H8.25V10.5Z" fill="#1657FF"/>
@@ -27,7 +60,7 @@ const ChangingProfilHolderOpponent = () => {
             </button>
           </div>
           <div className="change-name">
-            <button className='change-name-btn'>
+            <button className='change-name-btn' onClick={notifyToastAdd}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10.125 9C11.9809 9 13.6206 7.25238 13.7813 5.10398C13.8611 4.02469 13.5225 3.01816 12.8278 2.27039C12.1405 1.53176 11.1797 1.125 10.125 1.125C9.06188 1.125 8.10035 1.5293 7.41797 2.26336C6.72785 3.00551 6.39141 4.01414 6.46875 5.10328C6.6266 7.25203 8.26594 9 10.125 9ZM17.4157 15.4603C17.119 13.8143 16.1926 12.4316 14.7372 11.4613C13.4445 10.5996 11.8065 10.125 10.125 10.125C8.44348 10.125 6.80555 10.5996 5.51285 11.4609C4.05738 12.4312 3.13102 13.8139 2.8343 15.46C2.76645 15.8372 2.85855 16.2102 3.08707 16.4834C3.19072 16.6078 3.32086 16.7076 3.46799 16.7754C3.61512 16.8431 3.77553 16.8772 3.9375 16.875H16.3125C16.4746 16.8773 16.6351 16.8434 16.7823 16.7757C16.9296 16.708 17.0599 16.6082 17.1636 16.4837C17.3914 16.2105 17.4836 15.8375 17.4157 15.4603ZM3.65625 10.125V8.71875H5.0625C5.21168 8.71875 5.35476 8.65949 5.46025 8.554C5.56574 8.44851 5.625 8.30543 5.625 8.15625C5.625 8.00707 5.56574 7.86399 5.46025 7.7585C5.35476 7.65301 5.21168 7.59375 5.0625 7.59375H3.65625V6.1875C3.65625 6.03832 3.59699 5.89524 3.4915 5.78975C3.38601 5.68426 3.24293 5.625 3.09375 5.625C2.94457 5.625 2.80149 5.68426 2.696 5.78975C2.59051 5.89524 2.53125 6.03832 2.53125 6.1875V7.59375H1.125C0.975816 7.59375 0.832742 7.65301 0.727252 7.7585C0.621763 7.86399 0.5625 8.00707 0.5625 8.15625C0.5625 8.30543 0.621763 8.44851 0.727252 8.554C0.832742 8.65949 0.975816 8.71875 1.125 8.71875H2.53125V10.125C2.53125 10.2742 2.59051 10.4173 2.696 10.5227C2.80149 10.6282 2.94457 10.6875 3.09375 10.6875C3.24293 10.6875 3.38601 10.6282 3.4915 10.5227C3.59699 10.4173 3.65625 10.2742 3.65625 10.125Z" fill="#1657FF"/>
             </svg>

@@ -467,7 +467,7 @@ $fontcolor: #353E6C;
             overflow-x: hidden;
             background: #fff;
             width: 100%;
-            max-width: 1100x;
+            max-width: 1100px;
             height: 100%;
             max-height: 750px;
             border-radius: 30px;
@@ -556,7 +556,7 @@ $fontcolor: #353E6C;
     }
     }
 
-.Opponent {
+.opponent {
         margin-inline: auto;
         margin: 5rem 0 0 3rem;
         padding: 1rem;
@@ -571,21 +571,19 @@ $fontcolor: #353E6C;
             padding: 1rem;
             width: 100%;
             height: 75vh;
-            //border: 2px solid red;
             gap: 1rem;
-    
             .profil-card {
-                //border: 2px solid blue;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
                 background: #fff;
                 width: 100%;
-                max-width: 350px;
+                max-width: 400px;
+                min-width: 300px;
                 height: 100%;
                 max-height: 750px;
-                padding: 20px;
+                padding: 4rem;
                 border-radius: 30px;
                 overflow: hidden;
                 position: relative;
@@ -988,7 +986,7 @@ $fontcolor: #353E6C;
     
             }
     
-            .achievements {
+            .history-opp {
                 position: relative;
                 display: flex;
                 justify-content: space-evenly;
@@ -1000,6 +998,7 @@ $fontcolor: #353E6C;
                 background: #fff;
                 width: 100%;
                 max-width: 1100x;
+                min-width: 400px;
                 height: 100%;
                 max-height: 750px;
                 border-radius: 30px;
@@ -1022,68 +1021,190 @@ $fontcolor: #353E6C;
                     margin: 0;         
                 }
     
-                .achievement {
-                    @include flexo();
+                .cards {
+                    overflow-y: scroll;
+                    @include scrollbar();
+                    overflow-x: hidden;
                     width: 100%;
-                    max-width: 300px;
-                    //flex: 0 0 300px;
-                    height: 12vh;
-                    border: 2px solid #EFF2FF;
-                    background: #FBFCFF;
-                    border-radius: 20px;
-                    padding: 1rem;
-                    transition: .3s all;
-                    margin-top: 0.5rem;
-                    animation: slide 1.8s cubic-bezier(0.365, 0.84, 0.44, 1) forwards ;
-                    transform: translateX(-180%);
-                    &:hover {
-                        transition: .3s all;
-                        scale: 1.05;
-                    }
-    
-                    .symbol {
-                        @include flexo();
-                        overflow: hidden;
-                        img {
-                            height: 70px;
-                            width: 70px;
-                            pointer-events: none;
-                            animation: fade 1.5s linear forwards;
-                            opacity: 0;
-                        }
-                    }
-                    .symbol-text {
-                        @include flexo();
+                    max-width: 1000px;
+                    height: 60vh;
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 5px;
+                    .card {
+                        position: relative;
+                        justify-content: center;
+                        align-items: center;
                         flex-direction: column;
-                        width: 200px;
-                        height: 100px;
-                        //border: 2px solid green;
-    
-                        .title {
-                            margin-bottom: 0.3rem;
+                        display: flex;
+                        flex: 0 0 320px;
+                        height: 12vh;
+                        margin-bottom: 10px;
+                        border: 1px solid #F4F6FF;
+                        background: #FBFCFF;
+                        transition: .5s all;
+                        transform: translateY(-500%);
+                        animation: slide 1.8s cubic-bezier( 0.13, 0.22, 0.01, 1.01 ) forwards ;
+            
+                        .date {
+                            position: absolute;
+                            top: 0;
+                            font-family: 'Inter', sans-serif;
+                            font-size: 0.6em;
+                            font-weight: 700;
+                            padding-top: 10px;
+                        }
+            
+                        .content {
+                            display: flex;
+                            gap: 0.5rem;
+            
+                            .leftPlayer {
+                                display: flex;
+                                align-items: center;
+                                gap: 0.5rem;
+                                .player-title {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 5px;
+            
+                                    .playerName {
+                                        font-size: 0.7em;
+                                        font-family: 'Comfortaa', cursive;
+                                        font-weight: 700 !important;
+                                        color: #000;
+                                    }
+                                    .playerRank {
+                                        font-size: 0.6em;
+                                        font-family: sans-serif;
+                                        color: #BACCFD;
+                                    }
+                                }
+                                .avatar {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    height: 40px;
+                                    cursor: pointer;
+            
+                                    img {
+                                        height: 100%;
+                                        width: 100%;
+                                    }
+                                }
+            
+                                .score {
+                                    font-family: sans-serif;
+                                    font-weight: 700
+                                }
+            
+                            }
+            
+                            .vs {
+                                @include flexo();
+                                flex-direction: column;
+                                gap: 5px;
+            
+                                span {
+                                    width: 3px;
+                                    height: 3px;
+                                    border-radius: 50%;
+                                    background: $solidblue;
+                                }
+                            }
+            
+                            .rightPlayer {
+                                display: flex;
+                                align-items: center;
+                                flex-direction: row-reverse;
+                                gap: 0.5rem;
+                                .player-title {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 5px;
+            
+                                    .playerName {
+                                        font-size: 0.7em;
+                                        font-family: 'Comfortaa', cursive;
+                                        font-weight: bolder;
+                                        color: #000;
+                                    }
+                                    .playerRank {
+                                        font-size: 0.6em;
+                                        font-family: sans-serif;
+                                        color: #BACCFD;
+                                    }
+                                }
+                                .avatar {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    height: 40px;
+                                    cursor: pointer;
+            
+                                    img {
+                                        height: 100%;
+                                        width: 100%;
+                                    }
+                                }
+            
+                                .score {
+                                    font-family: sans-serif;
+                                    font-weight: 700
+            
+                                }
+                            }
+                        }
+            
+                        .left {
+                            position: absolute;
+                            left: 0;
+                            float: left;
+                            width: 20px;
+                            background-color: #22fc79;
+                            height: 100%;
+            
                             span {
-                                font-family: 'Lilita One', cursive;
-                                color: #353E6C;
-                                font-size: 1em;
-                                letter-spacing: 1px;
-                                text-transform: uppercase;
+                                letter-spacing: 5px;
+                                writing-mode: vertical-rl;
+                                text-orientation: upright;
+                                font-family: 'Comfortaa', cursive;
+                                font-weight: 600;
+                                font-size: 0.85em;
+                                color: #fff;
+                                pointer-events: none;
                             }
                         }
-    
-                        .text {
-                            //border: 1px solid red;
-                            inline-size: 180px;
-                            overflow-wrap: break-word;
-                            p {
-                                font-family: 'Poppins', sans-serif;
-                                font-size: 0.7em;
-                                text-align: left;
-                                line-height: 13px;
-                                
+            
+                        .right {
+                            position: absolute;
+                            right: 0;
+                            float: right;
+                            width: 20px;
+                            background-color: #22fc79;
+                            height: 100%;
+                        }
+            
+                        .left,.right {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            span {
+                                letter-spacing: 5px;
+                                writing-mode: vertical-rl;
+                                text-orientation: upright;
+                                font-family: 'Comfortaa', cursive;
+                                font-size: 0.65em;
+                                color: #fff;
+                                pointer-events: none;
                             }
                         }
-                    }
+                      }
                 }
+
+
             }
         }
 }
@@ -1116,6 +1237,12 @@ $fontcolor: #353E6C;
             }
         }
     }
+    .opponent {
+        .wrapper {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
 }
 
 @media (max-width: 400px) {
@@ -1138,6 +1265,7 @@ $fontcolor: #353E6C;
             }
         }
     }
+
 }
 
 

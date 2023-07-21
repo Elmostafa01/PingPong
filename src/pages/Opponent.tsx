@@ -4,7 +4,7 @@ import OpponentLevelAvatar from '../components/OpponentLevelAvatar'
 import LevelXp from '../components/LevelXp'
 import RankXp from '../components/RankXp'
 import OpponentCurrentAchievement from '../components/OpponentCurrentAchievement'
-import Achievements from '../components/Achievements'
+import HistoryOpponent from '../components/HistoryOpponent';
 
 const Opponent: React.FC = () => {
   const [xpLevel, setXpLevel] = useState(20);
@@ -17,7 +17,7 @@ const Opponent: React.FC = () => {
     };
 
   return (
-    <div className='Opponent'>
+    <div className='opponent'>
       <div className="wrapper">
         <div className="profil-card">
           <div className="top-header">
@@ -33,7 +33,7 @@ const Opponent: React.FC = () => {
             <OpponentCurrentAchievement />
           </div>
         </div>
-        <Achievements />
+        <HistoryOpponent />
       </div>
     </div>
   )
