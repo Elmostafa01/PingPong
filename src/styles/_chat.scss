@@ -37,39 +37,19 @@
     //background: #fff;
     //border: 2px solid blue;
     
-    .title {
-        width: 100%;
-        overflow: hidden;
-        max-width: 180px;
-        position: absolute;
-        top: 1.2rem;
-        left: 2rem;
-        
-        h1 {
-            font-family: 'Lilita One', cursive;
-            color: #353E6C;
-            font-size: 1.5em;
-            font-weight: 700;
-            animation: slide 1.8s cubic-bezier(0.365, 0.84, 0.44, 1) forwards ;
-            transform: translateY(-180%);
-            margin: 0;
-            
-        }
-    }
-    
     .wrapper {
         position: relative;
         display: flex;
-        //justify-content: center;
         align-content:center;
+        //justify-content: center;
         gap: 1rem;
-        //overflow: hidden;
-        overflow-x: hidden;
+        //overflow-x: hidden;
         background: #fff;
         width: 100%;
         max-width: 1300px;
         height: 700px;
         border-radius: 30px;
+        //overflow: hidden;
         //border: 2px solid red;
 
         .chat-contact {
@@ -83,6 +63,7 @@
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
             overflow: hidden;
+            
             
             .header {
                 @include flexo();
@@ -100,15 +81,16 @@
                         font-family: 'Inter', sans-serif;
                         color: $solidblue;
                         font-size: 1.2rem;
-                        pointer-events: none
+                        pointer-events: none;
+                        text-shadow: 0 0 10px $solidblue;
                     }
 
                     span {
                         @include flexo();
                         color: #fff;
                         background-color: $solidblue;
-                        width: 20px;
-                        height: 20px;
+                        width: 25px;
+                        height: 25px;
                         border-radius: 50%;
                         padding: 2px 5px;
                         font-size: 0.7rem;
@@ -251,6 +233,199 @@
                 }
             }
 
+        }
+
+        .chat-conversation {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            min-width: 300px;
+            height: 700px;
+            border-radius: 30px;
+            background: #454469;
+            background: url('/src/images/backgrounds/BG-chat-min.png');
+            border: 2px solid #baccfd;
+
+            .chat-header {
+                position: relative;
+                height: 70px;
+                width: 100%;
+                background: #2f2f43;
+                border-top-left-radius: 30px;
+                border-top-right-radius: 30px;
+                border-bottom-right-radius: 30px;
+                border-bottom-left-radius: 30px;
+
+                .left-side {
+                    position: absolute;
+                    top: 0;
+                    left: 2rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    height: 100%;
+                    width: 200px;  
+
+                    .goback {
+                        @include flexo();
+                        padding: 10px;
+                        color: #fff;
+                        border-radius: 50%;
+                        width: 30px;
+                        height: 30px;
+                        background: #6b6b7a;
+                        cursor: pointer;
+                    }
+
+                    .avatar {
+                        position: relative;
+                        height: 60px;
+                        width: 60px;
+
+                        span {
+                            position: absolute;
+                            right: 0.5rem;
+                            top: 0.8rem;
+                            height: 10px;
+                            width: 10px;
+                            border-radius: 30px;
+                            border: 1px solid #fff;
+                            background: #00D609;
+                        }
+
+                        img {
+                            height: 100%;
+                            width: 100%;
+                        }
+                    }
+
+                    .name-state-label {
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 5px;
+                        flex-direction: column;
+
+                        p {
+                            color: #fff;
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 1rem;
+                        }
+
+                        span {
+                            font-family: 'Inter', sans-serif;
+                            color: #00D609;
+                            font-size: 0.6rem;
+                        }
+                    }
+                }
+
+                .right-side {
+                    .right-btn {
+                        position: absolute;
+                        right: 2rem;
+                        top: 0.9rem;
+                        display: flex;
+                        align-items: center;
+                        width: 30px;
+                        height: 30px;
+                        background: #6b6b7a;
+                        border-radius: 50%;
+
+                        button {
+                            width: 100%;
+                            height: 100%;
+                            background: transparent;
+                            outline: 0;
+                            border: 0;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-direction: column;
+                            gap: 4px;
+                            cursor: pointer;
+
+                            span {
+                                width: 3px;
+                                height: 3px;
+                                border-radius: 50%;
+                                background: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .chat-messages {
+                width: 100%;
+                height: 100%;
+                //border: 1px solid red;
+            }
+
+            .chat-footer {
+                //position: absolute;
+                //bottom: 1rem;
+                margin-bottom: 10px;
+                width: 100%;
+                height: 70px;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                max-height: 200px;
+
+                .input-field {
+                    width: 90%;
+
+                    form {
+                        position: relative;
+                        width: 100%;
+                        height: 50px;
+                        .input {
+                            position: absolute;
+                            width: 100%;
+                            input {
+                                font-family: 'Poppins', sans-serif;
+                                width: 100%;
+                                padding: 0.8rem 2rem;
+                                height: 50px;
+                                outline: 0;
+                                border: 0;
+                                border: 2px solid #BACCFD;
+                                border-radius: 30px;
+                                background: #615E81;
+                                color: #fff;
+                                white-space: pre;
+                                &::placeholder {
+                                    color: #BACCFD;
+                                    font-weight: 400;
+                                }
+                                &:focus {
+                                    border: 2px solid $solidblue;
+                                }
+                            }
+                        }
+
+                        button {
+                            position: absolute;
+                            right: 20px;
+                            top: 10px;
+                            @include flexo();
+                            outline: 0;
+                            border: 0;
+                            background: #fff;
+                            color: $solidblue;
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 50%;
+                            transform: rotate(45deg);
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
         }
     }
 }

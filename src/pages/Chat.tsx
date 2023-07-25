@@ -3,6 +3,11 @@ import mentwo from '../images/mentwo.svg';
 import girone from '../images/girlone.svg';
 import girltwo from '../images/girltwo.svg';
 import { FiSearch } from "react-icons/fi";
+import { BsCheckAll } from "react-icons/bs";
+import { useState } from 'react';
+import ChatHeader from '../components/ChatHeader';
+import ChatFooter from '../components/ChatFooter';
+import ChatContent from '../components/ChatContent';
 
 
 interface Contact {
@@ -23,7 +28,7 @@ const allFriendsData: Contact[] = [
   },
   {
     name: 'Nobles',
-    lastMsg: 'Looking for some help Anyone ',
+    lastMsg: 'Looking for some help !! Anyone! , im stuck in this elohell and i dont know what to do !! ',
     image: girltwo,
     message: '',
     msgNumber: 2
@@ -37,7 +42,7 @@ const allFriendsData: Contact[] = [
   },
   {
     name: 'Phoenix',
-    lastMsg: 'Selling New Car , check this beauty',
+    lastMsg: 'Selling New Car , check this beauty with turbo and Akrapovic exaust',
     image: girone,
     message: '',
     msgNumber: 5
@@ -51,7 +56,7 @@ const allFriendsData: Contact[] = [
   },
   {
     name: 'Salah',
-    lastMsg: 'Hi, Are There ?',
+    lastMsg: 'Hi, Are u There ?',
     image: mentwo,
     message: '',
     msgNumber: 0,
@@ -100,8 +105,17 @@ const allFriendsData: Contact[] = [
   },
 ];
 
+let msgUnreadTotal = 0;
+
+for (const unread of allFriendsData) {
+  msgUnreadTotal += unread.msgNumber
+}
+console.log(msgUnreadTotal)
 
 const Chat = () => {
+  const [players, setPlayers] = useState<Contact[]>(allFriendsData)
+  const [search, setSearch] = useState('');
+
   return (
     <div className='chat'>
       <div className="wrapper">
@@ -109,15 +123,23 @@ const Chat = () => {
           <div className="header">
             <div className="chats">
               <p>Chats</p>
-              <span>20</span>
+              <span>{msgUnreadTotal}</span>
             </div>
           </div>
           <div className="searchbar">
             <FiSearch className='search-tool' />
-            <input type="text" placeholder='Looking For a Player ?' />
+            <input 
+              onChange={(e) => setSearch(e.target.value)}
+              type='text'
+              placeholder='Filter Name Players . . .'
+            />
           </div>
           <div className="contacts-list">
-            {allFriendsData.map((contact, i) => (
+            {players.filter((player) =>
+              search.toLocaleLowerCase() === ''? player
+              : player.name.toLowerCase().includes(search)
+            )
+            .map((contact, i) => (
               <div className="contact" key={i}>
                 <div className="avatar">
                   <img src={contact.image} alt="" />
@@ -128,7 +150,15 @@ const Chat = () => {
                     <p>11:15 AM</p>
                   </div>
                   <div className="msg-label">
-                    <div className="last-msg">{contact.lastMsg}</div>
+                    <div className="last-msg">
+                      <BsCheckAll style={{
+                        display: contact.msgNumber <= 0 ? 'inline-block' : 'none',
+                        fontSize: '1.2rem',
+                        transform: 'translateY(5px)',
+                        padding: '0 2px'
+                        }} />
+                      {contact.lastMsg}
+                    </div>
                     <span style={{background: contact.msgNumber == 0 ? 'transparent' : ''}}>
                       {contact.msgNumber == 0 ? '' : contact.msgNumber}
                     </span>
@@ -137,6 +167,11 @@ const Chat = () => {
               </div>
             ))}
           </div>
+        </div>
+        <div className="chat-conversation">
+          <ChatHeader />
+          <ChatContent />
+          <ChatFooter />             
         </div>
       </div>
     </div>
