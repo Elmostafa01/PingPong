@@ -110,11 +110,26 @@ let msgUnreadTotal = 0;
 for (const unread of allFriendsData) {
   msgUnreadTotal += unread.msgNumber
 }
-console.log(msgUnreadTotal)
 
 const Chat = () => {
   const [players, setPlayers] = useState<Contact[]>(allFriendsData)
   const [search, setSearch] = useState('');
+  const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
+  const [messages, setMessages] = useState<{ sender: string; message: string }[]>([]);
+
+
+  const handleSelectContact = (contact: Contact) => {
+    setSelectedContact(contact);
+  };
+
+  const handleSendMessage = (message: string) => {
+    if (selectedContact && message.trim() !== '') {
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { sender: 'user', message: message },
+      ]);
+    }
+  };
 
   return (
     <div className='chat'>
@@ -140,7 +155,11 @@ const Chat = () => {
               : player.name.toLowerCase().includes(search)
             )
             .map((contact, i) => (
-              <div className="contact" key={i}>
+              <div 
+              className="contact" 
+              onClick={() => handleSelectContact(contact)} 
+              key={i}
+              >
                 <div className="avatar">
                   <img src={contact.image} alt="" />
                 </div>
@@ -169,9 +188,9 @@ const Chat = () => {
           </div>
         </div>
         <div className="chat-conversation">
-          <ChatHeader />
-          <ChatContent />
-          <ChatFooter />             
+          <ChatHeader selectedContact={selectedContact} />
+          <ChatContent selectedContact={selectedContact} messages={messages} />
+          <ChatFooter selectedContact={selectedContact} onSendMessage={handleSendMessage} />
         </div>
       </div>
     </div>
